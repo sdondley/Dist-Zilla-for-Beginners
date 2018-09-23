@@ -10,7 +10,7 @@ groundwork for a discussion specific to Perl module distributions so we can
 figure out where the `Dist::Zilla` module fits into the universe from a bird's
 eye perspective.
 
-## Dead Tree Software Distribution
+## In the Beginning...
 
 We’ll start at the dawn of the information age when the best way to move
 computer code around the physical world was via dead trees. In those days, you
