@@ -38,7 +38,7 @@ Take a quick peek inside the resultant `Greetings` directory and you'll see the
 command has generated many of necessary features of a proper software
 distributions for you. It set up a directory structure, added documentation,
 created build tools for you, and so forth. In short, the command has set up a
-bare-bones or "skeleton" distribution for us that we can edit to add more more
+bare-bones or "skeleton" distribution for us that we can edit to add more
 tests, code, documentation, etc.
 
 There are other options out there for starting your distribution. Another
@@ -63,6 +63,8 @@ your credentials for your PAUSE account. If you don't have a PAUSE account or
 don't know what one is, answer "no" and move on. You can always configure this
 later. As we'll see, `Dist::Zilla` uses the configuration information you enter
 and adds it to the appropriate files in your distribution's files.
+
+### The `dzil new` Command
 
 OK, now we are ready to start a distribution similar to the way we created one
 with `h2xs`, by issuing a command:
@@ -101,12 +103,12 @@ sub hw {
 }
 ```
 
-And for reasons we don't need to worry about now, we need to add the following
-line somewhere in the module so `Dist::Zilla` can build our module:
+And for reasons we don't need to worry about now, we have add a brief
+description with the following line so `Dist::Zilla` can build our module:
 
 `# ABSTRACT: Quick Greetings for the world`
 
-Your `Greetings.pm` file should look like this:
+So your `Greetings.pm` file should look like this:
 
 ```
 use strict;
@@ -121,8 +123,10 @@ sub hw {
 # ABSTRACT: Quick Greetings for the world
 ```
 
+### The `dzil build` Command
+
 Now we are ready to actually build our distribution by issuing `dzil`'s `build`
-command from the top level of our `Greetings` distribution like so:
+command from the top level of our `Greetings` distribution:
 
 `dzil build`
 
@@ -131,6 +135,8 @@ that is has created a new tarball and a directory, `Greeting-0.001` for us. Thes
 files are functional distributions that can actually be installed. Take a look
 inside the `Greetings-0.001` and now you'll see something that looks much closer
 to what we generated with the `h2xs` command.
+
+### Distributing your build to yourself
 
 The tarball now sitting in the directory, `Greeting-0.001.tar.gz`, is the
 compressed version of our `Greetings-0.001` directory which saves us the step of
