@@ -72,10 +72,10 @@ and help users fix them, if possible.
 
 Our more modern age of computing has also introduced less obvious jobs for
 software distributions but that are just as important if you expect your
-software to be widely adopted. First, you have to help users discover your
+software to be widely adopted. First, you'll want to help users discover your
 software. If your software is sitting on some obscure server that no one knows
 about, it’s unlikely to get downloaded and installed. Similarly, if your
-software doesn’t contain a manual and users have to guess at how its supposed to
+software doesn’t contain a manual and users have to guess at how it's supposed to
 work, users will likely get frustrated and never run your software again. So
 another big part of a software distribution’s job is to help users both discover
 and use your creation.
