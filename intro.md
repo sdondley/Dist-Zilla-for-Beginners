@@ -23,7 +23,7 @@ it, and there was only one machine your code would probably ever run on. And so
 although crude, dead trees helped get the job of software distribution done just
 fine given the simple circumstances.
 
-## Key Feature of Modern Software Distributions
+## Key Features of Modern Software Distributions
 
 As technology evolved, more efficient data storage mediums arrived in the form of
 magnetic tapes and disks, making it much easier to copy, reproduce and
