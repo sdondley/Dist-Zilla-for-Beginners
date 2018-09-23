@@ -190,7 +190,7 @@ automation tools that help you build a perl module distribution.
 It’s very difficult to catalogue everything `Dist::Zilla` can do for you. Aside
 from all that the core `Dist::Zilla` module can do, there are hundreds of
 `Dist::Zilla` plugins that you can install and configure to help you automate
-any number of common as well as very obscure distrition chores. And what you
+any number of common as well as very obscure distribution chores. And what you
 choose to automate is entirely up to you. You can use a small subset of
 `Dist::Zilla`’s plugins to handle only the most rudimentary tasks or you can
 create an almost totally automated beast that can create, generate, modify,
