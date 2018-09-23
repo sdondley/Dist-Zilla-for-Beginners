@@ -89,9 +89,11 @@ Ouch! There's barely anything in here. Just a mysterious `dist.ini` file and a
 impressive compared to what even a crude tool like `h2xs` did for us, is it? We
 still have a long way to go to get our distribution in shape.
 
-Ah, but `Dist::Zilla` works quite a bit differently than `h2xs`. But before we
-get to that, let's make our module useful by editing the `lib/Greetings.pm`
-module file that `dzil` generated for us:
+Ah, but `Dist::Zilla` works quite a bit differently than `h2xs`. The `new`
+subcommand we issued doesn't actually build our distribution, it simply set up a
+directory that will eventually hold all of our distribution builds. But before
+we get ahead of ourselves, let's make our module useful by editing the
+`lib/Greetings.pm` module file that `dzil` generated for us:
 
 ```
 sub hw {
@@ -100,7 +102,7 @@ sub hw {
 ```
 
 For reasons we'll explore later, we also need to add the following line
-somewhere in the module so `Dist::Zilla` can build our module.
+somewhere in the module so `Dist::Zilla` can build our module:
 
   `# ABSTRACT: Quick Greetings for the world`
 
@@ -119,8 +121,8 @@ sub hw {
 # ABSTRACT: Quick Greetings for the world
 ```
 
-Now we are ready to build our distribution by issuing `dzil`'s `build` command
-from the top level of our `Greetings` distribution like so:
+Now we are ready to actually build our distribution by issuing `dzil`'s `build`
+command from the top level of our `Greetings` distribution like so:
 
 `dzil build`
 
@@ -151,6 +153,6 @@ Nice, now our module is available to use anywhere on our system. So congrats,
 you've successfully written your very first distribution with `Dist::Zilla` and
 distributed it successfully, even if only to yourself.
 
-There is certainly a lot more to learn but you should at least now have a clear
-understanding that you can use the `dzil`, along with its subcommands, to help
-automate the process of generating a distribution.
+There is certainly a lot more to learn but you should at least now have the
+general understanding that you use `dzil`, along with its subcommands, to help
+you automate the process of generating a distribution.
