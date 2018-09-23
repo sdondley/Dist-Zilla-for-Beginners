@@ -101,12 +101,12 @@ sub hw {
 }
 ```
 
-For reasons we'll explore later, we also need to add the following line
-somewhere in the module so `Dist::Zilla` can build our module:
+And for reasons we don't need to worry about now, we need to add the following
+line somewhere in the module so `Dist::Zilla` can build our module:
 
-  `# ABSTRACT: Quick Greetings for the world`
+`# ABSTRACT: Quick Greetings for the world`
 
-So now your `Greetings.pm` file should look like this:
+Your `Greetings.pm` file should look like this:
 
 ```
 use strict;
@@ -153,6 +153,6 @@ Nice, now our module is available to use anywhere on our system. So congrats,
 you've successfully written your very first distribution with `Dist::Zilla` and
 distributed it successfully, even if only to yourself.
 
-There is certainly a lot more to learn but you should at least now have the
-general understanding that you use `dzil`, along with its subcommands, to help
-you automate the process of generating a distribution.
+There is certainly a lot more to learn but you now have the basic understanding
+that you use `dzil`, along with its subcommands, to help you automate the
+process of generating a distribution.
