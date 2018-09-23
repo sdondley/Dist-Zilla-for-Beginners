@@ -106,7 +106,7 @@ And so with our general discussion of software distributions out of the way,
 let’s turn to more specific discussion about perl module distributions and the
 role `Dist::Zilla` plays in the creation of these distributions.
 
-## Perl Gives You Lots of Tools for Building Your Distribution
+## Perl Gives You the Tools for Building Your Distribution
 
 Let's say you’ve written a Perl module that can toast and slice your bread,
 shave your armpits, and pour your favorite cold drink all at the same time.
