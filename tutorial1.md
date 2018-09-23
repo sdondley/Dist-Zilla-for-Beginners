@@ -24,8 +24,8 @@ for your module. But where do you start?
 Well, there is the hard way and then there are far easier ways. The hard way
 involves manually creating all the directories and manually typing in all the
 files, tests, installers, documentation, meta files, etc. that go into creating
-a distribution. No one but a complete masochist will enjoy creating a module
-like this.
+a distribution from scratch. No one but a complete masochist will enjoy creating
+a module like this.
 
 Fortunately, there are already many tools available to automate the creation of
 distributions. For example, you can break out the `h2xs` command line tool that
@@ -47,7 +47,7 @@ sophsticated version of `h2xs` and has more advanced options. We will leave it
 as an exercise for the reader to play with these automation tools. But you should
 definitely take some time to get familiar with them and take a look at the files
 they generate to help enhance your understanding of `Dist::Zilla`'s
-method for helping you set up your distribution's skeleton.
+method for helping you generate your distribution.
 
 ## Distribution Building with `Dist::Zilla's` `dzil` Commands
 
@@ -77,14 +77,14 @@ with `h2xs`, by issuing a command:
 [DZ] dist minted in ./Greetings
 ```
 
-Much like `h2xs`, it generated a directory for us and some files inside of it.
+Much like `h2xs`, `dzil` generated a directory for us and some files inside of it.
 `Dist::Zilla` also reported that it has "minted" a "dist" for us. This is rather
 cryptic but we'll come back to this later. For now, let's open up our new
 `Greetings` directory and see what magic `dzil` has pulled off for us:
 
 `cd Greetings`
 
-Ouch! There's barely anything in here. Just a mysterious `dist.ini` file, a
+Ouch! There's barely anything in here. Just a mysterious `dist.ini` file and a
 `lib` directory with a minimal `Greetings.pm` file inside of that. Not too
 impressive compared to what even a crude tool like `h2xs` did for us, is it? We
 still have a long way to go to get our distribution in shape.
@@ -126,14 +126,14 @@ from the top level of our `Greetings` distribution like so:
 
 OK! It looks like we are getting somewhere now. The `dist` command has reported
 that is has created a new tarball and a directory, `Greeting-0.001` for us. These
-files are full blown, functional distributions. Take a look inside the
-`Greetings-0.001` and now you'll see something that looks much closer to what we
-generated with the `h2xs` command.
+files are functional distributions that can actually be installed. Take a look
+inside the `Greetings-0.001` and now you'll see something that looks much closer
+to what we generated with the `h2xs` command.
 
-The tarball now sitting in the directory is the compressed version of our
-`Greetings-0.001` directory saving us the step of having to create it ourselves.
-We can immediately install our new module to our local perl library with
-`cpanm` by running:
+The tarball now sitting in the directory, `Greeting-0.001.tar.gz`, is the
+compressed version of our `Greetings-0.001` directory which saves us the step of
+having to create it ourselves.  We can immediately install our new module to our
+local perl library with `cpanm` by running:
 
 `cpanm Greetings-0.001.tar.gz`
 
@@ -152,5 +152,5 @@ you've successfully written your very first distribution with `Dist::Zilla` and
 distributed it successfully, even if only to yourself.
 
 There is certainly a lot more to learn but you should at least now have a clear
-understanding that you can use the `dzil`, along with ts subcommands, to help
+understanding that you can use the `dzil`, along with its subcommands, to help
 automate the process of generating a distribution.
