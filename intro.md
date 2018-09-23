@@ -10,7 +10,7 @@ groundwork for a discussion specific to Perl module distributions so we can
 figure out where the `Dist::Zilla` module fits into the universe from a bird's
 eye perspective.
 
-## Software Districution in the Olden Days
+## Dead Tree Software Distribution
 
 We’ll start at the dawn of the information age when the best way to move
 computer code around the physical world was via dead trees. In those days, you
@@ -39,7 +39,7 @@ we refer to as “the cloud.” We can now easily download software with a few t
 on our device's screen while resting in our easy chairs in the ugliest clothes
 imaginable.
 
-### Software Distributions Helps Users Install Your Software
+### Helping Users Install Your Software
 
 Though technology has helped us overcome the physical challenges of distributing
 software, that is only part of the battle. It usually isn’t enough to give
@@ -56,7 +56,7 @@ So we see there are two very important components of a software distribution. We
 have the software itself and the accompanying software necessary for installing,
 configuring and running the software on the end user’s machine.
 
-### Software Distributions Help You Run Your Code on Different Machines
+### Getting Your Code to Run on Different Machines
 
 Unlike in the age of punch cards, your perl software probably isn't intended to
 be run just by you on only one kind of of computer. So your software
@@ -68,7 +68,7 @@ installer automatically or at least allow for partial installation of your
 software. The installer should alert the users if any problems were encountered
 and help users fix them, if possible.
 
-### Software Distributions Help Users Find and Use Your Software
+### Helping Users Find and Use Your Software
 
 Our more modern age of computing has also introduced less obvious jobs for
 software distributions but that are just as important if you expect your
@@ -80,7 +80,7 @@ work, users will likely get frustrated and never run your software again. So
 another big part of a software distribution’s job is to help users both discover
 and use your creation.
 
-### Software Distributions Help Your Users Update Your Software
+### Helping Users Update Their Software
 
 Finally, your distribution should have a way for users to update to the latest
 version of your software so they can take advantage of bug fixes and new
