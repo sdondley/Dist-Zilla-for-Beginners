@@ -131,12 +131,13 @@ command from the top level of our `Greetings` distribution:
 `dzil build`
 
 OK! It looks like we are getting somewhere now. The `dist` command has reported
-that is has created a new tarball and a directory, `Greeting-0.001` for us. These
-files are functional distributions that can actually be installed. Take a look
+that is has created a new tarball and a directory, `Greeting-0.001` for us.  The
+files in this directory are a fully functional build of your module that can
+actually be released, distributed, installed on other machines. Take a look
 inside the `Greetings-0.001` and now you'll see something that looks much closer
 to what we generated with the `h2xs` command.
 
-### Distributing your build to yourself
+### Distributing Your Build to Yourself
 
 The tarball now sitting in the directory, `Greeting-0.001.tar.gz`, is the
 compressed version of our `Greetings-0.001` directory which saves us the step of
@@ -156,7 +157,7 @@ Successfully installed Greetings-0.001
 ```
 
 Nice, now our module is available to use anywhere on our system. So congrats,
-you've successfully written your very first distribution with `Dist::Zilla` and
+you've successfully built your very first distribution with `Dist::Zilla` and
 distributed it successfully, even if only to yourself.
 
 There is certainly a lot more to learn but you now have the basic understanding
