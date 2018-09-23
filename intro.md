@@ -23,7 +23,7 @@ it, and there was only one machine your code would probably ever run on. And so
 although crude, dead trees helped get the job of software distribution done just
 fine given the simple circumstances.
 
-## Software Distribution Evolves
+## Key Feature of Modern Software Distributions
 
 As technology evolved, more efficient data storage mediums arrived in the form of
 magnetic tapes and disks, making it much easier to copy, reproduce and
@@ -39,7 +39,7 @@ we refer to as “the cloud.” We can now easily download software with a few t
 on our device's screen while resting in our easy chairs in the ugliest clothes
 imaginable.
 
-## Software Distributions Helps Users Install Your Software
+### Software Distributions Helps Users Install Your Software
 
 Though technology has helped us overcome the physical challenges of distributing
 software, that is only part of the battle. It usually isn’t enough to give
@@ -56,7 +56,7 @@ So we see there are two very important components of a software distribution. We
 have the software itself and the accompanying software necessary for installing,
 configuring and running the software on the end user’s machine.
 
-## Software Distributions Help You Run Your Code on Different Machines
+### Software Distributions Help You Run Your Code on Different Machines
 
 Unlike in the age of punch cards, your perl software probably isn't intended to
 be run just by you on only one kind of of computer. So your software
@@ -68,7 +68,7 @@ installer automatically or at least allow for partial installation of your
 software. The installer should alert the users if any problems were encountered
 and help users fix them, if possible.
 
-## Software Distributions Help Users Find and Use Your Software
+### Software Distributions Help Users Find and Use Your Software
 
 Our more modern age of computing has also introduced less obvious jobs for
 software distributions but that are just as important if you expect your
@@ -80,7 +80,7 @@ work, users will likely get frustrated and never run your software again. So
 another big part of a software distribution’s job is to help users both discover
 and use your creation.
 
-## Software Distributions Help Your Users Update Your Software
+### Software Distributions Help Your Users Update Your Software
 
 Finally, your distribution should have a way for users to update to the latest
 version of your software so they can take advantage of bug fixes and new
@@ -89,7 +89,7 @@ constantly improve to stay relevant and keep users happy. Developers must also
 keep in mind that if it’s a pain for user to update the software, it will likely
 get abandoned.
 
-## The Big Picture on Software Distributions
+### Summary of Key Sofftware Distribution Functions
 
 Now we have a clearer picture of what a software distribution is an does. It
 should contain the following six key components and features:
