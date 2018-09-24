@@ -85,13 +85,13 @@ Dist::Zilla::Plugin::UploadToCPAN
 As you can see, each plugin is nothing more than a perl module. The `Basic`
 bundle is itself a Perl module named `Dist::Zilla::PluginBundle::Basic`.
 
-Each of the modules added by the `Basic` bundle will process your module, one at
-a time, in the order they are listed above. From the names of the plugins, you
-might get a rough idea of each plugin's job. For example, you can probably guess
-that `Dist::Zilla::Plugin::License` probably has something to do with generating
-the text file containing the end user agreement that accompanies your module.
-But don't get too fixated on what each plugin does or how they work yet. We
-will cover all the more interesting ones later.
+Each of the modules/plugins added by the `Basic` bundle will process your
+module, one at a time, in the order they are listed above. From the names of the
+plugins, you might get a rough idea of each plugin's job. For example, you can
+probably guess that `Dist::Zilla::Plugin::License` probably has something to do
+with generating the text file containing the end user agreement that accompanies
+your module. But don't get too fixated on what each plugin does or how they
+work yet. We will cover all the more interesting ones later.
 
 ### A Quick Note on Phases
 
