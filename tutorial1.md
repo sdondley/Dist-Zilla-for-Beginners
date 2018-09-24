@@ -11,8 +11,8 @@ for them to ease their burdens:
 # Greetings.pm file
 package Greetings;
 
-sub hw { print
-  "Hello, World!\n";
+sub hw {
+  print "Hello, World!\n";
 }
 
 ```
@@ -45,9 +45,8 @@ Another widely used tool for starting distributions is the more straightfowardly
 named, `Module::Starter` which provides more command line options than `h2xs`
 and the convenience of using a config file. We will leave it as an exercise for
 the reader to find and tinker with these other tools. But it would be worthwhile
-to take some time to get familiar with other tools and examine the files they
-generate to help enhance your understanding of what `Dist::Zilla` can do for
-you.
+to take some time to get familiar with them and examine the files they generate
+to enhance your appreciation of what `Dist::Zilla` does for you.
 
 ## Distribution Building with `Dist::Zilla's` `dzil` Commands
 
