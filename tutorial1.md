@@ -75,7 +75,8 @@ with `h2xs`, by issuing a command:
 
 ```
 
-[DZ] making target dir /home/Greetings [DZ] writing files to /home/Greetings
+[DZ] making target dir /home/Greetings
+[DZ] writing files to /home/Greetings
 [DZ] dist minted in ./Greetings
 
 ```
@@ -147,18 +148,24 @@ to what we generated with the `h2xs` command.
 The tarball in our directory, `Greeting-0.001.tar.gz`, is the
 compressed version of our `Greetings-0.001` conveniently saving us the step of
 having to create it ourselves. We can immediately install our new module to our
-local perl library with `cpanm` by running:
+local perl library with `dzil install` command:
 
-`cpanm Greetings-0.001.tar.gz`
+`dzil install`
 
 ...and you should see something like this output to the terminal:
 
 ```
 
-Fetching file:///home/Greetings/Greetings-0.001.tar.gz ... OK
+[DZ] building distribution under .build/NG8bhY4qL6 for installation
+[DZ] beginning to build Greetings
+[DZ] guessing dist's main_module is lib/Greetings.pm
+[DZ] writing Greetings in .build/NG8bhY4qL6
+--> Working on .
 Configuring Greetings-0.001 ... OK
 Building and testing Greetings-0.001 ... OK
-Successfully installed Greetings-0.001 1 distribution installed
+Successfully installed Greetings-0.001
+1 distribution installed
+[DZ] all's well; removing .build/NG8bhY4qL6
 
 ```
 

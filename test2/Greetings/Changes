@@ -1,0 +1,6 @@
+Revision history for Perl extension Greetings.
+
+0.01  Sun Sep 23 14:57:46 2018
+	- original version; created by h2xs 1.23 with options
+		-AX -n Greetings
+
