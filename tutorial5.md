@@ -9,9 +9,9 @@ them with:
 
 `[@Starter]`
 
-A big reasons we are having you use `[@Starter]` is that it uses plugins
-that are much more configurable than the plugins that ship with `[@Basic]`. And,
-at the end of the day, configurability is what `Dist::Zilla` is all about.
+A big reason we are having you use `[@Starter]` is that it uses plugins that are
+much more configurable than the plugins that ship with `[@Basic]`. And, at the
+end of the day, configurability is what `Dist::Zilla` is all about.
 
 But the `[@Starter]` plugin bundle is not part of the `Dist::Zilla` distribution
 so we have to install it on our system from CPAN. If you use `cpanm`, simply
@@ -44,9 +44,9 @@ workbench area, our product was wrapped differently. Makes sense, right?
 No one except true, professional, detail-oriented software developers will read
 it, but just like a `LICENSE` file, it's important to include a `README` file
 with your distribution so you'll look like a true, professional,
-detail-oriented, software developer.
+detail-oriented software developer.
 
-The `[@Basic]` bundle employed the `[Readme]` plugin to generate and typically
+The `[@Basic]` bundle employed the `[Readme]` plugin to generate a typically
 useless `README` file for your distribution. The `[@Starter]` bundle gives you
 two different options for helping your create a much more useful `README`
 document using either the `[ReadmeAnyFromPod]` plugin or the `[Pod2Readme]`
@@ -54,31 +54,11 @@ plugin. Both of these plugins were installed for you when you installed the
 `[@Starter]` bundle on your system. By default, `[@Starter]` uses the
 `[ReadmeAnyFromPod]` plugin so we'll start with that one.
 
-Go ahead and add the following lines to you `dist.ini` file below your
-`[@Starter]` command:
-
-```
-
-[ReadmeAnyFromPod]
-type = markdown
-filename = README.md
-
-```
-
-Let's take a moment to explain what's going on here. Our first line in brackets
-is just like the bracketed text we've already been using for our module
-listings. In `.ini` file parlance, it starts a new **section** in our `dist.ini`
-file. Below the section are **parameters,** using the standard key/value pair
-`.ini` syntax, that will get passed to our plugin. Think of these as commands we
-give our `README` insertion robot on the assembly line. As you might have
-assumed by the parameters, we are instructing the `[@ReadmeAnyFromPod]` plugin
-to generate a `README.md` file with the `markdown` syntax.
-
-But what will it put into our `README` file? Is there some powerful AI that
-`ReadmeAnyFromPod` will write it for us? Unfortunately, no. We still have to do
-the hard work of documenting our module using Perl's Plain Old Documentation
-(POD) because that is what the `[ReadmeAnyFromPod]` will use to generate your
-`README` file.
+But what will the `[Starter]` bundle put into your `README` file? Is there some
+powerful AI underlying `ReadmeAnyFromPod` to write it for us? Unfortunately,
+no. We still have to do the hard work of documenting our module using Perl's
+Plain Old Documentation (POD) because that is what the `[@Starer]` bundle uses
+to generate your `README` file.
 
 ## Starting Your Module's Documentation
 
@@ -89,11 +69,11 @@ documentaiton for their work. Add the following documetnation to your
 
 ```
 
-=pod
+=head1 NAME
 
-=head1 Real Documentation Coming Soon!
+Greetings - Quick Greeting for the world
 
-We promise!
+More documentation coming soon, we promise.
 
 ```
 
@@ -101,8 +81,63 @@ Issue the `dzil build` command and check out the README file now in your
 distribution and you should see that your module's POD was inserted into the
 README file. Nice. Go bake yourself a well-deserved cookie.
 
-Alright, we have now given you a very tiny taste for gaining more control over
-how your plugins work. We'll show you many more powerful and useful tricks
-later. For now it's time to take a break from the world of plugins and start
-talking about another fundamental area of `Dist::Zilla` knowledge, minting
-profiles.
+Old-school purists may balk at simply stuffing our entire POD documetnation
+inside the `README` file. Rest assured that you can customize the build process
+using other plugins like `[PodWeaver]` to deliver a highly cutomized `README`
+file from the POD. We'll leave that as an exercise to the purists.
+
+## Double Your Fun and Pleasure with Two `README` Files
+
+So now you've got a plain old text file for reading your module's plain old
+documentation. Kind of boring. All the cool kids are using GitHub these days and
+the preferred format for `REAMDE` files there is markdown. We don't want you
+looking like a stick in the mud, so let's hook you up with a fancy markdown
+version of your `README` file by adding the following to the end of your
+`dist.ini` file:
+
+```
+
+[ReadmeAnyFromPod]
+type = markdown
+filename = README.md
+
+```
+
+Run the `build` command:
+
+`dzil build`
+
+Now take a look inside your distribution. Awesome, you now have a plain text
+`README` file and a fancier, markdown version `README.md` automatically
+generated for you without having to know a lick of markdown syntax.
+
+Let's take a moment to reflect on what's we added to our `dist.ini` file. The
+first line in brackets is, of course, the name of the plugin. In `.ini` file
+parlance, bracketed text starts a new **section** in our `dist.ini` file.  Below
+and within this section we supplied two **parameters,** using the standard
+key/value pair `.ini` syntax. These get passed to our plugin. Think of the
+parameters as custom commands we are giving to our `README` insertion robot on
+the assembly line. As you might have assumed by looking at the parameters, we
+are instructing the `[@ReadmeAnyFromPod]` plugin to generate a `README.md` file
+using the `markdown` syntax.
+
+As we saw earlier, the `[@Starter]` automatically generated the plain text
+`README` file using the `[ReadmeAnyFromPod]` plugins. So what we are doing here
+is telling `dist.ini` to run the `[ReadmeAnyFromPod]` plugin a **second time**
+to generate the markdown version of our `README.md` file.
+
+But what if you don't want to ship the `README.md` file to CPAN? No problem! You
+can direct `[ReadmeAnyFromPod]` to save the markdown version to the top level of
+your `Dist::Zilla` directory by adding the following line to the
+`[ReadmeAnyFromPod]` section of your `dist.ini` file:
+
+`location = root`
+
+Try it out and run the `build` command to see your `README.md` file sitting next
+to your distribution directory instead of inside them.
+
+Alright, we have now given you a very tiny taste for how to gain more control
+over how your plugins work. We'll show you many more powerful and useful tricks
+later. Now it's time to take a break from the world of plugins and start
+talking about another fundamental area of `Dist::Zilla` knowledge called
+"profiles."
