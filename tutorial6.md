@@ -38,32 +38,32 @@ factory floor where we would forge our module. Each time you issue the `new`
 command, you set up a new workarea in a new directory on your computer for
 creating and distributing your module.
 
-But it gets even better than that. You can also use blueprints to control not
-just what your workarea will initially look like but the manufacturing process.
-In other words, you can control which plugins go into your `dist.ini` file. This
-is a powerful feature of `Dist::Zilla` that takes you well beyond what you can
-do with a more typical distribution generation systems using just templates.
+But it gets even better than that. You can control not just what your workarea
+will initially look like but what manufacturing process will be used to. In
+other words, you can control which plugins go into your `dist.ini` file. This is
+a powerful feature of `Dist::Zilla` that takes you well beyond what you can do
+with a more typical distribution generation systems using just templates.
 
-So instead of "profiles," we encourage you to think of them instead as
-"blueprints" as with think it better captures what the essence of what the `new`
-command does. Wherever we are have to use the term `profile` below, replace it
-**mentally** with the word `blueprint` instead. If you we have you type in
-`profile`, make sure you actually type in `profile.`
+Instead of "profiles," we encourage you to think of them instead as "blueprints"
+as it better captures what the essence of what the `new` command does. Wherever
+we use the term `profile` below, replace it **mentally** with the word
+`blueprint` instead. If you we have you type in `profile`, make sure you
+actually type in `profile.`
 
 ## Creating Our First Factory Blueprint
 
 We first need to esablish a storage area for our default blueprints. The default
-blueprint will be used unless we specify a custom blueprint to use. To do this
-do:
+blueprint is what's used unless we specify a custom blueprint.
+
+Create a default directory:
 
 `mkdir -p ~/.dzil/profiles/default`
 
-Inside of this directory, you're going to create a `profile.ini` file (which we
-cannot call `blueprint.ini`). The job of this file is to tell
-`Dist::Zilla` how to establish our workarea. The file works very similarly to
-how our `dist.ini` file works. But instead of processing our module, it helps us
-set it one up. One of the most important tasks of `profile.ini` is to provide
-the assembly instructions for creating our module's initial files.
+Inside this directory, you're going to create a `profile.ini` file (which we
+cannot call `blueprint.ini`). The job of this file is to tell `Dist::Zilla` how
+to establish our workarea. The file works very similarly to how our `dist.ini`
+file works. But instead of processing our module, it helps us establish the
+template for our module.
 
 Let's create the following `profile.ini` file in the `default` directory we
 created above:
@@ -86,9 +86,20 @@ plugin that we use and we pass in a pair of parameters to each plugin. Don't
 worry about what these mean just yet. We will explain it all later.
 
 We also need another `.ini` file, `plugins.ini`. Create it and add the following
-single line to it:
+lines to it, which should look familiar to you:
 
-`[@Starter]`
+```
+
+[@Starter]
+[ReadmeAnyFromPod]
+type = markdown
+filename = README.md
+location = root
+
+```
+
+If you guessed `plugins.ini` is used to create our `dist.ini` file, you guessed
+right.
 
 Lastly, we need to add a file that will act as a template for our new module.
 Create a file called `Module.pm` and add the following to it:
@@ -114,3 +125,8 @@ directory. Together, they comprise your first factory blueprint. Let's see if it
 works. Create a new, empty directory and try creating a new workarea:
 
 `dzil new Super::Greetings`
+
+If you see a new `Super-Greeting` directory and `Dist::Zilla` didn't throw any
+errors at you, congratulations, you've successfully ~~minted your first
+profile~~ drawn up your first blueprint. If something went wrong, go back and
+inspect your three blueprint files carefully for errors and try again.
