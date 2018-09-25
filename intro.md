@@ -193,10 +193,10 @@ number of keystrokes.
 developers, it is best wielded by those who have a good understanding of how to
 properly build a perl distribution using more traditional approaches. And so
 `Dist::Zilla` does not eliminate the need to understand how build systems,
-tests, and other, more basic concepts and practices that are employed to create a
-distribution. Therefore, beginners who are completely new to perl distributions
-should are often discouraged from diving into `Dist::Zilla` without a solid
-understanding of what goes into the proper building of a perl module
+tests, and other, more basic concepts and practices that are employed to create
+a distribution. Therefore, beginners who are completely new to perl module
+distributions are often discouraged from diving into `Dist::Zilla` without a
+solid understanding of what goes into the proper building of a perl module
 distribution.
 
 Until now.
