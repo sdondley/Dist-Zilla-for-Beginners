@@ -136,7 +136,7 @@ command from the top level of our `Greetings` distribution:
 `dzil build`
 
 OK! It looks like we are getting somewhere now. The `dist` command has reported
-that is has created a new tarball and a directory, `Greeting-0.001` for us.  The
+that is has created a new tarball and a directory, `Greetings-0.001` for us.  The
 files in this directory are a fully functional build of your module that can
 actually be released, distributed, installed on other machines. Take a look
 inside the `Greetings-0.001` and now you'll see something that looks much closer
@@ -144,7 +144,7 @@ to what we generated with the `h2xs` command.
 
 ### Distributing Your Module to Yourself with the `install` Command
 
-The tarball in our directory, `Greeting-0.001.tar.gz`, is the
+The tarball in our directory, `Greetings-0.001.tar.gz`, is the
 compressed version of our `Greetings-0.001` conveniently saving us the step of
 having to create it ourselves. We can immediately install our new module to our
 local perl library with `dzil install` command:

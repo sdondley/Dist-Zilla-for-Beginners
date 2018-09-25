@@ -31,7 +31,7 @@ version = 0.001
 The first five configuration lines are self explanatory. They contain the
 information we supplied when we configured `Dist::Zilla` with the `setup`
 command. Like all `.ini` files, each line is a configuration setting with keys
-on the left, followed by a equal sign, and the corresponding values on the
+on the left, followed by an equal sign, and the corresponding values on the
 right.
 
 `Dist::Zilla` makes these configuration settings available to our plugins to

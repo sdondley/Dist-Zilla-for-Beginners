@@ -147,7 +147,7 @@ inspect your three blueprint files for errors and try again.
 
 If you've successfully created your new workarea, look inside and you'll see
 that we have your `dist.ini` file with all the plugins and parameters we
-supplied in your `plugins.ini` file. You'll also see the global configuraiton
+supplied in your `plugins.ini` file. You'll also see the global configuration
 parameters at the top of of the `dist.ini` file were added for you. You might
 also notice something missing, though. More on that in a bit.
 

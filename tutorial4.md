@@ -43,8 +43,8 @@ front of our `[License]` plugin listing, like so:
 `;[License]`
 
 This is how you comment out a line in a `.ini` file. And so we have effectively
-taken our robot in charge of slipping license agreements into our distribution
-offline.
+shutdown the robot in charge of slipping license agreements into our
+distribution.
 
 Can you guess what will happen when we build our module now? We bet you can! But
 we are going to annoy you anyway and step you through the process, just in case
@@ -75,7 +75,8 @@ Now double check just to make sure with `ls Greetings-0.001`:
 `dist.ini  lib  LICENSE  Makefile.PL  MANIFEST  META.yml  README`
 
 Awesome. We're back in good legal standing with the software gods and, more
-importantly, we'll look like real software pros.
+importantly, our distribution will look like it was created by a real software
+pro.
 
 ## Keeping It Clean
 

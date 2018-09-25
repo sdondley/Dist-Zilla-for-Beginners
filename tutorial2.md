@@ -16,7 +16,7 @@ before we package and ship it.
 The workarea we set up for our simple `Greetings` module used the default
 profile that, as we saw, was very sparse and bare-bones. We will learn how to
 teach `Dist::Zilla` to establish highly customized workareas by, in the jargon
-of `Dist::Zilla`, "minting a custom profile." More on this later much later.
+of `Dist::Zilla`, "minting a custom profile." More on this much later.
 
 ## Understanding the `dzil build` Command
 
@@ -25,7 +25,7 @@ command. The `build` command does most of the heavy lifting of creating our
 module's distribution.
 
 A good way to think about the `build` command is to imagine it as an assembly
-line. Your raw product, the module, is loaded into the beginning of the assembly
+line. Your raw product, the module, is loaded onto the beginning of the assembly
 line. As your module moves down the line, an ordered series for robots, or
 **plugins,** work their magic to transform your module into a finished, fully
 packaged distribution at the end of the line that is ready for shipping.
