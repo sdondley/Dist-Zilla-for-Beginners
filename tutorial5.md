@@ -62,29 +62,29 @@ to generate your `README` file.
 
 ## Starting Your Module's Documentation
 
-We haven't yet written any documentation for our module yet so let's fix that.
-We don't want you to have a reputation as a developer too lazy to provide
-documentaiton for their work. Add the following documetnation to your
-`Greetings.pm` by adding the following lines to the bottom:
+We haven't yet written any documentation for your module yet so let's fix that.
+We don't want you to have a reputation as a lazy developer that doesn't document
+their work. Add the following documetnation to your `Greetings.pm` by adding the
+following lines to the bottom:
 
 ```
 
 =head1 NAME
 
-Greetings - Quick Greeting for the world
+Greetings - Quick Greetings for the world
 
 More documentation coming soon, we promise.
 
 ```
 
-Issue the `dzil build` command and check out the README file now in your
-distribution and you should see that your module's POD was inserted into the
-README file. Nice. Go bake yourself a well-deserved cookie.
+Interestingly, now that we have added the `NAME` section to our documentation,
+`Dist::Zilla` can successfully build our module without the `# ABSTRACT` comment
+that we had you create in the first tutorial. Feel free to delete that comment
+if you are so inclined.
 
-Old-school purists may balk at simply stuffing our entire POD documetnation
-inside the `README` file. Rest assured that you can customize the build process
-using other plugins like `[PodWeaver]` to deliver a highly cutomized `README`
-file from the POD. We'll leave that as an exercise to the purists.
+Alright, now issue the `dzil build` command and check out the README file now in
+your distribution and you should see that your module's POD was inserted into
+the README file. Nice. Go bake yourself a well-deserved cookie.
 
 ## Double Your Fun and Pleasure with Two `README` Files
 
@@ -111,15 +111,17 @@ Now take a look inside your distribution. Awesome, you now have a plain text
 `README` file and a fancier, markdown version `README.md` automatically
 generated for you without having to know a lick of markdown syntax.
 
-Let's take a moment to reflect on what's we added to our `dist.ini` file. The
+Let's take a moment to reflect on what we added to our `dist.ini` file. The
 first line in brackets is, of course, the name of the plugin. In `.ini` file
-parlance, bracketed text starts a new **section** in our `dist.ini` file.  Below
-and within this section we supplied two **parameters,** using the standard
-key/value pair `.ini` syntax. These get passed to our plugin. Think of the
-parameters as custom commands we are giving to our `README` insertion robot on
-the assembly line. As you might have assumed by looking at the parameters, we
-are instructing the `[@ReadmeAnyFromPod]` plugin to generate a `README.md` file
-using the `markdown` syntax.
+parlance, bracketed text starts a new **section** in our `dist.ini` file.
+
+Below and within this section we supplied two **parameters,** using the standard
+key/value pair `.ini` syntax. Because they are in the section our plugin is
+named after, they got passed to our plugin. Think of the parameters as custom
+commands we are giving to our `README` insertion robot on the assembly line. As
+you might have assumed by looking at the parameters, we are instructing the
+`[@ReadmeAnyFromPod]` plugin to generate a `README.md` file using the `markdown`
+syntax.
 
 As we saw earlier, the `[@Starter]` automatically generated the plain text
 `README` file using the `[ReadmeAnyFromPod]` plugins. So what we are doing here
@@ -128,13 +130,15 @@ to generate the markdown version of our `README.md` file.
 
 But what if you don't want to ship the `README.md` file to CPAN? No problem! You
 can direct `[ReadmeAnyFromPod]` to save the markdown version to the top level of
-your `Dist::Zilla` directory by adding the following line to the
-`[ReadmeAnyFromPod]` section of your `dist.ini` file:
+your `Dist::Zilla` directory instead of inside your distribution by adding the
+following line to the `[ReadmeAnyFromPod]` section of your `dist.ini` file:
 
 `location = root`
 
-Try it out and run the `build` command to see your `README.md` file sitting next
-to your distribution directory instead of inside them.
+Try it out and run the `build` command and you'll see your `README.md` file
+output at alongside your distribution's directory instead of inside it:
+
+`dist.ini  Greetings-0.002  Greetings-0.002.tar.gz  lib  README.md`
 
 Alright, we have now given you a very tiny taste for how to gain more control
 over how your plugins work. We'll show you many more powerful and useful tricks
