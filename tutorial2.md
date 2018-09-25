@@ -10,19 +10,19 @@ provides.
 After installing and configuring `Dist::Zilla`, we issued the `dzil new` command
 to get our process started. If we think of `Dist::Zilla` as a module
 distribution production factory, then our `new` command is like establishing a
-new workarea on the factory floor where we assemble the product (our modules)
-before they get packaged and shipped.
+new workarea on the factory floor where we assemble the raw product (our modules)
+before we package and ship it.
 
 The workarea we set up for our simple `Greetings` module used the default
 profile that, as we saw, was very sparse and bare-bones. We will learn how to
 teach `Dist::Zilla` to establish highly customized workareas by, in the jargon
-of `Dist::Zilla`, "minting a custom profile." More on this later.
+of `Dist::Zilla`, "minting a custom profile." More on this later much later.
 
 ## Understanding the `dzil build` Command
 
-After finishing our simple, one-function module, we issued the `dzil
-build` command. The `build` command does most of the heavy lifting of
-building our module's distribution.
+After finishing our simple, one-function module, we issued the `dzil build`
+command. The `build` command does most of the heavy lifting of creating our
+module's distribution.
 
 A good way to think about the `build` command is to imagine it as an assembly
 line. Your raw product, the module, is loaded into the beginning of the assembly

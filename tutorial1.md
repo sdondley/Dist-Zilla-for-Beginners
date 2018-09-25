@@ -37,9 +37,9 @@ directory on your system and run the following command:
 Take a peek inside the resultant `Greetings` directory and you'll see the
 command generated a minimal distribution for your `Greetings` module. Now you
 can go in and edit this "skeleton" or "bare-bones" distribution and add some flesh
-to it with custom code, tests, documentation, etc. But what you have now could
-technically be installed to your local machine as a distribution, albeit a
-rather useless one.
+to it with custom code, tests, documentation, etc. But what `h2xs` generated for
+you without any modifications could technically be installed to your local
+machine as a distribution, albeit a rather useless one.
 
 Another widely used tool for starting distributions is the more straightfowardly
 named, `Module::Starter` which provides more command line options than `h2xs`
@@ -93,8 +93,8 @@ seem very impressive compared to the `h2xs` tool.
 
 But `Dist::Zilla` works a bit differently than `h2xs`. Its `new` subcommand
 isn't designed to immediately build our distribution, it simply sets up a
-directory that will eventually store our distribution builds. But before
-we get ahead of ourselves, let's make our module useful by editing the
+directory that will eventually store our code and distribution builds. But
+before we get ahead of ourselves, let's make our module useful by editing the
 `lib/Greetings.pm` module file that `dzil` generated for us and add in our
 function:
 
@@ -142,7 +142,7 @@ actually be released, distributed, installed on other machines. Take a look
 inside the `Greetings-0.001` and now you'll see something that looks much closer
 to what we generated with the `h2xs` command.
 
-### Distributing Your Build to Yourself
+### Distributing Your Module to Yourself with the `install` Command
 
 The tarball in our directory, `Greeting-0.001.tar.gz`, is the
 compressed version of our `Greetings-0.001` conveniently saving us the step of

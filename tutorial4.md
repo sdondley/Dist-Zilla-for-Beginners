@@ -4,7 +4,7 @@ OK, let's crack open the `dist.ini` file in your favorite text editor and see
 what we can break in the name of science and understanding.
 
 First, as much as we appreciate the convenience of bundles, the first thing we
-are going to do is scrap the `[@Basic]` command and replace it with individual
+are going to do is scrap the `[@Basic]` command and bust it out into individual
 plugin names so we can more precisely layout our distribution factory's floor
 plan.
 
@@ -80,9 +80,10 @@ importantly, we'll look like real software pros.
 ## Keeping It Clean
 
 You'll notice we didn't run `dzil clean` after each build. `Dist::Zilla` will
-overwrite existing versions with new distributions so long as they have the same
+overwrite existing builds with newer builds so long as they have the same
 version number. But as we add new versions, our older distributions will
-accumulate in our factory and we will want to sweep them out from time to time.
+accumulate in our factory and we will want to sweep them out from time to time
+with the `clean` subcommand.
 
 ## Changing Your Module's Version Number
 
@@ -109,7 +110,7 @@ family by shouting "HELLO, WORLD!" at them. You'll also notice that version
 0.001 is still laying around. You can quickly clean things up with `dzil clean`
 and then run `dzil build` again to get version 0.002 back. Then, if you want,
 run `dzil install` so the other modules on your machine can take advantage of
-your new should funciton.
+your new "shout_hw" funciton.
 
 Are you impressed with `Dist::Zilla`, yet? Maybe if you are brand new
 to distribution building you are excited but the truth is this is all pretty
@@ -146,5 +147,6 @@ around `Dist::Zilla` as much as possible. So try to restrain you urge to go full
 control freak for now. We still have a lot more basic stuff to cover before you
 should unleash yourself.
 
-OK, with the Zen stuff out of the way, we are ready to dive down a level deeper
-and learn how to gain more control over how the indvidual plugins do their jobs.
+With the obligatory Zen programming stuff out of the way, we are ready to
+dive down a level deeper and learn how to gain more control over how the
+indvidual plugins do their jobs.

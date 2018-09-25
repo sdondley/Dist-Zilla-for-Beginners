@@ -34,9 +34,10 @@ command. Like all `.ini` files, each line is a configuration setting with keys
 on the left, followed by a equal sign, and the corresponding values on the
 right.
 
-Our plugins can use these configuration settings to help do their work. For
-example, if you look at the `README` file, you'll see it directly substitutes
-the `author`, `copyright_holder` and `copyright_year` values into the text.
+`Dist::Zilla` makes these configuration settings available to our plugins to
+help them do their work. For example, if you look at the `README` file, you'll
+see it directly substitutes the `author`, `copyright_holder` and
+`copyright_year` values into the text.
 
 You can also probably guess what the `version = 0.001` line does. You might
 recognize that this decimal number value was tacked on to the end of our module
@@ -96,8 +97,8 @@ work yet. We will cover all the more interesting ones later.
 ### A Quick Note on Phases
 
 Before moving on, we want to briefly call attention to the very last plugin
-listed, `UploadToCPAN`, which unsurprisingly, uploads your module to CPAN. But
-why didn't this happen when we ran the `build` command back in the first
+listed above, `UploadToCPAN`, which unsurprisingly, uploads your module to CPAN.
+But why didn't this happen when we ran the `build` command back in the first
 turtorial?
 
 The answer is that the `build` command will only run the plugins that are

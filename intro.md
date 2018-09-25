@@ -18,9 +18,9 @@ walked down to the computer room to load them into the hulking machine that
 magically translated the holes punched into the cards into executable,
 electronic signals to perform your desired computing task. You were likely the
 only person to ever run your code, the only person likely to install it, and
-there was only one machine your code would probably ever run on. And so although
-crude, dead trees helped get the job of software distribution done just fine
-under the given circumstances.
+there was only one machine your code would probably ever execute on. And so
+although crude, dead trees helped get the job of software distribution done just
+fine under the simple circumstances.
 
 ## Modern Software Distribution Makes More Demands on Developers
 
@@ -134,17 +134,17 @@ your module. And perl has another set of tools and modules for creating and
 running tests to help ensure your module will actually work as designed on your
 machine and others. Finally, the Perl community has a large team of volunteer
 “smoke testers” that will automatically download your module from CPAN, install
-it and test it on a wide variety of different kinds of machines and report their
-findings to you. All of this is available to you for free. Amazing!
+it, and test it on a wide variety of different kinds of machines and report
+their findings to you. All of this is available to you for free. Amazing!
 
 ## Software Distributions Still Require Lots of Work
 
-That’s not to say that finishing your distribution will be easy, especially if
+That’s not to say that creating your distribution will be easy, especially if
 you want to deliver high quality software. Writing clear, concise documentation
 will always be hard work. Writing tests that ensure your software works well and
 will run across many different platforms will always have some challenges. And
 AI is nowhere close to being able to replace all the conscientious effort that
-goes into  maintaining and updating your distribution with regular fixes and
+goes into maintaining and updating your distribution with regular fixes and
 improvements. But the infrastructure and tools Perl provides will at least make
 these important tasks much more achievable by mere mortals.
 
