@@ -61,7 +61,7 @@ blueprint is what's used unless we specify a custom blueprint with the `new`
 command.
 
 First, create a default directory in the special directory `.dzil` created for
-us for storing your blueprints:
+for storing ~~profiles~~ blueprints:
 
 `mkdir ~/.dzil/profiles/default`
 
