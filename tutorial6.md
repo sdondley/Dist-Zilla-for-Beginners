@@ -196,9 +196,8 @@ solution it offers us by manually adding in `version = 0.001` directly to the
 
 However, this doesn't fix the real source of the problem, your flawed blueprint.
 So the next time we create a new module, we are going to run into the same
-problem. So let's also be sure to fix the blueprint, too. Open the
-`dist_ini.txt` file in the default profile and add the following line to the top
-of it:
+issue. So let's also be sure to fix the blueprint, too. Open the `dist_ini.txt`
+file in the default profile and add the following line to the top of it:
 
 `version = 0.001`
 
