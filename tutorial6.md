@@ -19,7 +19,7 @@ use Carp;
 ```
 
 You've done it 100 times and 95 times you have throught to yourself "I really
-need to automate this." If you consider yourself a decent Perl developer, you've
+need to automate this." If you consider yourself a decent Perl developer, you're
 probably already using some kind of templating system for kicking off a project.
 Some are good, many of them suck.
 
