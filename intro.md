@@ -24,15 +24,15 @@ fine under these simple circumstances.
 
 ## Modern Software Distribution Makes More Demands on Developers
 
-As technology evolved, more efficient data storage mediums arrived in the form of
-magnetic tapes and disks, making it much easier to copy, reproduce and
+As technology evolved, more efficient data storage mediums arrived in the form
+of magnetic tapes and disks, making it much easier to copy, reproduce and
 distribute computer code. Magnetic media made commercially available software
 available to a mass audience for the first time. You could drive to your local
 computer store, plunk down 40 bucks and receive a box with some 5 1/4” floppies
-inside containing the text adventure game, Zork, and then trek back to
-deliver the code to your awaiting microcomputer. If you disovered when you got
-back home that you accidentally bought the disks for a Commodore 64 when you
-owned an Apple ][e, you had to go back to the store and make an exchange.
+inside containing the text adventure game, Zork, and then trek back to deliver
+the code to your awaiting microcomputer. If you disovered when you got back home
+that you accidentally bought the disks for a Commodore 64 when you owned an
+Apple ][e, you had to go back to the store and make an exchange.
 
 Then, of course, the internet revolutionized how we distributed software.
 Physical media has become invisible to us and exists only as an abstract notion
@@ -42,32 +42,27 @@ imaginable.
 
 ### Helping Users Install Your Software
 
-Though technology has helped us overcome the physical challenges of distributing
-software, that is only part of the battle. It usually isn’t enough to give
-someone a copy of the computer code you have written. You'll want to make sure
-it's easy for others to install and run your software.
+Though technology overcame physical barriers to distributing software, that's
+now only part of the battle. You have to make sure it's easy for others to
+install and run your software.
 
-Most users won't know the first thing about all the obscure commands required to
-get their copy of your software loaded onto their machine so it can be executed.
-And even if they knew the commands to run, it’s a boring task and one that can
-be automated. And so almost all software today of any substantial complexity is
-accompanied by “installers,” programs designed to make it easy–or at least as
-easy as possible–to install and run your computer code on another machine.
-
-So we have to be sure to accompany out software with other software necessary to
-install, configuring and running the software on the end user’s machine.
+Most users aren't going to know the obscure commands required to get your
+software loaded onto their machine so it can be executed. And even if they knew
+the commands to run, it’s a boring task and one that can be automated. And so
+almost all software today of any substantial complexity is accompanied by
+“installers,” programs designed to make it easy–or at least as easy as
+possible–to install, configure and run your computer code on another machine.
 
 ### Getting Your Code to Run on Different Machines
 
-Unlike in the age of punch cards, your perl module probably isn't intended to be
-run just by you on your one computer. So your software distribution should also
-supply a suite of tests to ensure that your module will work as advertised on
-computers that could be much different from yours. You can program the installer
-to take the appropriate action if there is a problem with any of the tests.
-Hopefully, the problem can be entirely resolved by the installer automatically
-or at least allow for partial installation of your software. The installer
-should alert the users if any problems were encountered and help users fix them,
-if possible.
+Unlike punch card age, your perl module probably isn't intended to be run just
+by you on your one computer. So your software distribution should also supply a
+suite of tests to ensure that your module will work as advertised on other
+computers. You can program the installer to take the appropriate action if there
+is a problem with any of the tests. Hopefully, the problem can be entirely
+resolved by the installer automatically or at least allow for partial
+installation of your software. The installer should alert the users if any
+problems were encountered and help users fix them, if possible.
 
 ### Helping Users Find and Use Your Software
 
@@ -78,9 +73,6 @@ software. If it's sitting on some obscure server no one knows about, it won't
 get used. Similarly, if your software has no manual and users have to guess at
 how it's supposed to work, users will likely get frustrated and never run it
 again.
-
-So another big part of a software distribution’s job is to help users both
-discover and use your creation.
 
 ### Helping Users Update Their Software
 
@@ -110,14 +102,11 @@ the role `Dist::Zilla` plays in the creation of these distributions.
 ## Perl Gives You the Tools for Building Your Distribution
 
 Let's say you’ve written a Perl module that can shave people's armpits. Although
-writing your software was probably a herculean task, you are still missing 5 out
-of the 6 essential elements for creating your distribution. Until you build the
-software distribution, your software is probably destined for failure (unless
-your module really can shave armpits).
-
-Fortunately, the Perl community already provides many tools for helping you
-build a complete software distribution that will save you tons of time, money
-and aggravation.
+writing your software was a herculean task, you are still missing 5 out of the 6
+essential ingredients for a proper distribution. Until you build the software
+distribution, your software is probably destined for failure (unless your module
+really can shave armpits). Fortunately, the Perl community already provides many
+tools to help you build a complete software distribution.
 
 First and foremost, there is the free-to-use CPAN (the Comprehensive Perl
 Archive Network) website which developers can use to distribute the latest
@@ -153,21 +142,20 @@ software distribution still involves a lot of tedious work and will require you
 to keep on top of important bookkeeping tasks. For example, there are many
 requirements for building the files CPAN wants to see in your distribution. A
 lot of your documentation will probably have boilerplate language that you’ll
-want to copy from other sources and paste into your document. You’ll also need a
-ensure you update your software version numbers. You’ll probably want to
-maintain your module in a git repository and coordinate releases to the
-repository with your copy of the module on CPAN. And before uploading your
-modules to CPAN, you’ll want to be sure to remember to test your module. And
-don’t forget to update your CHANGE log, documentation, and tests to keep up with
-new features.
+want to copy from other sources and paste into your document. You also have to
+update your software's version numbers. You’ll probably want to maintain your
+module in a git repository and coordinate releases to the repository with your
+copy of the module on CPAN. And before uploading your modules to CPAN, you’ll
+want to be sure to remember to test your module. And don’t forget to update your
+CHANGE log, documentation, and tests to keep up with new features.
 
 You get the idea. There are dozens, if not hundreds, of little chores that
 you’ll need to perform if you wish to release a software distribution of good
 quality. Though none of these tasks are particularly hard, few of them are
 interesting. And collectively, they can be a real burden and intimidating for
 newcomers to the world of perl module distributions. And if you've written
-dozens of different modules instead of just your magical armpit shaver, you are
-in for a world of pain.
+dozens of different modules that you have to keep on top of, you are in for a
+world of pain.
 
 ## Dist::Zilla Makes Producing Perl Module Software Distributions Easier
 
@@ -192,12 +180,12 @@ other automation tools that help you build a perl module distribution.
 It’s very difficult to catalogue everything `Dist::Zilla` can do for you. And
 aside from all that the core `Dist::Zilla` module can do, there are hundreds of
 `Dist::Zilla` plugins that you can install and configure to help you automate
-any number of common as well as very obscure distribution chores. And what you
+any number of common as well as very obscure distribution chores. What you
 choose to automate is entirely up to you. You can use a small subset of
-`Dist::Zilla`’s plugins to handle only the most rudimentary tasks or you can
-create an almost totally automated beast that can create, generate, modify,
-build, test, document, release, push, upload and update your distribution with a
-a very small number of keystrokes.
+`Dist::Zilla`’s tools to handle only rudimentary tasks or you can create an
+almost totally automated beast that can create, generate, modify, build, test,
+document, release, push, upload and update your distribution with a a very small
+number of keystrokes.
 
 `Dist::Zilla` is a very powerful, flexible tool. Like any advanced tool for
 developers, it is best wielded by those who have a good understanding of how to
@@ -205,11 +193,15 @@ properly build a perl distribution using more traditional approaches. And so
 `Dist::Zilla` does not eliminate the need to understand how build systems,
 tests, and other, more basic concepts and practices that are employed to create a
 distribution. Therefore, beginners who are completely new to perl distributions
-should probably avoid diving into `Dist::Zilla` without a solid understanding of
-what goes into the proper building of a perl module distribution.
+should are often discouraged from diving into `Dist::Zilla` without a solid
+understanding of what goes into the proper building of a perl module
+distribution.
 
-And so this series of articles, designed for beginners new to the world of perl
-software distribution, will help introduce them to many of the tools that
-`Dist::Zilla` either incorporates directly or mimics using its various plugins
-to help illustrate what `Dist::Zilla` is doing under the hood to make its
-automated magic happen.
+Until now.
+
+We have created this ambitious series of tutorials to help developers new to the
+world of perl software distribution get a gentle introduction to both
+`Dist::Zilla` and good software distribution practices at the same time. In
+fact, we think `Dist::Zilla`, if properly introduced, can be a great tool for
+helping developers understand what it takes to release high quality software and
+how to use `Dist::Zilla` to help them get there.
