@@ -20,7 +20,7 @@ electronic signals to perform your desired computing task. You were likely the
 only person to ever run your code, the only person likely to install it, and
 there was only one machine your code would probably ever execute on. And so
 although crude, dead trees helped get the job of software distribution done just
-fine under the simple circumstances.
+fine under these simple circumstances.
 
 ## Modern Software Distribution Makes More Demands on Developers
 
