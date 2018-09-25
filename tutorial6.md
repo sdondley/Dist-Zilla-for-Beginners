@@ -88,7 +88,7 @@ root = skel
 ```
 
 We can see that we have three sections in the `profile.ini` file, one for each
-plugin that we use and we pass in a parameters to each plugin. Don't worry
+plugin that we use. We pass in one parameter to each plugin. Don't worry
 exactly what it all means just yet. We will explain it all when the time comes.
 
 Next we will add the file that will act as a template for your new module.
