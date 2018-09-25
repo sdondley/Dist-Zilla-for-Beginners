@@ -187,6 +187,8 @@ almost totally automated beast that can create, generate, modify, build, test,
 document, release, push, upload and update your distribution with a a very small
 number of keystrokes.
 
+## Dist::Zilla: For Experts Only?
+
 `Dist::Zilla` is a very powerful, flexible tool. Like any advanced tool for
 developers, it is best wielded by those who have a good understanding of how to
 properly build a perl distribution using more traditional approaches. And so
