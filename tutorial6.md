@@ -50,8 +50,8 @@ None of this really sounds like what goes into stamping out nickels so...
 ...instead of "minting profiles," we encourage you to think of them instead as
 "blueprints" as we think it better captures the essence of what the `new`
 command does: it sets up and configures your module and the processes that will
-work on it according to a plan. Where we use the term `profile` below,
-**mentally** replace it with `blueprint` instead. Of course, if we have you type
+work on it according to a plan. Where we use the term "profile" below,
+**mentally** replace it with "blueprint" instead. Of course, if we have you type
 in `profile`, make sure you actually type in `profile.`
 
 ## Creating Your First Factory Blueprint
