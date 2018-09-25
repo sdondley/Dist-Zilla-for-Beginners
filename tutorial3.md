@@ -54,9 +54,9 @@ As mentioned, the `dist.ini` file tells `Dist::Zilla` which plugins should be
 deployed to build our distribution. We can list these modules one-by-one in our
 `dist.ini` or, as a convenience to us, we can use a **plugin bundle.**
 
-A bundle is nothing more than a predefined set of plugins. Rather than typing all
-the separate plugins into the `dist.ini` file, the developer just drop in a bundle
-name as a stand-in for a pre-defined list of plugins.
+A bundle is nothing more than a predefined set of plugins. Rather than typing
+all the separate plugins into the `dist.ini` file, the developer can just drop
+in a bundle name as a stand-in for a pre-defined list of plugins.
 
 To use a bundle, we slap an `@` sign in front of the bundle name and throw
 square brackets aroun it to let `Dist::Zilla` know that we want to use a bundle.
