@@ -57,17 +57,17 @@ So what exactly does this plugin do?
 
 #### The `[GatherDir]` and `[GatherDir::Template]` Plugins
 
-You might recall the `[Gatherdir]` plugin from you manually added the individual
-plugins used by the `[@Basic]` bundle to our `dist.ini` file. The `[GatherDir]`
-plugin is going to be in all `dist.ini` files because it plays a critical role
-in the distribution generation process.
+You might recall the `[Gatherdir]` plugin from when you manually added the
+individual plugins used by the `[@Basic]` bundle to the `dist.ini` file. The
+`[GatherDir]` plugin is going to be in all `dist.ini` files because it plays a
+critical role in the distribution generation process.
 
 When we issue the `dzil build` command, the job of the `[GatherDir]` plugin is
 to gather files from your work area and place them on the assembly line. It does
-a similar job when we issue the `dzil new` command except it adds files from
-directory on your hard drive, usually from your profile, and adds them to your
-work area. Before they get there, though, `[GatherDir]` stores the files in your
-computer's memory for in case they need more processing.
+a similar job when we issue the `dzil new` command except it adds files from a
+directory on your hard drive–usually wihtin your blueprint directory–and adds
+them to your work area. Before saving them there, though, `[GatherDir]` stores
+the files in your computer's memory in case they need more processing.
 
 The `Template` subclass tells `Dist::Zilla` to treat the collected file like
 templates and, if any variables are found inside of our files, to replace them
@@ -122,7 +122,7 @@ should refer to its documentation.
 
 OK, now save the command file to `skel/bin/the_command`. `the_command` file name
 is arbitrary and is just acting as a placeholder for us in our blueprint. When
-it comes time to process our blueprint, we will change the name of this file, to
+it comes time to process our blueprint, we will change the name of this file to
 the name of our actual command.
 
 #### Changing the Command Name
@@ -193,9 +193,9 @@ a new work area with our blueprint using the following command:
 
 `dzil new sayhi -p command`
 
-This tells `dzil` to set up a new module with the distribution name `sayhi`.
-The `-p command` option tells it to use our `command` blueprint, the one we just
-wrote, to generate our new work area.
+This tells `dzil` to set up a new module work area with the distribution name
+"sayhi".  The `-p command` option tells it to use our `command` blueprint, the
+one we just created, to generate our new work area.
 
 With any luck, you'll see the `sayhi` work area set up in your directory and no
 errors. If not, take a close look at any errors `Dist::Zilla` generated and
@@ -217,7 +217,7 @@ following lines (or just cut and paste the entire code listing that follows):
 * change `Add the module abstract here` to `Backend interface for "sayhi"
   command`
 
-And here is module with the changes noted above:
+And here is the entire finished module:
 
 ```
 
@@ -258,7 +258,7 @@ sayhi - Add the module abstract here
 
 ```
 
-That's it!  You can now build your new module:
+That's it! You can now build your new module:
 
 `dzil build`
 
