@@ -157,7 +157,8 @@ and inside of that directory we finally see your `Greetings.pm` module file.
 `Dist::Zilla` created this nested directory structure from the name of your
 module, `Super::Greetings`. Sweet.
 
-Everything seems to be in place. Let's see if we can build a distribution:
+Everything seems to be in place. Let's see if we can build a distribution with
+our blueprint:
 
 `dzil build`
 
@@ -201,7 +202,7 @@ file in the default profile and add the following line to the top of it:
 
 `version = 0.001`
 
-Once you've fixed up both files, try to build the module again. If you did
+Once you've fixed up both files, try to build the distribution again. If you did
 everything right, Zilla monster will please you with a new distribution. Super
 duper!
 
