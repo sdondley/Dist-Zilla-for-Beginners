@@ -59,15 +59,15 @@ So what exactly does this plugin do?
 
 You might recall the `[Gatherdir]` plugin from when you manually added the
 individual plugins used by the `[@Basic]` bundle to the `dist.ini` file. The
-`[GatherDir]` plugin is going to be in all `dist.ini` files because it plays a
-critical role in the distribution generation process.
+`[GatherDir]` plugin is in all `dist.ini` files because it plays a critical role
+in the distribution generation process.
 
-When we issue the `dzil build` command, the job of the `[GatherDir]` plugin is
-to gather files from your work area and place them on the assembly line. It does
-a similar job when we issue the `dzil new` command except it adds files from a
-directory on your hard drive–usually wihtin your blueprint directory–and adds
-them to your work area. Before saving them there, though, `[GatherDir]` stores
-the files in your computer's memory in case they need more processing.
+When we issue the `dzil build` command, the `[GatherDir]` gathers the files from
+your work area and place them on the assembly line. It does a similar job when
+we issue the `dzil new` command except it adds files from a directory on your
+hard drive–usually wihtin your blueprint directory–and adds them to your work
+area. Before saving them there, though, `[GatherDir]` stores the files in your
+computer's memory in case they need more processing.
 
 The `Template` subclass tells `Dist::Zilla` to treat the collected file like
 templates and, if any variables are found inside of our files, to replace them
@@ -77,7 +77,7 @@ with the appropriate string. You'll see this in action shortly.
 
 The `root` parameter in the `[GatherDir::Template]` tells the plugin which
 directory to gather the files from. In this case, the `skel` directory inside
-our blueprint directory.  There is nothing special about the "skel" name which
+our blueprint directory. There is nothing special about the "skel" name which
 is short for "skeleton." We could call the directory anything we want.
 
 But the `skel` directory doesn't exist yet so let's fix that. Making sure you
@@ -90,8 +90,10 @@ mentioned, the `bin` directory is where our module's command will go.
 
 `mkdir skel/bin`
 
-Next, we create the template file for our command. Open a new file add the
-following lines to it:
+#### Adding the Command Template
+
+Next, we create the command's template file. Open a new file add the following
+lines to it:
 
 ```
 
@@ -106,24 +108,23 @@ use {{$dist->name}};
 
 ```
 
-Take a moment to study this file. First, you'll notice we've got some variables
+Take a moment to study this code. First, you'll notice we've got some variables
 inside a double set curly braces. This is the syntax used by the templating
 system `Dist::Zilla` uses to identify string substitutions. Both the curly
-braces and the `$dist->name` variable will be replaced with the name of the
-distibution name we pass to the `dzil new` command area. As mentioned, these
-substitutions are performed by our `[GatherDir::Template]` plugin. In case
-you're wondering, `$dist` is the `Dist::Zilla` object overseeing everything and
-`name`, of course, is the method that generates the name of our distribution.
+braces and the `$dist->name` variable will be replaced with the distibution name
+argument passed to the `dzil new` command. As mentioned, these substitutions are
+performed by our `[GatherDir::Template]` plugin. In case you're wondering,
+`$dist` is the `Dist::Zilla` object overseeing everything and `name`, of course,
+is ad method for generating the name of our distribution.
 
-We will also note that the module we will soon create makes use of the
-`App::Cmd::Simple` module which supplies the `run` method we see in the command
-file. If you are interested in how the `App::Cmd::Simple` command works, you
-should refer to its documentation.
+The module we will soon create makes use of the `App::Cmd::Simple` module which
+supplies the `run` method we see in the command file. If you are interested in
+how the `App::Cmd::Simple` command works, you should refer to its documentation.
 
 OK, now save the command file to `skel/bin/the_command`. `the_command` file name
-is arbitrary and is just acting as a placeholder for us in our blueprint. When
-it comes time to process our blueprint, we will change the name of this file to
-the name of our actual command.
+is arbitrary and acts as a placeholder in our blueprint. When it comes time to
+process our blueprint, we want the name of this file to change to the name of
+our command name.
 
 #### Changing the Command Name
 
@@ -141,7 +142,7 @@ command which we will soon do.
 ### Modifying the Module Template
 
 OK, just one task left and that's to modify the blueprint's module template
-file. Replace your existing `Module.pm` file in the `command` blueprint
+file. Replace the existing `Module.pm` file in the `command` blueprint
 directory with the following code:
 
 ```
@@ -189,7 +190,8 @@ rest of the code works, we encourage you to take a look at the
 ## Set Up Your Work Area with the `new` Command and the `-p` Argument
 
 It's time to see if you accurately followed instructions. Let's try to generate
-a new work area with our blueprint using the following command:
+a new work area with our blueprint. Jump to a new empty directory and issue the
+following command:
 
 `dzil new sayhi -p command`
 
@@ -197,16 +199,16 @@ This tells `dzil` to set up a new module work area with the distribution name
 "sayhi".  The `-p command` option tells it to use our `command` blueprint, the
 one we just created, to generate our new work area.
 
-With any luck, you'll see the `sayhi` work area set up in your directory and no
-errors. If not, take a close look at any errors `Dist::Zilla` generated and
-try to figure out what you have to do to get things working.
+After running this command, you'll see the `sayhi` work area set up in your
+directory and no errors. If not, take a close look at any errors `Dist::Zilla`
+generated and try to figure out what you have to do to get things working.
 
 ## Getting `sayhi` to Say "Hi"
 
-`Dist::Zilla` has generated our template and skeleton files, now we just need
-to make a few trivial changes to our module to get it to actually do something.
-Fire up your text editor to edit the `lib/sayhi.pm` module and add/modify the
-following lines (or just cut and paste the entire code listing that follows):
+`Dist::Zilla` has generated our template and skeleton files, now we just need to
+make some trivial changes to our module to get it functional. Fire up your text
+editor to edit the `lib/sayhi.pm` module and add/modify the following lines (or
+just cut and paste the entire code listing that follows):
 
 * add `use Greetings;` near the top
 * in the `opt_spec` function, replace all instances of `option1|a` with `shout|s`
