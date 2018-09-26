@@ -264,7 +264,11 @@ That's it! You can now build your new module:
 
 `dzil build`
 
-Hopefully you installed the `Greetings` module earlier so you can actually put
-your command to good use printing "Hello, World!" to your heart's content right
-from the command line. To print a standard greeting, do `sayhi` from the command
-line. To shout it, do `sayhi --shout` or `sayhi -s`.
+If that went well, install your distribution with:
+
+`dzil install`
+
+Hopefully you also installed the `Greetings` module earlier so you can actually
+put your command to good use printing "Hello, World!" to your heart's content
+right from the command line. To print a standard greeting, do `sayhi` from the
+command line. To shout it, do `sayhi --shout` or `sayhi -s`.
