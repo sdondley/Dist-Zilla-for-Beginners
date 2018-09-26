@@ -2,12 +2,12 @@
 
 You can create an entire library of blueprints customized for the different
 kinds of modules and distributions you wish to create. For example, you might
-want set up a blueprint that generates boilerplate appropirate for a Moose
-module or one for distributing a standalone perl script. You can also set up
-blueprints that create a git repository for your module as well as generate a
-remote repository for you on GitHub and that will automatically push commits out
-to it (we'll cover this in our next tutorial). There's lots of latent power
-underlying the `new` command so let's get a better taste for how to tap into it.
+want set up a blueprint that generates boilerplate for Moose modules and another
+for standalone perl scripts. You can also set up blueprints that create a git
+repository for your module as well as generate a remote repository for you on
+GitHub and that will automatically push commits out to it (we'll cover this in
+our next tutorial). There's lots of latent power underlying the `new` command so
+let's get a better taste for how to tap into it.
 
 Our last blueprint was a trivial one for the purposes of showing you the basics.
 This next one might be one you'll want to add to your blueprint library, so you
@@ -15,12 +15,10 @@ may want to follow along closely and do all steps below.
 
 ## Drafting a New Blueprint
 
-Setting up additional blueprints is easy. Let's say we want to create a new
-blueprint appropriate for distributions with a simple command. Like before, we
-first have to create the directory for storing our blueprint. We'll copy an
-existing blueprint that is hopefully close to the new one we want to create. In
-our case, we only have a `default` blueprint so we're forced to start with that
-one:
+We are going to create a new blueprint a distribution containing a simple
+command. To get started, we'll copy an existing blueprint that is the most
+similar to the new one we want to create. In our case, we only have one other
+blueprint so we'll copy that:
 
 ```
 
@@ -31,17 +29,17 @@ one:
 
 And now we can go to work making the necessary modifications to our new
 `command` blueprint. The first thing we'll do is create the executable command
-which, by convention, is usually stored in the `bin` directory in a of your
+which, by convention, is usually stored in the `bin` directory of a
 distribution.
 
 ### Modifying Your Blueprint Copy
 
 How do we design a blueprint that adds a `bin` directory and places a command
-inside of it? Good questions. You'll get to see some of `Dist::Zilla`'s more
-powerful templating features as we reveal the answer.
+inside of it? Good questions. And as we answer them, you'll get to see some of
+`Dist::Zilla`'s more powerful templating features.
 
-To answer these questions, we'll start by taking a look inside the `profile.ini`
-file.  The last section of the file has the following lines:
+Open the `profile.ini` file note the study the last section with the following
+two lines:
 
 ```
 
@@ -52,23 +50,23 @@ root = skel
 
 The first line in brackets is the name of a plugin, though it's a little
 different than what we've seen previously because of the double colon sandwiched
-in the name. This syntax mean we are using a plugin called `Template` that's a
-sublcass of the `[GatherDir]` plugin.
+in the name. This syntax means we are using a plugin called `Template` which is
+a sublcass of the `[GatherDir]` plugin.
 
 So what exactly does this plugin do?
 
 #### The `[GatherDir]` and `[GatherDir::Template]` Plugins
 
-You might recall seeing the `[Gatherdir]` plugin when we manually added all the
-individual plugins used by the `[@Basic]` bundle to our `dist.ini` file. This
-plugin is going to be in all `dist.ini` files because it plays such a crucial
-role in the distribution generation process.
+You might recall the `[Gatherdir]` plugin from you manually added the individual
+plugins used by the `[@Basic]` bundle to our `dist.ini` file. The `[GatherDir]`
+plugin is going to be in all `dist.ini` files because it plays a critical role
+in the distribution generation process.
 
 When we issue the `dzil build` command, the job of the `[GatherDir]` plugin is
 to gather files from your work area and place them on the assembly line. It does
 a similar job when we issue the `dzil new` command except it adds files from
 directory on your hard drive, usually from your profile, and adds them to your
-work area. Before they get there, though, `[GatherDir]` stores files in your
+work area. Before they get there, though, `[GatherDir]` stores the files in your
 computer's memory for in case they need more processing.
 
 The `Template` subclass tells `Dist::Zilla` to treat the collected file like
@@ -77,24 +75,23 @@ with the appropriate string. You'll see this in action shortly.
 
 #### Adding a Skeleton Directory to Your Module
 
-The second line in the `[GatherDir::Tempalte]` tells the plugin where to gather
-the files from by passing a value to the `root` parameter. In this case, the
-value we are passing is the `skel` directory inside of our blueprint directory.
-There is nothing special about the "skel" name which is short for "skeleton." We
-could call the directory anything we want.
+The `root` parameter in the `[GatherDir::Template]` tells the plugin which
+directory to gather the files from. In this case, the `skel` directory inside
+our blueprint directory.  There is nothing special about the "skel" name which
+is short for "skeleton." We could call the directory anything we want.
 
 But the `skel` directory doesn't exist yet so let's fix that. Making sure you
 are inside the `command` blueprint directory, issue this command:
 
 `mkdir skel`
 
-Now we are going to add our `bin` directory inside of our `skel` directory. The
-`bin` directory is where we are going to put our module's command.
+Now we are going to add our `bin` directory inside of our `skel` directory. As
+mentioned, the `bin` directory is where our module's command will go.
 
 `mkdir skel/bin`
 
-Next, we are going to create the template file for our command. Open a new text file
-add the following lines to a new file:
+Next, we create the template file for our command. Open a new file add the
+following lines to it:
 
 ```
 
@@ -109,31 +106,31 @@ use {{$dist->name}};
 
 ```
 
-Let's take a moment to study this file. First, you'll notice we've got what
-looks like variables inside a double set curly braces. This is the syntax used
-by the templating system `Dist::Zilla` uses to identify variables. Both the
-curly braces and the `$dist->name` variable will be replaced by the name of the
-distibution name we supply to the `dzil new` command when we set up our work
-area. As mentioned, these substitutions are performed by our
-`[GatherDir::Template]` plugin. In case you're wondering, `$dist` is the
-`Dist::Zilla` object overseeing everything and `name`, of course, is the method
-that generates the name of our distribution.
+Take a moment to study this file. First, you'll notice we've got some variables
+inside a double set curly braces. This is the syntax used by the templating
+system `Dist::Zilla` uses to identify string substitutions. Both the curly
+braces and the `$dist->name` variable will be replaced with the name of the
+distibution name we pass to the `dzil new` command area. As mentioned, these
+substitutions are performed by our `[GatherDir::Template]` plugin. In case
+you're wondering, `$dist` is the `Dist::Zilla` object overseeing everything and
+`name`, of course, is the method that generates the name of our distribution.
 
-We will also note that the modle we will soon create makes use of the
+We will also note that the module we will soon create makes use of the
 `App::Cmd::Simple` module which supplies the `run` method we see in the command
 file. If you are interested in how the `App::Cmd::Simple` command works, you
 should refer to its documentation.
 
 OK, now save the command file to `skel/bin/the_command`. `the_command` file name
 is arbitrary and is just acting as a placeholder for us in our blueprint. When
-it comes time to process our blueprint, we want to change the name of this file,
-to the name of our actual command. To make that happen, we will use of the the
-`rename` parameter that `[GatherDir::Template]` provides.
+it comes time to process our blueprint, we will change the name of this file, to
+the name of our actual command.
 
 #### Changing the Command Name
 
-Open up your `profile.ini` command and add the following line to the end of the
-`[GatherDir::Template]` section:
+To make that happen, we will use of the the `rename` parameter that
+`[GatherDir::Template]` provides. Reopen your `profile.ini` command and add the
+following line to the end of the `[GatherDir::Template]` section and save the
+file:
 
 `rename.the_command = $dist->name`
 
