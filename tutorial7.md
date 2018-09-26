@@ -11,8 +11,8 @@ latent power underlying the `new` command so let's get a better taste for how to
 tap into it.
 
 Our last blueprint was a trivial one for the purposes of showing you the basics.
-This next one might be one you actually add to your library, so pay close
-attention.
+This next one might be one you actually add to your library, so you may want to
+follow along closely.
 
 ## Drafting a New Blueprint
 
@@ -216,7 +216,7 @@ following lines (or just cut and paste the entire code listing that follows):
 * replace `#do option 1 stuff` with `&Greetings::shout_hw;`
 * replace `#do regular stuff` with `&Greetings::hw;`
 * change `Add the module abstract here` to `Backend interface for "sayhi"
-command`
+  command`
 
 That's it! Hopefully you installed the `Greetings` module earlier. And here is
 module with the changes noted above:
