@@ -34,9 +34,9 @@ we've invented to conceptualize how `Dist::Zilla` works catches on.
 
 In an earlier tutorial, we used the analogy of a "work area." To refresh your
 memory, we imagined that the `dzil new` command set up a new work area on your
-factory floor for forging your module. Each time you issue the `new`
-command, you set up a new work area in a new directory on your computer for
-creating and distributing a new module.
+factory floor for forging your module. Each time you issue the `new` command,
+you set up a new work area in a new directory on your computer for creating and
+distributing a new module.
 
 But it gets even better than that. You can control not just what your work area
 will initially look like but what manufacturing process will be used to pakcage
@@ -87,17 +87,17 @@ root = skel
 
 ```
 
-We can see that we have three sections in the `profile.ini` file, one for each
-plugin that we use. We pass in one parameter to each plugin. Don't worry
-exactly what it all means just yet. We will explain it all when the time comes.
+The `profile.ini` file has three sections, one for each plugin that we use. We
+pass in one parameter to each plugin. Don't worry exactly what it all means just
+yet. We will explain it all when the time comes.
 
-Next we will add the file that will act as a template for your new module.
+Next we add the file that will act as a template for your new module.
 Create a file called `Module.pm` which, you'll notice, happens to be the name we
 used for the `template` parameter above. Add the following lines to the file:
 
 ```
 
-package {{$name}};
+package {{$dist->name}};
 use strict;
 use warnings;
 
@@ -107,7 +107,7 @@ use warnings;
 
 =head1 NAME
 
-{{$name}} - Add the module abstract here
+{{$dist->name}} - Add the module abstract here
 
 ```
 
@@ -146,10 +146,10 @@ inspect your three blueprint files for errors and try again.
 ## Exploring Your New Factory
 
 If you've successfully created your new work area, look inside and you'll see
-that we have your `dist.ini` file with all the plugins and parameters we
-supplied in your `plugins.ini` file. You'll also see the global configuration
-parameters at the top of of the `dist.ini` file were added for you. You might
-also notice something missing, though. More on that in a bit.
+that your `dist.ini` has all the plugins and parameters you supplied in your
+`plugins.ini` file. The global configuration parameters at the top of of the
+`dist.ini` file were added for you as well. You might also notice something
+missing, though. More on that in a bit.
 
 Now open the `lib` directory where your module lives. Inside of that directory is
 the `Super` directory and inside of that directory is a `Greetings` directory
@@ -188,12 +188,11 @@ the `ABSTRACT` our installer required. This way, your blueprint killed two birds
 with one stone by giving your module some documenation and keeping the installer
 happy.
 
-Through your installer now has an abstract, it is now demanding that we feed it a
-version. What's the best way to to do that? The old school way is to edit the
-module and add a version number there, similar to the way we added the `#
-ABSTRACT` comment. But since we're using `Dist::Zilla`, we are going to use the
-solution it offers us by manually adding in `version = 0.001` directly to the
-`dist.ini` file.
+Through your installer now has an abstract, it is now demanding that we feed it
+a version. What's the best way to to do that? One way is to edit the module and
+add a version number there, similar to the way we added the `# ABSTRACT`
+comment. But since we're using `Dist::Zilla`, we'll add in `version =
+0.001` directly to the `dist.ini` because it's easy.
 
 However, this doesn't fix the real source of the problem, your flawed blueprint.
 So the next time we create a new module, we are going to run into the same

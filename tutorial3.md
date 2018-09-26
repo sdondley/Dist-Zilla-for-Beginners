@@ -3,7 +3,7 @@
 In our previous tutorial, we analogized `Dist::Zilla` to a factory for producing
 module distributions, imagining the various plugins deployed by `Dist::Zilla` as
 robots which do some pre-defined bit of work on the module as it travels down
-the assembly line to help shape it into a finished distribution.
+the assembly line, shaping it into a finished distribution.
 
 If `Dist::Zilla` is a factory, then the `dist.ini` file is the equivalent of a
 factory floor plan. The `dist.ini` file tells `Dist::Zilla` which robots
@@ -37,7 +37,7 @@ right.
 `Dist::Zilla` makes these configuration settings available to our plugins to
 help them do their work. For example, if you look at the `README` file, you'll
 see it directly substitutes the `author`, `copyright_holder` and
-`copyright_year` values into the text.
+`copyright_year` values into its contents.
 
 You can also probably guess what the `version = 0.001` line does. You might
 recognize that this decimal number value was tacked on to the end of our module

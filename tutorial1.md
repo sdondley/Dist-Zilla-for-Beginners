@@ -2,9 +2,8 @@
 
 ## Sharing Your Work
 
-Imagining beginning programmers the world over are going out of their minds
-having to type out `print "Hello, World!\n"`, you create the following module
-for them to ease their burdens:
+Imagining new programmers the world over are tired of typing out `print "Hello,
+World!\n"`, you create the following module to ease their pain:
 
 ```
 
@@ -48,7 +47,7 @@ the reader to find and tinker with these other tools. But it would be worthwhile
 to take some time to get familiar with them and examine the files they generate
 to enhance your appreciation of what `Dist::Zilla` does for you.
 
-## Distribution Building with `Dist::Zilla's` `dzil` Commands
+## Generating a Distribution with `Dist::Zilla`
 
 Now let's take `Dist::Zilla` for a spin now and see how it differs from `h2xs`.
 Make sure you have `Dist::Zilla` installed on your machine and run this command
@@ -80,18 +79,23 @@ with `h2xs`, by issuing a command:
 
 ```
 
-Much like `h2xs`, `dzil` generated a directory for us and some files inside of
-it.  `Dist::Zilla` also reported that it has "minted" a "dist" for us. We'll
-come back to this crypticism later. For now, let's plow ahead and open our new
-`Greetings` directory and see what magic `dzil` has pulled off for us:
+Like `h2xs`, `dzil new` generated a directory with some files inside of it.
+`Dist::Zilla` also reported that it has "minted" a "dist" for us. We'll come
+back to this crypticism later. For now, let's plow ahead and open our new
+`Greetings` directory and see the magic `dzil` has pulled off for us:
+
+```
 
 `cd Greetings`
+`ls`
 
-Ouch! There's barely anything in here. Just a mysterious `dist.ini` file and a
+```
+
+Ouch! There's barely anything here. Just a mysterious `dist.ini` file and a
 `lib` directory with a minimal `Greetings.pm` file inside of that. This doesn't
 seem very impressive compared to the `h2xs` tool.
 
-But `Dist::Zilla` works a bit differently than `h2xs`. Its `new` subcommand
+`Dist::Zilla` works a lot differently than `h2xs`. Its `new` subcommand
 isn't designed to immediately build our distribution, it simply sets up a
 directory that will eventually store our code and distribution builds. But
 before we get ahead of ourselves, let's make our module useful by editing the
@@ -136,18 +140,17 @@ command from the top level of our `Greetings` distribution:
 `dzil build`
 
 OK! It looks like we are getting somewhere now. The `dist` command has reported
-that is has created a new tarball and a directory, `Greetings-0.001` for us.  The
-files in this directory are a fully functional build of your module that can
-actually be released, distributed, installed on other machines. Take a look
-inside the `Greetings-0.001` and now you'll see something that looks much closer
-to what we generated with the `h2xs` command.
+that is has created a new tarball and a directory, `Greetings-0.001` for us.
+The files in this directory are a fully functional distribution that can
+actually be installed. If you look inside the `Greetings-0.001`, you'll see
+something that looks much closer to what we generated with the `h2xs` command.
 
 ### Distributing Your Module to Yourself with the `install` Command
 
-The tarball in our directory, `Greetings-0.001.tar.gz`, is the
-compressed version of our `Greetings-0.001` conveniently saving us the step of
-having to create it ourselves. We can immediately install our new module to our
-local perl library with `dzil install` command:
+The `Greetings-0.001.tar.gz` file is the a compressed, archived version of our
+`Greetings-0.001` generated for you to save you the step of having to create it
+ourselves. Use it to install your the distribution to your local perl library
+with `dzil install` command:
 
 `dzil install`
 
@@ -170,10 +173,10 @@ Successfully installed Greetings-0.001
 
 Nice, now our module is available to use anywhere on our system. So congrats,
 you've successfully built your very first distribution with `Dist::Zilla` and
-distributed it successfully, even if only to yourself. But feel free to
-email the tarball to your friends and astonish them with what your new
-module can do. Later in the tutorial, we will show you how to upload your work
-to CPAN so you can find an even wider audience for your modules.
+distributed it successfully, even if only to yourself. But feel free to email
+the tarball to your friends and astonish them with what your new module can do.
+Much later in the tutorial, we will show you how to upload your work to CPAN so
+you can find an even wider audience for your modules.
 
 You now have a rudimentary understanding of how to use `dzil`, along
 with its subcommands, to help you automate the process of generating a

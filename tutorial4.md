@@ -1,19 +1,19 @@
 # Controlling Your Distribution Production Factory with the `dist.ini` File
 
-OK, let's crack open the `dist.ini` file in your favorite text editor and see
-what we can break in the name of science and understanding.
+Crack open the `dist.ini` file in your favorite text editor and let's see what
+we can break in the name of science and understanding.
 
 First, as much as we appreciate the convenience of bundles, the first thing we
-are going to do is scrap the `[@Basic]` command and bust it out into individual
-plugin names so we can more precisely layout our distribution factory's floor
-plan.
+are going to do is scrap the `[@Basic]` command and bust it out into the
+individual plugin names to gain more control over the factory floor plan.
 
-Adding an individual plugin to `dist.ini` is a breeze. Just take the last part
-of the plugin's package name and surround it with square brackets and add it on
-its own line in the file. So if the plugin's package full name is
-`Dist::Zilla::Plugin::License`, you are going to add `[License]` to a line in
-your `dist.ini` file. The order of the plugins is important so make sure you add
-the plugins in the same order as the listing in the previous tutorial.
+Adding an individual plugin to `dist.ini` is a breeze. Just take everything
+after the `Dist::Zilla::Plugin::` part of the plugin's package name, surround it
+with square brackets, and add it on its own line in the file. So if the plugin's
+package full name is `Dist::Zilla::Plugin::License`, you are going to add
+`[License]` to a line in your `dist.ini` file. The order of the plugins is
+important so make sure you add the plugins in the same order as the listing in
+the previous tutorial.
 
 Or if you're smart, just delete the `[@Basic]` command from your `dist.ini` file
 and copy and paste the following list in its place:
@@ -37,7 +37,7 @@ and copy and paste the following list in its place:
 
 ```
 
-Now let's make a trivial change to our `dist.ini` by throwing a semicolon in
+Now let's make a small change to our `dist.ini` file by throwing a semicolon in
 front of our `[License]` plugin listing, like so:
 
 `;[License]`
@@ -63,10 +63,9 @@ Which should show:
 `dist.ini  lib  Makefile.PL  MANIFEST  META.yml  README`
 
 Sure enough, our module lacks a `LICENSE` file with our license agreement. Good
-thing no one reads those things anyway. Of course, some fancy pants,
-high-powered lawyer might find a way to bring us to financial ruin over our
-careless omission so let's go back in and uncomment our our `[License]` plugin
-and then run:
+thing no one reads those things anyway. Of course, some fancy pants lawyer might
+find a way to bring us to financial ruin over our careless omission so let's go
+back in and uncomment our our `[License]` plugin and then run:
 
 `dzil build`
 
@@ -109,9 +108,10 @@ And now edit the `dist.ini` file to update the `version` value from `0.001` to
 Cool! Now you have a new version of your module to really annoy friends and
 family by shouting "HELLO, WORLD!" at them. You'll also notice that version
 0.001 is still laying around. You can quickly clean things up with `dzil clean`
-and then run `dzil build` again to get version 0.002 back. Then, if you want,
-run `dzil install` so the other modules on your machine can take advantage of
-your new "shout_hw" funciton.
+and then run `dzil build` again to get version 0.002 back. Then run `dzil
+install` so the other modules on your machine can take advantage of your new
+"shout_hw" funciton. We are going to use this module later so make sure you
+install it.
 
 Are you impressed with `Dist::Zilla`, yet? Maybe if you are brand new
 to distribution building you are excited but the truth is this is all pretty
@@ -131,22 +131,24 @@ the the version number from your module instead of from `dist.ini`. Or, you can
 use the `[AutoVersion]` plugin to help you automatically generate a version
 number based on the current date. If you use git to manage your module's
 releases, you can use `[Git::NextVersion]` to automatically generate the next
-version number in sequential order.
+version number in sequential order. There are also other ways to generate your
+module's version that are more "developer friendly."
 
-There are hundreds of `Dist::Zilla` plugins out there that can help you automate
-your distribution's creation just the way you want. And if there isn't, you can
-always write your own plugins to satisfy your inner control freak.
+The point is TIMTOWTDI and there are hundreds of `Dist::Zilla` plugins out there
+to prove it. You can also write your own plugins to satisfy your inner control
+freak.
 
 But `Dist::Zilla`'s maze of plugins and flexibility is both a blessing and a
 curse. It's a blessing for developers who demand precise control over their
 distributions while avoiding a lot of tedious work. But it's a curse for
-newcomers wrestling with `Dist::Zilla` to get it to do what they want.
-`Dist::Zilla` was named after a monster for good reason.
+newcomers wrestling with `Dist::Zilla` to get it to do what they want and who
+may not know the best practices for using `Dist::Zilla`. `Dist::Zilla` was named
+after a monster for good reason.
 
 The goal of these tutorials is to try to help ease the pain of learning your way
-around `Dist::Zilla` as much as possible. So try to restrain you urge to go full
-control freak for now. We still have a lot more basic stuff to cover before you
-should unleash yourself.
+around `Dist::Zilla` and make solid recommendations for using it well. So try to
+restrain you urge to go full control freak for now. We still have a lot more
+basic stuff to cover before you should unleash yourself.
 
 With the obligatory Zen programming stuff out of the way, we are ready to
 dive down a level deeper and learn how to gain more control over how the

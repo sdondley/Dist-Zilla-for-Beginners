@@ -10,13 +10,13 @@ provides.
 After installing and configuring `Dist::Zilla`, we issued the `dzil new` command
 to get our process started. If we think of `Dist::Zilla` as a module
 distribution production factory, then our `new` command is like establishing a
-new work area on the factory floor where we assemble the raw product (our modules)
+new work area on the factory floor where we assemble the raw product (our module)
 before we package and ship it.
 
-The work area we set up for our simple `Greetings` module used the default
-profile that, as we saw, was very sparse and bare-bones. We will learn how to
-teach `Dist::Zilla` to establish highly customized work areas by, in the jargon
-of `Dist::Zilla`, "minting a custom profile." More on this much later.
+The work area we set up for our simple `Greetings` module used `Dist::Zilla`'s
+default profile that, as we saw, was very sparse and bare-bones. We will learn
+how to teach `Dist::Zilla` to establish highly customized work areas by, in the
+jargon of `Dist::Zilla`, "minting a custom profile." More on this later.
 
 ## Understanding the `dzil build` Command
 
@@ -28,7 +28,7 @@ A good way to think about the `build` command is to imagine it as an assembly
 line. Your raw product, the module, is loaded onto the beginning of the assembly
 line. As your module moves down the line, an ordered series for robots, or
 **plugins,** work their magic to transform your module into a finished, fully
-packaged distribution at the end of the line that is ready for shipping.
+packaged distribution at the end of the line that's ready for shipping.
 
 Many plugins come pre-packaged with `Dist::Zilla` but there are hundreds more
 available on CPAN. You can also write your own plugins to help build your
@@ -64,7 +64,7 @@ issue this command now to see what happens:
 
 `dzil clean`
 
-You'll notice that both the tarball file and the distribution directory are now
+Both the tarball file and the distribution directory are now
 gone and only the files we had after issuing the `new` command are left behind.
 But don't worry, we can easily get them back when we're ready.
 
