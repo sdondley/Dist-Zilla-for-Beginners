@@ -35,7 +35,7 @@ of the files and directories we see from left to right with the `ls -l` command.
 
 ### The `bin` Directory
 
-Nothing exciring here. That's where your `sayhi` command is stored.
+Nothing exciting here. That's where your `sayhi` command is stored.
 
 ### `dist.ini` File
 
