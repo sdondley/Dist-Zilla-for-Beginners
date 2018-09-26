@@ -15,10 +15,10 @@ may want to follow along closely and do all steps below.
 
 ## Drafting a New Blueprint
 
-We are going to create a new blueprint a distribution containing a simple
-command. To get started, we'll copy an existing blueprint that is the most
-similar to the new one we want to create. In our case, we only have one other
-blueprint so we'll copy that:
+Our blueprint will be for a distribution containing a simple command. To get
+started, we'll copy an existing blueprint that is the most similar to the new
+one we want to create. In our case, we only have one other blueprint so we'll
+copy that:
 
 ```
 
