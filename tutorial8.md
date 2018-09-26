@@ -31,9 +31,9 @@ content and the `sayhi-0.0001.tar.gz` which, as we've already mentioned, is
 just an archived version of the `sayhi-0.001` directory placed there for your
 convenience.
 
-Dive down into your distribution with `cd sayhi-0.001`, also known as your
-**"build tree,"** and we'll step through each of the files and directories we see
-from left to right with the `ls -l` command.
+Dive down into your distribution's directory, also known as your **"build
+tree,"** with `cd sayhi-0.001`, and we'll step through each of the files and
+directories we see from left to right with the `ls -l` command.
 
 ### The `bin` Directory
 
