@@ -209,8 +209,8 @@ Fire up your text editor to edit the `lib/sayhi.pm` module and add/modify the
 following lines (or just cut and paste the entire code listing that follows):
 
 * add `use Greetings;` near the top
-* replace all instances of `option1` with `shout`
-* replace `do option 1` to `shout`
+* in the `opt_spec` function, replace all instances of `option1|a` with `shout|s`
+* replace `do option 1` to `shout it`
 * change `$opt->{option1}` to `$opt->{shout}`
 * replace `#do option 1 stuff` with `&Greetings::shout_hw;`
 * replace `#do regular stuff` with `&Greetings::hw;`
@@ -229,7 +229,7 @@ use base qw(App::Cmd::Simple);
 
 sub opt_spec {
   return (
-    [ "shout",  "shout" ],
+    [ "shout|s",  "shout it" ],
   );
 }
 
@@ -263,4 +263,6 @@ That's it! You can now build your new module:
 `dzil build`
 
 Hopefully you installed the `Greetings` module earlier so you can actually put
-your command to good use printing "Hello, World!" to your heart's content.
+your command to good use printing "Hello, World!" to your heart's content right
+from the command line. To print a standard greeting, do `sayhi` from the command
+line. To shout it, do `sayhi --shout` or `sayhi -s`.
