@@ -6,7 +6,7 @@ just created with the `[@Starter]` bundle in the last tutorial. As this is only
 a tutorial, we will provide just enough information to satisfy the curious and
 set the stage for some more advanced tutorials. But an entire book could be
 written about all the different components of a Perl distribution that we
-definitely aren't getting paid well enough to detail.
+definitely aren't getting paid well enough to document here.
 
 ## Examining Your Work Area After a `dzil build`
 
