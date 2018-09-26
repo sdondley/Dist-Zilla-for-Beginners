@@ -32,13 +32,13 @@ we've invented to conceptualize how `Dist::Zilla` works catches on.
 
 ## A Better Way to Think About the "Minting Profiles"
 
-In an earlier tutorial, we used the analogy of a "workarea." To refresh your
-memory, we imagined that the `dzil new` command set up a new workarea on your
+In an earlier tutorial, we used the analogy of a "work area." To refresh your
+memory, we imagined that the `dzil new` command set up a new work area on your
 factory floor for forging your module. Each time you issue the `new`
-command, you set up a new workarea in a new directory on your computer for
+command, you set up a new work area in a new directory on your computer for
 creating and distributing a new module.
 
-But it gets even better than that. You can control not just what your workarea
+But it gets even better than that. You can control not just what your work area
 will initially look like but what manufacturing process will be used to pakcage
 your module. In other words, you can control which plugins go into your
 `dist.ini` file. This is a powerful feature of `Dist::Zilla` that takes you well
@@ -67,7 +67,7 @@ for storing ~~profiles~~ blueprints:
 
 Inside the default directory, create a `profile.ini` file (which we cannot call
 `blueprint.ini`). The primary job of this file is to tell `Dist::Zilla` how to
-establish your workarea. The file works very similarly to how the `dist.ini` file
+establish your work area. The file works very similarly to how the `dist.ini` file
 works. But instead of processing modules, it sets up the template for your
 main module, generates other supporting files, if any, and assembles your
 `dist.ini` file.
@@ -112,7 +112,7 @@ use warnings;
 ```
 
 This looks like a template for the module that will be added to your
-workarea. That's because that's exactly what it is.
+work area. That's because that's exactly what it is.
 
 Lastly, we are going to add the `dist_ini.txt` file to your blueprint, the file
 mentioned in the `[DistINI]` section of your `profile.ini` configuration file.
@@ -134,7 +134,7 @@ If you guessed that the contents of `dist_ini.txt` will end up inside your
 
 You should now have three files in the `default` directory. Together, they
 comprise your first factory blueprint. Let's see if you cut and paste everything
-correctly. Create a new, empty directory and try creating a new workarea:
+correctly. Create a new, empty directory and try creating a new work area:
 
 `dzil new Super::Greetings`
 
@@ -145,7 +145,7 @@ inspect your three blueprint files for errors and try again.
 
 ## Exploring Your New Factory
 
-If you've successfully created your new workarea, look inside and you'll see
+If you've successfully created your new work area, look inside and you'll see
 that we have your `dist.ini` file with all the plugins and parameters we
 supplied in your `plugins.ini` file. You'll also see the global configuration
 parameters at the top of of the `dist.ini` file were added for you. You might
