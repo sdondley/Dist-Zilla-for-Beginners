@@ -4,11 +4,10 @@ You can create an entire library of blueprints customized for the different
 kinds of modules and distributions you wish to create. For example, you might
 want set up a blueprint that generates boilerplate appropirate for a Moose
 module or one for distributing a standalone perl script. You can also set up
-blueprints for automatically creating a git repository for your module as well
-as generate a remote repository for you on GitHub and that will automatically
-push commits out to it (we'll cover this in our next tutorial). There's lots of
-latent power underlying the `new` command so let's get a better taste for how to
-tap into it.
+blueprints that create a git repository for your module as well as generate a
+remote repository for you on GitHub and that will automatically push commits out
+to it (we'll cover this in our next tutorial). There's lots of latent power
+underlying the `new` command so let's get a better taste for how to tap into it.
 
 Our last blueprint was a trivial one for the purposes of showing you the basics.
 This next one might be one you'll want to add to your library, so you may want
