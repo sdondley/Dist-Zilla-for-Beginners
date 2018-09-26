@@ -16,13 +16,18 @@ to follow along closely.
 ## Drafting a New Blueprint
 
 Setting up additional blueprints is easy. Let's say we want to create a new
-blueprint appropriate for distributions with a simple command. First, we have
-to create the directory for storing our blueprint. We'll copy an existing
-blueprint that is hopefully close to the new one we want to create. In our case,
-we only have a `default` blueprint so we're forced to start with that one:
+blueprint appropriate for distributions with a simple command. Like before, we
+first have to create the directory for storing our blueprint. We'll copy an
+existing blueprint that is hopefully close to the new one we want to create. In
+our case, we only have a `default` blueprint so we're forced to start with that
+one:
+
+```
 
 `cd ~/.dzil/profiles`
 `cp -r default command`
+
+```
 
 And now we can go to work making the necessary modifications to our new
 `command` blueprint. The first thing we'll do is create the executable command
@@ -47,9 +52,10 @@ root = skel
 
 The first line in brackets is the name of a plugin, though it's a little
 different than what we've seen previously because of the double colon sandwiched
-in the name. Don't let that scare you off. It's just means we are using a
-plugin called `Template` that is a sublcass of the `[GatherDir]` plugin. So
-what exactly does this plugin do?
+in the name. This syntax mean we are using a plugin called `Template` that's a
+sublcass of the `[GatherDir]` plugin.
+
+So what exactly does this plugin do?
 
 #### The `[GatherDir]` and `[GatherDir::Template]` Plugins
 
@@ -65,9 +71,9 @@ directory on your hard drive, usually from your profile, and adds them to your
 work area. Before they get there, though, `[GatherDir]` stores files in your
 computer's memory for in case they need more processing.
 
-The `Template` subclass tells `Dist::Zilla` to treat these files like templates
-and, if any variables are found inside of our files, to replace them with the
-appropriate string. You'll see this in action shortly.
+The `Template` subclass tells `Dist::Zilla` to treat the collected file like
+templates and, if any variables are found inside of our files, to replace them
+with the appropriate string. You'll see this in action shortly.
 
 #### Adding a Skeleton Directory to Your Module
 
@@ -109,9 +115,11 @@ by the templating system `Dist::Zilla` uses to identify variables. Both the
 curly braces and the `$dist->name` variable will be replaced by the name of the
 distibution name we supply to the `dzil new` command when we set up our work
 area. As mentioned, these substitutions are performed by our
-`[GatherDir::Template]` plugin.
+`[GatherDir::Template]` plugin. In case you're wondering, `$dist` is the
+`Dist::Zilla` object overseeing everything and `name`, of course, is the method
+that generates the name of our distribution.
 
-We will also note that the modle we will sooon create makes use of the
+We will also note that the modle we will soon create makes use of the
 `App::Cmd::Simple` module which supplies the `run` method we see in the command
 file. If you are interested in how the `App::Cmd::Simple` command works, you
 should refer to its documentation.
@@ -129,9 +137,9 @@ Open up your `profile.ini` command and add the following line to the end of the
 
 `rename.the_command = $dist->name`
 
-This little bit of code tells the plugin to change the name of any file called
-`the_command` to the name of our distribution, which we will pass to our `dzil
-new` command which we will soon do.
+This snippet tells the plugin to change the name of any file called
+`the_command` to the distribution name that gets passed to our `dzil new`
+command which we will soon do.
 
 ### Modifying the Module Template
 
@@ -183,8 +191,8 @@ rest of the code works, we encourage you to take a look at the
 
 ## Set Up Your Work Area with the `new` Command and the `-p` Argument
 
-It's time to see how well you can follow instructions. Let's try to generate a
-new work area with our blueprint using the following command:
+It's time to see if you accurately followed instructions. Let's try to generate
+a new work area with our blueprint using the following command:
 
 `dzil new sayhi -p command`
 
@@ -194,11 +202,11 @@ wrote, to generate our new work area.
 
 With any luck, you'll see the `sayhi` work area set up in your directory and no
 errors. If not, take a close look at any errors `Dist::Zilla` generated and
-figure out what you might need to fix.
+try to figure out what you have to do to get things working.
 
 ## Getting `sayhi` to Say "Hi"
 
-`Dist::Zilla` has generated our template and skeletong files, now we just need
+`Dist::Zilla` has generated our template and skeleton files, now we just need
 to make a few trivial changes to our module to get it to actually do something.
 Fire up your text editor to edit the `lib/sayhi.pm` module and add/modify the
 following lines (or just cut and paste the entire code listing that follows):
@@ -253,9 +261,9 @@ sayhi - Add the module abstract here
 
 ```
 
-That's it! Hopefully you installed the `Greetings` module earlier so you can
-actually put your command ot good used.
-
-You can now build your new module:
+That's it!  You can now build your new module:
 
 `dzil build`
+
+Hopefully you installed the `Greetings` module earlier so you can actually put
+your command to good use printing "Hello, World!" to your heart's content.
