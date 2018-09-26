@@ -68,7 +68,7 @@ Perl module manually with the magic incantation, `perl Makefile.pl`. One of the
 key jobs of `Dist::Zilla` during the build phase is to generate the
 `Makefile.pl` file.
 
-`Makefile.PL` is what's known as a "build system" and one of its key jobs is to
+`Makefile.PL` is what's known as a "build script" and one of its key jobs is to
 build your distribution. However, this job is completely replaced by
 `Dist::Zilla` which does all of the distribution building for you. So why do we
 need it?
