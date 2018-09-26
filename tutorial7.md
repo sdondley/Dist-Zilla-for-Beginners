@@ -11,8 +11,8 @@ latent power underlying the `new` command so let's get a better taste for how to
 tap into it.
 
 Our last blueprint was a trivial one for the purposes of showing you the basics.
-This next one might be one you actually add to your library, so you may want to
-follow along closely.
+This next one might be one you'll want to add to your library, so you may want
+to follow along closely.
 
 ## Drafting a New Blueprint
 
