@@ -4,7 +4,7 @@ Now that you know your way around `Dist::Zilla` a bit, it's time to take a
 closer look at its output through a broad examination of the distribution we
 just created with the `[@Starter]` bundle in the last tutorial. As this is only
 a tutorial, we will provide just enough information to satisfy the curious and
-set the stage for some more advanced tutorials. But An entire book could be
+set the stage for some more advanced tutorials. But an entire book could be
 written about all the different components of a Perl distribution that we
 definitely aren't getting paid well enough to detail.
 
