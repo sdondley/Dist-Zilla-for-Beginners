@@ -106,7 +106,8 @@ useless information you usually find in them.
 
 Lastly, we see two directories, `t` and `xt`. If you are familiar with testing
 Perl modules, you'll recognize these directories as the home of the module tests
-the end user will run and the author tests, respectively.
+that get run by you and the installer to make sure your module works properly
+and the author tests that only the developer will run.
 
 Using `Dist::Zilla` to test your distribution is a topic worthy of a tutorial
 all by itself. So please continue on to learn more.
