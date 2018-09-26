@@ -11,7 +11,7 @@ let's get a better taste for how to tap into it.
 
 Our last blueprint was a trivial one for the purposes of showing you the basics.
 This next one might be one you'll want to add to your blueprint library, so you
-may want to follow along closely and do all steps below.
+may want to follow along closely and do all the steps below.
 
 ## Drafting a New Blueprint
 
