@@ -14,12 +14,12 @@ Most of the interesting stuff is in the `sayhi-0.001` folder, which contains
 your distribution, but let's say a few words about what was added to your
 work area, or **"source tree,"** as it is more commonly referred to as.
 
-If you run `ls -a` in the root of your workarea, you'll see a `.build`
+If you run `ls -a` in the root of your source tree, you'll see a `.build`
 directory. This directory is not very interesting for you except for the
 `latest` symbolic link in there which points to any failed test results. The
 `.build` directory is removed for you when you do `dzil clean`.
 
-The only other thing to note for the sake of being complete is the addition of
+The only other thing to note for the sake of completeness is the addition of
 the `READM.mkdn` file which we already covered in a previous tutorial.
 
 So now let's talk about the distribution itself.
