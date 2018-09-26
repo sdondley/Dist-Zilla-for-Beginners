@@ -12,17 +12,17 @@ definitely aren't getting paid well enough to document here.
 
 Most of the interesting stuff is in the `sayhi-0.001` folder, which contains
 your distribution, but let's say a few words about what was added to your
-working area, or **"source tree,"** as it is more commonly referred to as.
+work area, or **"source tree,"** as it is more commonly referred to as.
 
 If you run `ls -a` in the root of your workarea, you'll see a `.build`
 directory. This directory is not very interesting for you except for the
 `latest` symbolic link in there which points to any failed test results. The
 `.build` directory is removed for you when you do `dzil clean`.
 
-The only other interesting thing to note is the addition of the `READM.mkdn`
-file. In a previous tutorial, we showed how that got placed here.
+The only other thing to note for the sake of being complete is the addition of
+the `READM.mkdn` file which we already covered in a previous tutorial.
 
-Now let's talk about the distribution itself.
+So now let's talk about the distribution itself.
 
 ## Your Module's Distribution
 
@@ -31,12 +31,13 @@ content and the `sayhi-0.0001.tar.gz` which, as we've already mentioned, is
 just an archived version of the `sayhi-0.001` directory placed there for your
 convenience.
 
-Now dive down into your distribution with `cd sayhi-0.001`. We'll step through each
-of the files and directories we see from left to right with the `ls -l` command.
+Dive down into your distribution with `cd sayhi-0.001`, also known as your
+**"build tree,"** and we'll step through each of the files and directories we see
+from left to right with the `ls -l` command.
 
 ### The `bin` Directory
 
-Nothing exciting here. That's where your `sayhi` command is stored.
+Nothing exciting here. This is where your `sayhi` command is stored.
 
 ### `dist.ini` File
 
@@ -52,9 +53,12 @@ This is where your actual modules lives.
 Yup, this contains a copy of your license. The license is automatically
 generated for you based on setting in your default configuration using the
 `[License]` plugin. If you want to override the default license, the easiest
-thing to do is to modify your `dist.ini` file. As you probably can guess, there
-are other advanced plugins you can use to help you generate this file. We'll
-leave that to you to explore.
+thing to do is to modify your `dist.ini` file. You can get a list of available
+licenses in the [`[License]` plugin's
+documentation](https://metacpan.org/pod/Software::License).
+
+As you might imagine, there are other advanced plugins you can use to help you
+generate this file. We'll leave that for you to explore.
 
 ### Makefile.PL
 
