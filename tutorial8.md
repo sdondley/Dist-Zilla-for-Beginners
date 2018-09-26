@@ -77,6 +77,12 @@ But we encourage you to read up on it and get familiar with it especially if you
 want to someday become a `Dist::Zilla` pro and write all kinds of advanced
 plugins.
 
+### The MANIFEST
+
+Nothing too interesting here, just a straight up listing of all the files in the
+distribution. It's mostly there to help the installer do its thing, install your
+software.
+
 ### META.json and META.yml
 
 There are two different files containing essentially the same meta information
