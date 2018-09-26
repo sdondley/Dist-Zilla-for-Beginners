@@ -1,4 +1,4 @@
-# A More Advanced `Dist::Zilla` Blueprint Example
+# A More Useul `Dist::Zilla` Blueprint
 
 You can create an entire library of blueprints customized for the different
 kinds of modules and distributions you wish to create. For example, you might
