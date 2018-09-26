@@ -63,9 +63,9 @@ individual plugins used by the `[@Basic]` bundle to the `dist.ini` file. The
 in the distribution generation process.
 
 When we issue the `dzil build` command, the `[GatherDir]` gathers the files from
-your work area and place them on the assembly line. It does a similar job when
+your work area and places them on the assembly line. It does a similar job when
 we issue the `dzil new` command except it adds files from a directory on your
-hard drive–usually wihtin your blueprint directory–and adds them to your work
+hard drive–usually within your blueprint directory–and adds them to your work
 area. Before saving them there, though, `[GatherDir]` stores the files in your
 computer's memory in case they need more processing.
 
