@@ -22,7 +22,7 @@ blueprint that is hopefully close to the new one we want to create. In our case,
 we only have a `default` blueprint so we're forced to start with that one:
 
 `cd ~/.dzil/profiles`
-`cp default command`
+`cp -r default command`
 
 And now we can go to work making the necessary modifications to our new
 `command` blueprint. The first thing we'll do is create the executable command
@@ -35,8 +35,8 @@ How do we design a blueprint that adds a `bin` directory and places a command
 inside of it? Good questions. You'll get to see some of `Dist::Zilla`'s more
 powerful templating features as we reveal the answer.
 
-To being answering these questions, take a look inside the `profile.ini` file.
-The last section of the file has the following lines:
+To answer these questions, we'll start by taking a look inside the `profile.ini`
+file.  The last section of the file has the following lines:
 
 ```
 
