@@ -98,7 +98,7 @@ generate very basic documentation about your module for human consumption.
 
 Here is our lowly, plain text `README` file. There are no requirements for what
 should go into the `README` file. But more and more we see developers stuffing
-their POD into them as GitHub has rose to prominence and made `README` files
+their POD into them as GitHub has risen to prominence and made `README` files
 useful again. So, we have done the same. It's certainly better than the other
 useless information you usually find in them.
 
