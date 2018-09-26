@@ -6,7 +6,7 @@ set up a blueprint that generates boilerplate for Moose modules and another for
 standalone perl scripts. You can also set up blueprints that create a git
 repository for your module as well as generate a remote repository for you on
 GitHub and that will automatically push commits out to it (we'll cover this in
-another tutorial). There's lots of latent power underlying the `new` command so
+future tutorial). There's lots of latent power underlying the `new` command so
 in this tutorial we'll give you a better taste for how to tap into it.
 
 Our last blueprint was a trivial one for the purposes of showing you the basics.
@@ -210,12 +210,21 @@ make some trivial changes to our module to get it functional. Fire up your text
 editor to edit the `lib/sayhi.pm` module and add/modify the following lines (or
 just cut and paste the entire code listing that follows):
 
-* add `use Greetings;` near the top
-* in the `opt_spec` function, replace all instances of `option1|a` with `shout|s`
+* Add `use Greetings;` somewhere near the top
+
+In the `opt_spec` function:
+
+* replace `option1|a` with `shout|s`
 * replace `do option 1` to `shout it`
+
+In the `execute` funciton:
+
 * change `$opt->{option1}` to `$opt->{shout}`
 * replace `#do option 1 stuff` with `&Greetings::shout_hw;`
 * replace `#do regular stuff` with `&Greetings::hw;`
+
+In the pod:
+
 * change `Add the module abstract here` to `Backend interface for "sayhi"
   command`
 

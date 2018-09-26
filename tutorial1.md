@@ -96,8 +96,8 @@ Ouch! There's barely anything here. Just a mysterious `dist.ini` file and a
 seem very impressive compared to the `h2xs` tool.
 
 `Dist::Zilla` works a lot differently than `h2xs`. Its `new` subcommand
-isn't designed to immediately build our distribution, it simply sets up a
-directory that will eventually store our code and distribution builds. But
+isn't designed to immediately generate a distribution, it simply sets up a
+directory that will eventually store our code and distributions. But
 before we get ahead of ourselves, let's make our module useful by editing the
 `lib/Greetings.pm` module file that `dzil` generated for us and add in our
 function:
@@ -111,7 +111,7 @@ sub hw {
 ```
 
 And for reasons we don't need to worry about now, we have to add a brief
-abstract so `Dist::Zilla` can build our module with this line:
+abstract so `Dist::Zilla` can generate our distribution with this line:
 
 `# ABSTRACT: Quick Greetings for the world`
 
@@ -134,8 +134,8 @@ sub hw {
 
 ### The `dzil build` Command
 
-Now we are ready to actually build our distribution by issuing `dzil`'s `build`
-command from the top level of our `Greetings` distribution:
+Now we are ready to actually generate our distribution by issuing `dzil`'s
+`build` command from the top level of our `Greetings` distribution:
 
 `dzil build`
 

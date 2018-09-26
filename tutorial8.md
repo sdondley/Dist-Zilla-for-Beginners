@@ -1,0 +1,105 @@
+# A Closer Look at a Distribution
+
+Now that you know your way around `Dist::Zilla` a bit, it's time to take a
+closer look at its output through a broad examination of the distribution we
+just created with the `[@Starter]` bundle. As this is only a tutorial, we won't
+just provide enough information to set the stage for more advanced tutorials.
+But an entire book could be written about all the different components of a Perl
+distribution that we won't worry about here.
+
+## Examining Your Work Area After a `dzil build`
+
+Most of the interesting stuff is in the `sayhi-0.001` folder, which contains
+your distribution, but let's say a few words about what got was added to your
+working area, or "source tree," as it is more commonly referred to.
+
+If you run `ls -a` in the root of your workarea, you'll see a `.build`
+directory. This directory is not very interesting for you except for the
+`latest` symbolic link to any failed test results. The `.build` directory is
+removed for you when you do `dzil clean`.
+
+The only other interesting thing to note is the addition of the `READM.mkdn`
+file. In a previous tutorial, we showed how that got placed here.
+
+Now let's talk about the distribution itself.
+
+## Your Module's Distribution
+
+You distribution has two components, the `sayhi-0.001` directory and all of its
+contents and the `sayhi-0.0001.tar.gz` which, as we've already mentioned, is
+just an archived version of the `sayhi-0.001` directory placed there for your
+convenience.
+
+Dive down into your distribution with `cd sayhi-0.001`. Let's step through each
+of the files and directories we see from left to right with the `ls -l` command.
+
+### The `bin` Directory
+
+Nothing exciring here. That's where your `sayhi` command is stored.
+
+### `dist.ini` File
+
+It's considered good practice to ship your `dist.ini` file along with your
+distribution so the `[@Starter]` bundle leaves it in for you.
+
+### The `lib` Directory
+
+This is where your actual modules lives.
+
+### LICENSE
+
+Yup, this contains a copy of your license. The license is automatically
+generated for you based on setting in your default configuration using the
+`[License]` plugin. If you want to override the default license, the easiest
+thing to do is to modify your `dist.ini` file. As you probably can guess, there
+are other advanced plugins you can use to help you generate this file. We'll
+leave that to you to explore.
+
+### Makefile.PL
+
+This is by far the most complicated part of your distribution and is at the
+heart of it. You have encountered the `Makefile.PL` if you have ever installed a
+Perl module manually with the magic incantation, `perl Makefile.pl`. One of the
+key jobs of `Dist::Zilla` during the build phase is to generate the
+`Makefile.pl` file.
+
+`Makefile.PL` is what's known as a "build system" and one of its key jobs is to
+build your distribution. However, one of it's most basic functions, to build
+your distiribution, is completely replaced by `Dist::Zilla` which does all of
+the distribution building for you. So why do we need it?
+
+`Dist::Zilla` does rely on `Makefile.PL` to run tests and to create the tarball.
+Most importantly, `Makefile.PL` is needed to install the software on another
+computer.
+
+Going into any more detail on this file is beyond the scope of this tutorial.
+But we encourage you to read up on it and get familiar with it especially if you
+want to someday become a `Dist::Zilla` pro and write all kinds of fancy plugins.
+
+### Meta.json and Meta.yml
+
+There are two different files containing essentially the same meta information
+about your module. Strictly speaking you don't need both, but it's good practice
+and since `Dist::Zilla` does all the hard work of generating them for you, it's
+not a big deal to do it.
+
+These files help CPAN tell the world about your module and automatically
+generate very basic documentation about your module for human consumption.
+
+### README, Please!
+
+Here is our lowly, plain text `README` file. There are no requirements for what
+should go into the `README` file. But more and more we see developers stuffing
+their POD into them as GitHub has rose to prominence and made `README` files
+useful again. So, we have done the same. It's certainly better than the other
+useless information you usually find in them.
+
+### Testing 1, 2, 3
+
+Lastly, we see two directories `t` and `xt`. If you are familiar with testing
+Perl modules you'll recognize these directories as the home of the module tests
+the end user will run and the author tests, respectively.
+
+Using `Dist::Zilla` to test your distribution is a topic worthy of a tutorial
+all by itself. So please continue on to learn more.
+
