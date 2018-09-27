@@ -95,7 +95,7 @@ following function to it:
 ```
 
 sub shout_hw {
-  return uc hw();
+  print uc "Hello, World!\n";
 }
 
 ```
