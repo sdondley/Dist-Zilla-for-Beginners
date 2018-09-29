@@ -11,7 +11,7 @@ Off to the races, we go.
 ## Fixing Failed Tests
 
 To see what a failed test looks like, we are going to purposeflly introduce some
-bad code. Edit the lib/sayhi.pm module and add the following lines to the end of
+bad code. Edit the `lib/sayhi.pm` module and add the following lines to the end of
 the file:
 
 ```
@@ -80,7 +80,7 @@ directories. Drop into the `latest` build and you'll see our the mysterious
 error is in the `blib` directory.
 
 Let's jump out of the `.build` directory and back to the root of the source
-tree. Oopen up the `lib/sayhi.pm` file and change `hea1` to `head1`. Run your
+tree. Open up the `lib/sayhi.pm` file and change `hea1` to `head1`. Run your
 tests again to make sure everything is kosher:
 
 `dzil test`
@@ -97,9 +97,9 @@ Follow these basic steps to write your tests.
 
 Figuring out what tests to write can be daunting when you are new to testing.
 Our task is harder because, contrary to good **test-driven development**
-practices, which we'll talk more about soon, we've already written some code we
+practices which we'll talk more about soon, we've already written the code we
 want to test. Fortunately our module is very simple and we can easily make up
-our lost ground.
+lost ground.
 
 To determine which test to write, it helps to keep in mind that a test
 determines if your code has certain characteristics or does what you expect it
@@ -279,81 +279,8 @@ build` first and run the `prove` command from inside the build tree. We don't
 need to do that in this case since we have all the code we need is in our source
 tree. And if you are running `XS` modules with c code in them, you'll need to
 seek another tutorial out for how to get around that with the `prove` command.
+as_license_in_source_file`. We will address these issues in another tutorial.
 
-## Useful Plugins for Improving the Quality of Your Code
-
-As we saw, the `[@Starter]` bundle includes test plugins to find potential
-problems with your code. For example, the `[PodSyntaxTests]` warns you when your
-documenation has an error.
-
-You can add similar kinds of tests to your distirubiton to "coach" you and make
-recommendations for code improvement. This is a quick overview of some of the
-more common, basic ones that you may want to explore further or replace with
-more sophisticated test plugins.
-
-### POD Coverage Tests
-
-Hop over to the `Greetings` work area and modify the `dist.ini` file and add the
-following plugin:
-
-`[PodCoverageTests]`
-
-Now run `dzil test` and you'll see a failed test for two `naked subroutines`,
-`hw` and `hw_shout`. This means that your documentation does not properly
-document how these functions work. Update the inline documentation in your
-module to get those tests to pass.
-
-### Kwalitee Tests
-
-A Kwalitee Test judges the overall quality of your distribution. Instead of
-describing what it does, let's set it in action. Add the plugin to your
-`dist.ini` file:
-
-`[Test::Kwalitee]`
-
-We are going to teach you a new trick for downloading plugins mentioned in your
-`dist.ini` file. Run the following command:
-
-`dzil authordeps --missing | cpanm`
-
-This will detect any missing plugins and install them for you.
-
-The `[Test::Kwalitee]` test is run only when the `release` subcommand is issued.
-So to run its tests, you must run:
-
-`dzil test --release`
-
-You should see the following errors within your test output:
-
-```
-
-xt/release/kwalitee.t ..... 1/?
-#   Failed test 'has_changelog'
-#   at xt/release/kwalitee.t line 7.
-# Error: The distribution hasn't got a Changelog (named something like m/^chang(es?|log)|history$/i. A Changelog helps people decide if they want to upgrade to a new version.
-# Details:
-# Any Changelog file was not found.
-# Remedy: Add a Changelog (best named 'Changes') to the distribution. It should list at least major changes implemented in newer versions.
-
-#   Failed test 'has_license_in_source_file'
-#   at xt/release/kwalitee.t line 7.
-# Error: Does not have license information in any of its source files
-# Details:
-# LICENSE section was not found in the pod.
-# Remedy: Add =head1 LICENSE and the text of the license to the main module in your code.
-# Looks like you failed 2 tests of 17.
-xt/release/kwalitee.t ..... Dubious, test returned 2 (wstat 512, 0x200)
-Failed 2/17 subtests
-
-Test Summary Report
--------------------
-xt/release/kwalitee.t   (Wstat: 512 Tests: 17 Failed: 2)
-  Failed tests:  6, 15
-  Non-zero exit status: 2
-Files=4, Tests=23,  0 wallclock secs ( 0.02 usr  0.02 sys +  0.48 cusr  0.02 csys =  0.54 CPU)
-Result: FAIL
-
-```
-
-`Test::Harness` says we failed two tests: `has_changelog` and
-`has_license_in_source_file`. We will address these issues in another tutorial.
+This concludes our very basic tutorial on testing with `Dist::Zilla`. Our last
+tutorial on testing will show you how to add more tests to your distribution to
+help you write good quality code.
