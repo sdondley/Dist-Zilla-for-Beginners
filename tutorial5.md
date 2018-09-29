@@ -30,8 +30,8 @@ First, we now have a `META.json` file which CPAN will use to help tell the world
 about your module. And if you open the `README` file, you'll see that it's
 blank. Did we break something? Not at all. We'll tackle this problem in a
 moment. `[@Starter]` also makes a lot of other technical changes to the process
-that aren't necessary to cover here. Instead, we refer you to `[@Starter]`'s
-documentation for the nitty gritty details.
+that aren't necessary to cover now. Or, if you are brave, you can always check
+out `[@Starter]`'s documentation for the nitty gritty details.
 
 Suffice it to say here that changing the bundle can drastically change how your
 module gets packaged by using different machines (plugins) on the assembly line.
@@ -64,8 +64,8 @@ to generate your `README` file.
 We haven't yet written any documentation for your module yet and that is
 precisely why our `README` file is blank. So let's fix that. We don't want you
 to have a reputation as a lazy developer that doesn't document their work. Add
-the following documentation to your `Greetings.pm` by adding the following
-to the bottom of the `lib/Greetings.pm` module:
+some documentation to your `Greetings.pm` by adding these lines to the bottom of
+the `lib/Greetings.pm` module:
 
 ```
 
@@ -118,7 +118,7 @@ parlance, bracketed text starts a new **section** in our `dist.ini` file.
 Below and within this section we supplied two **parameters,** using the standard
 key/value pair `.ini` syntax. Because they are in the section our plugin is
 named after, they got passed to our plugin. Think of the parameters as custom
-commands we are giving to our `README` insertion robot on the assembly line. As
+commands we give to our `README` insertion robot on the assembly line. As
 you might assume by looking at the parameters, we are instructing the
 `[@ReadmeAnyFromPod]` plugin to generate a `README.md` file using the `markdown`
 syntax. Each plugin has different parameters that it will accept which you can
@@ -129,20 +129,21 @@ text `README` file using the `[ReadmeAnyFromPod]` plugins. So what we are doing
 here is telling `dist.ini` to run the `[ReadmeAnyFromPod]` plugin a **second
 time** to generate the markdown version of our `README.md` file.
 
-But what if you don't want to ship the `README.md` file to CPAN? No problem! You
-can direct `[ReadmeAnyFromPod]` to save the markdown version to the top level of
-your `Dist::Zilla` directory instead of inside your distribution by adding the
-following line to the `[ReadmeAnyFromPod]` section of your `dist.ini` file:
+But the purists out there believe a markdown file has no business being on CPAN.
+No problem! You can direct `[ReadmeAnyFromPod]` to save the markdown version to
+the top level of your `Dist::Zilla` directory instead of inside your
+distribution by adding the following line to the `[ReadmeAnyFromPod]` section of
+your `dist.ini` file:
 
 `location = root`
 
 Try it out and run the `build` command and you'll see your `README.md` file
-output at alongside your distribution's directory instead of inside it:
+output alongside your distribution's directory instead of inside it:
 
 `dist.ini  Greetings-0.002  Greetings-0.002.tar.gz  lib  README.md`
 
 Now your CPAN repository will remain unpolluted by those new-fangled markdown
-files to keep the purists happy.
+files, keeping the purists happy.
 
 Alright, we have now given you a very tiny taste for how to gain more control
 over how your plugins work. We'll show you many more powerful and useful tricks

@@ -20,17 +20,18 @@ use Carp;
 
 You've done it 100 times and 95 times you have throught to yourself "I really
 need to automate this." If you consider yourself a decent Perl developer, you're
-probably already using some kind of templating system for kicking off a project.
-Some are good, many of them suck.
+probably already using a templating system for kicking off a project or even
+rolled your own. Maybe they're adequate but odds are you are really missing out
+on what `Dist::Zilla` can offer.
 
-The good news is that `Dist::Zilla` has one of the most powerful, customizable
-templating systems available. The bad news is they are called **minting
-profiles.** We hate the name and think the term is confusing. Presumably the
-term's aim is to get us thinking about "minting" coins. In any case, we will
-avoid using the official terminology where possible with the hope the analogy
-we've invented to conceptualize how `Dist::Zilla` works catches on.
+`Dist::Zilla` has one of the most powerful, customizable templating systems
+available. Unfortunately, the official documentation refers to them as **minting
+profiles.** We hate the name and think it's confusing. Presumably the term's aim
+is to get us thinking about "minting" coins. In any case, we will avoid using
+the official terminology where possible with the hope the analogy we've invented
+to conceptualize how `Dist::Zilla` works catches on.
 
-## A Better Way to Think About the "Minting Profiles"
+## A Better Name for "Minting Profiles"
 
 In an earlier tutorial, we used the analogy of a "work area." To refresh your
 memory, we imagined that the `dzil new` command set up a new work area on your
@@ -48,11 +49,11 @@ plain templates.
 None of this really sounds like what goes into stamping out nickels so...
 
 ...instead of "minting profiles," we encourage you to think of them instead as
-"blueprints" as we think it better captures the essence of what the `new`
-command does: it sets up and configures your module and the processes that will
-work on it according to a plan. Where we use the term "profile" below,
-**mentally** replace it with "blueprint" instead. Of course, if we have you type
-in `profile`, make sure you actually type in `profile.`
+"blueprints" to better capture the essence of what the `new` command does: it
+sets up and configures your module and the processes that will work on it
+according to a plan. Where we use the term "profile" below, **mentally** replace
+it with "blueprint" instead. Of course, if we have you type in `profile`, make
+sure you actually type in `profile.`
 
 ## Creating Your First Factory Blueprint
 
@@ -145,11 +146,10 @@ inspect your three blueprint files for errors and try again.
 
 ## Exploring Your New Factory
 
-If you've successfully created your new work area, look inside and you'll see
-that your `dist.ini` has all the plugins and parameters you supplied in your
-`plugins.ini` file. The global configuration parameters at the top of of the
-`dist.ini` file were added for you as well. You might also notice something
-missing, though. More on that in a bit.
+Look inside your new work area and you'll see that your `dist.ini` has all the
+plugins and parameters you supplied in your `plugins.ini` file. The global
+configuration parameters at the top of of the `dist.ini` file were added for you
+as well. You might also notice something missing, though. More on that in a bit.
 
 Now open the `lib` directory where your module lives. Inside of that directory is
 the `Super` directory and inside of that directory is a `Greetings` directory
@@ -188,7 +188,7 @@ the `ABSTRACT` our installer required. This way, your blueprint killed two birds
 with one stone by giving your module some documenation and keeping the installer
 happy.
 
-Through your installer now has an abstract, it is now demanding that we feed it
+Though your installer now has an abstract, it is now demanding that we feed it
 a version. What's the best way to to do that? One way is to edit the module and
 add a version number there, similar to the way we added the `# ABSTRACT`
 comment. But since we're using `Dist::Zilla`, we'll add in `version =

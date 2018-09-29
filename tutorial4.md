@@ -47,8 +47,8 @@ shutdown the robot in charge of slipping license agreements into our
 distribution.
 
 Can you guess what will happen when we build our module now? We bet you can! But
-we are going to annoy you anyway and step you through the process, just in case
-you're wrong.
+we are going to annoy you anyway and step you through the process, on the
+outside chance you're wrong.
 
 After commenting out the `[License]` plugin, save the `dist.ini` file and run:
 
@@ -79,18 +79,18 @@ pro.
 
 ## Keeping It Clean
 
-You'll notice we didn't run `dzil clean` after each build. `Dist::Zilla` will
-overwrite existing builds with newer builds so long as they have the same
-version number. But as we add new versions, our older distributions will
-accumulate in our factory and we will want to sweep them out from time to time
-with the `clean` subcommand.
+You'll notice we didn't run `dzil clean` after each build. There is no need to
+because `Dist::Zilla` will overwrite existing builds with newer builds so long
+as they have the same version number. But as we add new versions, our older
+distributions will accumulate in our factory and we will want to sweep them out
+from time to time with the `clean` subcommand.
 
 ## Changing Your Module's Version Number
 
 Speaking of versions, how do we add a new version of our module? Glad you asked!
 
-Let's add a mind-blowing new feature to our `Greetings.pm` module by adding the
-following function to it:
+Let's add a mind-blowing new feature to our `Greetings.pm` module with the
+following function:
 
 ```
 
@@ -106,18 +106,18 @@ And now edit the `dist.ini` file to update the `version` value from `0.001` to
 `dzil build`
 
 Cool! Now you have a new version of your module to really annoy friends and
-family by shouting "HELLO, WORLD!" at them. You'll also notice that version
-0.001 is still laying around. You can quickly clean things up with `dzil clean`
-and then run `dzil build` again to get version 0.002 back. Then run `dzil
-install` so the other modules on your machine can take advantage of your new
-"shout_hw" funciton. We are going to use this module later so make sure you
-install it.
+family by shouting "HELLO, WORLD!" at them.
 
-Are you impressed with `Dist::Zilla`, yet? Maybe if you are brand new
-to distribution building you are excited but the truth is this is all pretty
-ho-hum stuff to more experienced developers. Don't worry, some more impressive
-tricks will soon be covered. We have to ensure everyone can walk before we teach
-them to run.
+Notice that version 0.001 is still laying around. You can quickly clean things
+up with `dzil clean` and then run `dzil build` again to get version 0.002 back.
+Then run `dzil install` so the other modules on your machine can take advantage
+of your new "shout_hw" funciton. We are going to use this module later so make
+sure you install it.
+
+Are you impressed with `Dist::Zilla`, yet? Maybe if you are brand new to
+distribution building you are excited but the truth is this is all pretty ho-hum
+stuff to more experienced developers. Don't worry, we'll cover more impressive
+tricks soon. We have to ensure everyone can walk before teaching them to run.
 
 ## Some Deeply Profound and Meaningful Reflections on Taming the `Dist::Zilla` Beast
 
@@ -147,7 +147,7 @@ after a monster for good reason.
 
 The goal of these tutorials is to try to help ease the pain of learning your way
 around `Dist::Zilla` and make solid recommendations for using it well. So try to
-restrain you urge to go full control freak for now. We still have a lot more
+restrain your urge to go full control freak for now. We still have a lot more
 basic stuff to cover before you should unleash yourself.
 
 With the obligatory Zen programming stuff out of the way, we are ready to

@@ -16,9 +16,8 @@ may want to follow along closely and do all the steps below.
 ## Drafting a New Blueprint
 
 Our blueprint will be for a distribution containing a simple command. To get
-started, we'll copy an existing blueprint that is the most similar to the new
-one we want to create. In our case, we only have one other blueprint so we'll
-copy that:
+started, we'll copy an existing blueprint that is similar to the new one we want
+to create. In our case, we only have one other blueprint so we'll copy that:
 
 ```
 
@@ -28,9 +27,8 @@ copy that:
 ```
 
 And now we can go to work making the necessary modifications to our new
-`command` blueprint. The first thing we'll do is create the executable command
-which, by convention, is usually stored in the `bin` directory of a
-distribution.
+`command` blueprint. We'll first create the executable command that, by
+convention, is usually stored in the `bin` directory of a distribution.
 
 ### Modifying Your Blueprint Copy
 
@@ -49,11 +47,12 @@ root = skel
 ```
 
 The first line in brackets is the name of a plugin, though it's a little
-different than what we've seen previously because of the double colon sandwiched
-in the name. This syntax means we are using a plugin called `Template` which is
-a sublcass of the `[GatherDir]` plugin.
+different with the double colon sandwiched in the name. This syntax simply means
+the `Template` plugin is a sublcass of the `[GatherDir]` plugin. In other words,
+it is a plugin that does the same thing as the `[GatherDir]` plugin with some
+additional capabilities.
 
-So what exactly does this plugin do?
+So what does the plugin do, exactly?
 
 #### The `[GatherDir]` and `[GatherDir::Template]` Plugins
 
@@ -64,36 +63,36 @@ in the distribution generation process.
 
 When we issue the `dzil build` command, the `[GatherDir]` gathers the files from
 your work area and places them on the assembly line. It does a similar job when
-we issue the `dzil new` command except it adds files from a directory on your
+we issue the `dzil new` command except it collects files from a directory on your
 hard drive–usually within your blueprint directory–and adds them to your work
 area. Before saving them there, though, `[GatherDir]` stores the files in your
 computer's memory in case they need more processing.
 
 The `Template` subclass tells `Dist::Zilla` to treat the collected file like
-templates and, if any variables are found inside of our files, to replace them
-with the appropriate string. You'll see this in action shortly.
+templates and, if any variables are found inside the files, replace them with
+the appropriate string. You'll see this in action shortly.
 
-#### Adding a Skeleton Directory to Your Module
+#### Adding a Skeleton Directory for Your Module
 
 The `root` parameter in the `[GatherDir::Template]` tells the plugin which
-directory to gather the files from. In this case, the `skel` directory inside
-our blueprint directory. There is nothing special about the "skel" name which
-is short for "skeleton." We could call the directory anything we want.
+directory to gather the files from. In this case, it's the `skel` directory
+inside our blueprint directory. There is nothing special about the "skel" name
+which is short for "skeleton." We could call the directory anything we want.
 
 But the `skel` directory doesn't exist yet so let's fix that. Making sure you
 are inside the `command` blueprint directory, issue this command:
 
 `mkdir skel`
 
-Now we are going to add our `bin` directory inside of our `skel` directory. As
-mentioned, the `bin` directory is where our module's command will go.
+Now add a `bin` directory inside the `skel` directory. As mentioned, the
+`bin` directory is where our module's command goes.
 
 `mkdir skel/bin`
 
 #### Adding the Command Template
 
-Next, we create the command's template file. Open a new file add the following
-lines to it:
+Next, we create the command's template file. Open a new file and add following
+lines:
 
 ```
 
@@ -108,18 +107,18 @@ use {{$dist->name}};
 
 ```
 
-Take a moment to study this code. First, you'll notice we've got some variables
+Take a moment to study this code. Notice we've got some variables
 inside a double set curly braces. This is the syntax used by the templating
 system `Dist::Zilla` uses to identify string substitutions. Both the curly
 braces and the `$dist->name` variable will be replaced with the distibution name
-argument passed to the `dzil new` command. As mentioned, these substitutions are
-performed by our `[GatherDir::Template]` plugin. In case you're wondering,
-`$dist` is the `Dist::Zilla` object overseeing everything and `name`, of course,
-is ad method for generating the name of our distribution.
+argument passed to the `dzil new` command. These substitutions are found and
+performed by the `[GatherDir::Template]` plugin mentioned earlier. In case
+you're wondering, `$dist` is the `Dist::Zilla` object overseeing everything and
+`name`, of course, is the method for generating the name of our distribution.
 
 The module we will soon create makes use of the `App::Cmd::Simple` module which
-supplies the `run` method we see in the command file. If you are interested in
-how the `App::Cmd::Simple` command works, you should refer to its documentation.
+supplies the `run` method we see in the command file. Refer to the
+`App::Cmd::Simple` documentation if you are interested in how it works.
 
 OK, now save the command file to `skel/bin/the_command`. `the_command` file name
 is arbitrary and acts as a placeholder in our blueprint. When it comes time to
@@ -184,14 +183,13 @@ sub execute {
 ```
 
 Notice, again, the use of the `{{$dist->name}}` in our template. As for how the
-rest of the code works, we encourage you to take a look at the
-`App::Cmd::Simple` documentation.
+rest of the code works, take a look at the `App::Cmd::Simple` documentation.
 
 ## Set Up Your Work Area with the `new` Command and the `-p` Argument
 
 It's time to see if you accurately followed instructions. Let's try to generate
-a new work area with our blueprint. Jump to a new empty directory and issue the
-following command:
+a new work area with our blueprint. Jump to the directory `~/dzil_tutorial`
+directory and issue the following command:
 
 `dzil new sayhi -p command`
 
@@ -200,15 +198,15 @@ This tells `dzil` to set up a new module work area with the distribution name
 one we just created, to generate our new work area.
 
 After running this command, you'll see the `sayhi` work area set up in your
-directory and no errors. If not, take a close look at any errors `Dist::Zilla`
-generated and try to figure out what you have to do to get things working.
+directory. If you see errors, take a close look at them and try to figure out
+what you have to do to get things working.
 
 ## Getting `sayhi` to Say "Hi"
 
-`Dist::Zilla` has generated our template and skeleton files, now we just need to
-make some trivial changes to our module to get it functional. Fire up your text
-editor to edit the `lib/sayhi.pm` module and add/modify the following lines (or
-just cut and paste the entire code listing that follows):
+Now that `Dist::Zilla` has generated our work area, we can make some trivial
+changes to our module to make it do something useful. Fire up your text editor
+to edit the `lib/sayhi.pm` module and add/modify the following lines (or just
+cut and paste the entire code listing further down):
 
 * Add `use Greetings;` somewhere near the top
 
@@ -277,7 +275,7 @@ If that went well, install your distribution with:
 
 `dzil install`
 
-Hopefully you also installed the `Greetings` module earlier so you can actually
-put your command to good use printing "Hello, World!" to your heart's content
-right from the command line. To print a standard greeting, do `sayhi` from the
-command line. To shout it, do `sayhi --shout` or `sayhi -s`.
+Hopefully you also installed the `Greetings` module earlier so you can put your
+command to good use printing "Hello, World!" to your heart's content right from
+the command line. To print a standard greeting, do `sayhi` from the command
+line. To shout it, do `sayhi --shout` or `sayhi -s`.

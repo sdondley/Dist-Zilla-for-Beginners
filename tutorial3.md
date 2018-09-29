@@ -54,12 +54,14 @@ As mentioned, the `dist.ini` file tells `Dist::Zilla` which plugins should be
 deployed to build our distribution. We can list these modules one-by-one in our
 `dist.ini` or, as a convenience to us, we can use a **plugin bundle.**
 
-A bundle is nothing more than a predefined set of plugins. Rather than typing
+A bundle is nothing more than a pre-defined set of plugins. Rather than typing
 all the separate plugins into the `dist.ini` file, the developer can just drop
-in a bundle name as a stand-in for a pre-defined list of plugins.
+in a bundle name as a stand-in for a list of plugins. Bundles can also modify
+the behavior of plugins but this is a minor detail we can brush aside for now.
 
 To use a bundle, we slap an `@` sign in front of the bundle name and throw
-square brackets aroun it to let `Dist::Zilla` know that we want to use a bundle.
+square brackets around it to tell `Dist::Zilla` that we want to use a
+bundle.
 
 And so the `[@Basic]` command we see in `dist.ini` is a bundle representing the
 following list of plugins that all come pre-installed with `Dist::Zilla`:
@@ -90,9 +92,9 @@ Each of the modules/plugins added by the `Basic` bundle will process your
 module, one at a time, in the order they are listed above. From the names of the
 plugins, you might get a rough idea of each plugin's job. For example, you can
 probably guess that `Dist::Zilla::Plugin::License` probably has something to do
-with generating the text file containing the end user agreement that accompanies
-your module. But don't get too fixated on what each plugin does or how they
-work yet. We will cover all the more interesting ones later.
+with generating the text file containing the legal agreement that accompanies
+your module. But don't get too fixated on what each plugin does or how they work
+yet. We will cover all the more interesting ones later.
 
 ### A Quick Note on Phases
 

@@ -11,7 +11,7 @@ After installing and configuring `Dist::Zilla`, we issued the `dzil new` command
 to get our process started. If we think of `Dist::Zilla` as a module
 distribution production factory, then our `new` command is like establishing a
 new work area on the factory floor where we assemble the raw product (our module)
-before we package and ship it.
+before packaging and shipping it.
 
 The work area we set up for our simple `Greetings` module used `Dist::Zilla`'s
 default profile that, as we saw, was very sparse and bare-bones. We will learn
@@ -21,8 +21,9 @@ jargon of `Dist::Zilla`, "minting a custom profile." More on this later.
 ## Understanding the `dzil build` Command
 
 After finishing our simple, one-function module, we issued the `dzil build`
-command. The `build` command does most of the heavy lifting of creating our
-module's distribution.
+command. As we saw in the last tutorial, the `build` command generates a copy of
+your distribution and places a copy of it in your work area along with a
+tarballed version of it.
 
 A good way to think about the `build` command is to imagine it as an assembly
 line. Your raw product, the module, is loaded onto the beginning of the assembly
@@ -42,14 +43,15 @@ will "box" and "ship" your finished distribution to whatever destination you
 want to deliver it to. Common destinations include a GitHub repository and CPAN.
 As we'll see, you can customize this process just like you can the `build`
 process. And similar to the `build` process, the `release` process relies on a
-series of discrete plugins to help us get our product out the door.
+series of discrete plugins to help us get our product out the door. We'll cover
+this command much later in our tutorial series.
 
 ## The `dzil test` Command
 
 This is another command we didn't cover in the first tutorial but as you might
-guess, it's used to run the tests you've created for your module. Usually your
-tests will be run on your module automatically by plugins as your module is
-processed through the build and release processes.
+guess, it's used to run the tests on your module. This command will come in
+handy as as you develop your module to see if it passes the tests. We will
+discuss this command as well as automated testing in future tutorials.
 
 ## The `dzil install` Command
 
@@ -66,12 +68,13 @@ issue this command now to see what happens:
 
 Both the tarball file and the distribution directory are now
 gone and only the files we had after issuing the `new` command are left behind.
-But don't worry, we can easily get them back when we're ready.
+But don't worry, we can easily get them back if we need them.
 
 ## Other `dzil` Commands
 
 There are other, minor `dzil` subcommands but since this is a tutorial and not a
 manual, we will encourage you to take some time and explore the other commands
-with `dzil --help` and `dzil <subcommand> --help`.
+with `dzil --help` and `dzil <subcommand> --help`. We will cover some of these
+other command later in the tutorial.
 
-We'll now turn our attention to another immportant topic, the `dist.ini` file.
+We now turn our attention to a very immportant topic, the `dist.ini` file.
