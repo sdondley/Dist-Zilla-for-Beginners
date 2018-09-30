@@ -87,11 +87,11 @@ what we came here for.
 
 ## POD Coverage Tests
 
+[Official documenation](https://metacpan.org/pod/Dist::Zilla::Plugin::PodCoverageTests)
+
 To keep your test output manageable, comment out all the test plugins added to
 you `dist.ini` file by adding a semicolon before each test plugin. You'll
 uncomment them as we discuss each module.
-
-[Official documenation](https://metacpan.org/pod/Dist::Zilla::Plugin::PodCoverageTests)
 
 Hop over to the `Greetings` work area and modify the `dist.ini` file and add the
 following plugin:
@@ -106,9 +106,7 @@ Now run `dzil test` and you'll see a failed test for two `naked subroutines`,
 document how these functions work. Update the inline documentation in your
 module to get those tests to pass.
 
-## Kwalitee Tests
-
-[Official documenation](https://metacpan.org/pod/Dist::Zilla::Plugin::Test::Kwalitee)
+## Kwalitee Tests - [Official documenation](https://metacpan.org/pod/Dist::Zilla::Plugin::Test::Kwalitee)
 
 A Kwalitee Test judges the overall quality of your distribution. Instead of
 describing what it does, let's see it in action. Install the `[Test::Kwalitee]`
@@ -159,14 +157,12 @@ Result: FAIL
 
 Comment the `[Test::Kwalitee]` plugin back out for now.
 
-## Mojibake Tests
-
-[Official documenation](https://metacpan.org/pod/Dist::Zilla::Plugin::MojibakeTests)
+## Mojibake Tests - [Official documenation](https://metacpan.org/pod/Dist::Zilla::Plugin::MojibakeTests)
 
 If you work a lot with improving older CPAN modules, the `[MojibakeTests]` module may can help
 you spot UTF-8 encoding problems in your code.
 
-## Perl Critic Tests
+## Perl Critic Tests - [Official documentation](https://metacpan.org/pod/Test::Perl::Critic) 
 
 If you want to see if your code is following coding best practices, you can use
 `[Test::Perl::Critic]`:
@@ -204,9 +200,7 @@ of it.
 We recommend commenting this plugin out again for now until you want to play
 with it some more.
 
-## Trailing Whitespace Tests
-
-[Official documenation](https://metacpan.org/pod/Dist::Zilla::Plugin::Test::EOL)
+## Trailing Whitespace Tests - [Official documenation](https://metacpan.org/pod/Dist::Zilla::Plugin::Test::EOL)
 
 If you want to be able to bounce a coin off your code, you'll be interested in
 the `[Test::EOL]` plugin which will find trailing whitespace at the
