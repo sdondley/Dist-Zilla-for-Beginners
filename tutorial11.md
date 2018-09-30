@@ -63,7 +63,7 @@ Now you can run `dzil installdeps` to install all necessary modules across your
 entire `Dist::Zilla` distribution.
 
 Consult the
-[Dist::Zilla::App::Command::installdeps](https://metacpan.org/pod/Dist::Zilla::App::Command::installdeps)
+ [Dist::Zilla::App::Command::installdeps documentation](https://metacpan.org/pod/Dist::Zilla::App::Command::installdeps)
 for more details on its usage.
 
 ### Updating Plugins
