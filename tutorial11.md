@@ -44,7 +44,7 @@ Let's test out the shortcut. Add the following test plugins to the end of the
 
 [Test::Kwalitee]
 [MojibakeTests]
-[Test::Perl::Critic]`
+[Test::Perl::Critic]
 [Test::EOL]
 
 ```
