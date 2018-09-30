@@ -85,9 +85,7 @@ this command:
 It's a great time saver. Alright, with those tips out of the way, let's get to
 what we came here for.
 
-## POD Coverage Tests
-
-[Official documenation](https://metacpan.org/pod/Dist::Zilla::Plugin::PodCoverageTests)
+## POD Coverage Tests - [Official documenation](https://metacpan.org/pod/Dist::Zilla::Plugin::PodCoverageTests)
 
 To keep your test output manageable, comment out all the test plugins added to
 you `dist.ini` file by adding a semicolon before each test plugin. You'll
