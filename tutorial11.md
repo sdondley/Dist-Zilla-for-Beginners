@@ -78,7 +78,7 @@ Like the `installdeps` subcommand, it works not only with plugin modules, but
 modules your module's distribution relies upon.
 
 This command ensures all the modules related to your distribution are the latest
-and the greatest. To updae all the modules related to yoru distribution, issue
+and the greatest. To update all the modules related to your distribution, issue
 this command:
 
 `dzil stale --all | cpanm`
