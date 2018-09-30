@@ -62,9 +62,9 @@ the `installdeps` subcommand with:
 Now you can run `dzil installdeps` to install all necessary modules across your
 entire `Dist::Zilla` distribution.
 
-Consult the
- [Dist::Zilla::App::Command::installdeps documentation](https://metacpan.org/pod/Dist::Zilla::App::Command::installdeps)
-for more details on its usage.
+Consult the [official
+documentation](https://metacpan.org/pod/Dist::Zilla::App::Command::installdeps)
+for more details.
 
 ### Updating Plugins
 
@@ -82,7 +82,11 @@ this command:
 
 `dzil stale --all | cpanm`
 
-It's a great time saver. Alright, with those tips out of the way, let's get to
+It's a great time saver. Read the [official
+documentation](https://metacpan.org/pod/Dist::Zilla::App::Command::stale) for
+more details.
+
+Alright, with those tips out of the way, let's get to
 what we came here for.
 
 ## POD Coverage Tests - [Official documenation](https://metacpan.org/pod/Dist::Zilla::Plugin::PodCoverageTests)
