@@ -18,8 +18,8 @@ code and/or get motivated to learn more about testing from other very fine
 learning resources.
 
 If you're already comfortable writing tests, you'll learn about the `dzil test`
-command and maybe some new tools and strategies you're not using using
-presently.
+command, how `Dist::Zilla` integrates tests with a distribution, and maybe some
+new testing tools and strategies you're not using presently.
 
 ## Tests Supplied with the `[@Starter]` Bundle
 
@@ -42,7 +42,7 @@ no end user intervention. However, end users can skip them if they want to.
 ### Author Tests
 
 Author tests are not run by end users but by developers, often in conjunction
-with standard tests. The `[@Starter]` bundle plugins add author tests to the
+with standard tests. The `[@Starter]` bundle plugins adds author tests to the
 `xt/author` ("xt" for "extra tests") directory. Like standard tests, author
 tests should be run just before releasing your code to the world.
 
@@ -70,69 +70,69 @@ you with a clean test and an `All's well` message at the very end:
 
 ```
 
-[DZ] building distribution under .build/S4KqMi5K5i for installation
-[DZ] beginning to build sayhi
-[DZ] guessing dist's main_module is lib/sayhi.pm
-[DZ] writing sayhi in .build/S4KqMi5K5i
-[ReadmeAnyFromPod] overriding README.mkdn in root
+[DZ] building distribution under .build/VHTxZpnZvW for installation
+[DZ] beginning to build App-sayhi
+[DZ] guessing dist's main_module is lib/App/sayhi.pm
+[DZ] writing App-sayhi in .build/VHTxZpnZvW
+[ReadmeAnyFromPod] overriding README.md in root
 Checking if your kit is complete...
 Looks good
 Generating a Unix-style Makefile
-Writing Makefile for sayhi
+Writing Makefile for App::sayhi
 Writing MYMETA.yml and MYMETA.json
-cp lib/sayhi.pm blib/lib/sayhi.pm
-cp bin/the_command blib/script/the_command
-"/usr/bin/perl" -MExtUtils::MY -e 'MY->fixin(shift)' -- blib/script/the_command
-PERL_DL_NONLAZY=1 "/usr/bin/perl" "-MExtUtils::Command::MM" "-MTest::Harness" "-e" "undef *Test::Harness::Switches; test_harness(0, 'blib/lib', 'blib/arch')" t/*.t
+cp lib/App/sayhi.pm blib/lib/App/sayhi.pm
+cp bin/sayhi blib/script/sayhi
+"/usr/bin/perl" -MExtUtils::MY -e 'MY->fixin(shift)' -- blib/script/sayhi
+PERL_DL_NONLAZY=1 PERL_USE_UNSAFE_INC=1 "/usr/bin/perl" "-MExtUtils::Command::MM" "-MTest::Harness" "-e" "undef *Test::Harness::Switches; test_harness(0, 'blib/lib', 'blib/arch')" t/*.t
 t/00-report-prereqs.t .. #
 # Versions for all modules listed in MYMETA.json (including optional ones):
 #
 # === Configure Requires ===
 #
-#     Module              Want Have
-#     ------------------- ---- ----
-#     ExtUtils::MakeMaker  any 7.34
+#     Module              Want    Have
+#     ------------------- ---- -------
+#     ExtUtils::MakeMaker  any 7.10_02
 #
 # === Build Requires ===
 #
-#     Module              Want Have
-#     ------------------- ---- ----
-#     ExtUtils::MakeMaker  any 7.34
+#     Module              Want    Have
+#     ------------------- ---- -------
+#     ExtUtils::MakeMaker  any 7.10_02
 #
 # === Test Requires ===
 #
 #     Module              Want     Have
 #     ------------------- ---- --------
-#     ExtUtils::MakeMaker  any     7.34
-#     File::Spec           any  3.48_01
-#     Test::More           any 1.302136
+#     ExtUtils::MakeMaker  any  7.10_02
+#     File::Spec           any  3.63_01
+#     Test::More           any 1.302140
 #
 # === Test Recommends ===
 #
 #     Module         Want     Have
 #     ---------- -------- --------
-#     CPAN::Meta 2.120900 2.143240
+#     CPAN::Meta 2.120900 2.150005
 #
 # === Develop Requires ===
 #
 #     Module     Want     Have
 #     ---------- ---- --------
-#     File::Spec  any  3.48_01
-#     IO::Handle  any     1.35
-#     IPC::Open3  any     1.16
-#     Test::More  any 1.302136
-#     Test::Pod  1.41     1.51
+#     File::Spec  any  3.63_01
+#     IO::Handle  any     1.36
+#     IPC::Open3  any     1.20
+#     Test::More  any 1.302140
+#     Test::Pod  1.41     1.52
 #
 t/00-report-prereqs.t .. ok
 All tests successful.
-Files=1, Tests=1,  0 wallclock secs ( 0.01 usr  0.01 sys +  0.13 cusr  0.00 csys =  0.15 CPU)
+Files=1, Tests=1,  1 wallclock secs ( 0.01 usr  0.00 sys +  0.10 cusr  0.01 csys =  0.12 CPU)
 Result: PASS
 xt/author/00-compile.t .. ok
 xt/author/pod-syntax.t .. ok
 All tests successful.
-Files=2, Tests=5,  0 wallclock secs ( 0.02 usr  0.01 sys +  0.15 cusr  0.02 csys =  0.20 CPU)
+Files=2, Tests=5,  0 wallclock secs ( 0.02 usr  0.01 sys +  0.16 cusr  0.01 csys =  0.20 CPU)
 Result: PASS
-[DZ] all's well; removing .build/S4KqMi5K5i
+[DZ] all's well; removing .build/VHTxZpnZvW
 
 ```
 
@@ -140,9 +140,9 @@ If you see errors, review the previous tutorials and make sure your code is
 correct and that the `Greetings` module is installed. If that looks OK, check
 that you ran `dzil test` from the top level of the the work area (source tree)
 and not from inside the distribution (build tree). Having a misconfigured
-Perlbrew installation or some other complication with multiple perl
-installations might also result in errors. Whatever the cause, try to resolve
-these issues before proceeding.
+Perlbrew installation or some other complication regarding how modules are
+installed on your machine might also result in errors. Whatever the cause, try
+to resolve the issues before proceeding.
 
 The output generated by `dzil test` can be confusing and takes practice
 deciphering. It's a mix of information from a chain of tools that work together
@@ -152,7 +152,7 @@ disribution:
 1) Our old friend `Dist::Zilla` which...
 2) builds the distribution end executes its `Makefile.PL` build script which...
 3) loads the tests into the `Test::Harness` module which...
-4) executes the module tests.
+4) executes the module tests which may generate their own output.
 
 You'll want to get good at finding the output from `Test::Harness` which tells
 you which tests have passed and which have failed. In the output above, look for
@@ -164,7 +164,7 @@ test output.
 ### The Prerequisites Standard Test Output
 
 Most of the test output–the stuff in the middle in a tabular layout-is a report
-generated by the `[Test::ReportPrereqs]`, listing the software requirements for
+generated by `[Test::ReportPrereqs]`, listing the software requirements for
 installing, testing, configuring and running your module. Together, these are
 known as **prerequisites.** The report can be helpful to CPAN testers,
 developers, and end users who know what they are looking at. Again, the most
@@ -175,13 +175,14 @@ important part is the small bit from `Test::Harness`:
 If you look at `sayhi-0.001/t/00-report-prereqs.t` you'll see a lot of hairy,
 scary code but don't let that worry you. Most tests are much, much simpler than
 this. Accompanying the `00-report-prereqs.t` file in the `t` directory is
-`00-report-prereqs.dd` which is not a test but a helper file to the test.
+`00-report-prereqs.dd` which is not a test but a helper file to the test and you
+don't have to concern yourself with how that works either.
 
 ### The `[@Starter`] Bundle Author Test Output
 
 The `[@Starter]` bundle generates two author test files, both found in the
-`xt/author` distribution directory. The only trace of output left by these tests
-is generated by `Test::Harness` which tells us the tests passed:
+`xt/author` distribution directory. `Test::Harness` output reports the tests in
+these file passed:
 
 ```
 
@@ -205,9 +206,8 @@ Let's look at what these tests do to make your job as a developer easier.
 #### The Compile Test
 
 The tests in `00-compile.t` ensure that our perl code won't throw any errors
-when compiled by the perl interpreter, at least the code that depends on core
-perl modules. In other words, it acts as a syntax checker and will report
-any errors if parts of your code fail to compile.
+when compiled by the perl interpreter. In other words, it acts as a syntax
+checker and will report code that fails to compile.
 
 #### The POD Syntax Test
 
@@ -222,5 +222,5 @@ author, and release tests when you issue a `dzil release` command to try to stop
 you from introducing crappy code into the world. If a test doesn't pass, it will
 alert you and stop the release process. More on the `release` subcommand soon.
 
-This completes our look at the tests the `[@Starter]` bundle provides. Now it's
-time to don a pair of coveralls and mess with some tests.
+This completes our look at the tests and test plugins the `[@Starter]` bundle
+provides. Now it's time to don a pair of coveralls and mess with some tests.

@@ -18,7 +18,9 @@ we have to install it on our system from CPAN. If you use `cpanm`, simply run:
 
 `cpanm Dist::Zilla::PluginBundle::Starter`
 
-Once installed, build your module again with the standard command:
+Grab a cup of coffee as the `[@Starter]` bundle may take some time installing
+all the modules it needs. When it finishes, build your module again with the
+standard command:
 
 `dzil build`
 

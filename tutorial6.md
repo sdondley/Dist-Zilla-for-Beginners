@@ -98,7 +98,7 @@ used for the `template` parameter above. Add the following lines to the file:
 
 ```
 
-package {{$dist->name}};
+package {{$name}};
 use strict;
 use warnings;
 
@@ -135,7 +135,7 @@ If you guessed that the contents of `dist_ini.txt` will end up inside your
 
 You should now have three files in the `default` directory. Together, they
 comprise your first factory blueprint. Let's see if you cut and paste everything
-correctly. Create a new, empty directory and try creating a new work area:
+correctly. Do a `cd ~/dzil_projects` and try creating a new work area:
 
 `dzil new Super::Greetings`
 

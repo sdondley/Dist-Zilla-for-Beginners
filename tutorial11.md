@@ -10,27 +10,86 @@ the more common ones that you may want to include in your `dist.ini` file.
 
 Note that many of the code quality tests below can be integrated with advanced
 text editors like vim. Instead of tests, you may prefer to lean on your
-your text editor instead.
+your text editor to monitor for problems and fix your code on the fly.
 
-## Installing Plugins
+## Installing and Updating Plugins
 
-Before you can use the test plugins, you have to first install them. It's an
-easy process.
+Before we introduce the test plugins, this is an excellent opportunity to
+introduce how to install and update plugins used by your distribution.
 
-First, drop the plugin into your `dist.ini` file using the usual bracketed
-notation we've seen before. Next, add any module dependencies for
-that plugin with the following two commands:
+### Installing Plugins
+
+Installing plugins is an easy process.
+
+Add the plugin into your `dist.ini` file using the usual square-bracketed
+notation. You can quickly add any module dependencies for that plugin with the
+following command:
 
 ```
 
 dzil authordeps --missing | cpanm
-dzil listdeps --author --missing | cpanm
 
 ```
 
-Obviously, you'll need `cpanm` installed to take advantage of these shortcuts.
+Here we introduce a `Dist::Zilla` utlitity, `authordeps`. It scans your
+`dist.ini` for plugins and determines the CPAN modules needed by the plugins it
+finds. The `--missing` switch will produce a list of missing modules. In the
+command above, we pipe that list into the `cpanm` cammand to install them.
+Obviously, you'll need `cpanm` installed to take advantage of this shortcut.
+
+Let's test out the shortcut. Add the following test plugins to the end of the
+`dist.ini` file for the `App::sayhi` distribution:
+
+```
+
+[Test::Kwalitee]
+[MojibakeTests]
+[Test::Perl::Critic]`
+[Test::EOL]
+
+```
+
+Now run `dzil authodeps --missing | cpanm` to install all the necessary modules
+in a single whack.
+
+To make your life even easier, you can extend `Dist::Zilla` with the
+`installdeps` subcommand which will take care of installing not only modules
+needed by plugins in `dist.ini` but by your entire distribution as well. Install
+the `installdeps` subcommand with:
+
+`cpanm Dist::Zilla::App::Command::installdeps`
+
+Now you can run `dzil installdeps` to install all necessary modules across your
+entire `Dist::Zilla` distribution.
+
+Consult the
+[Dist::Zilla::App::Command::installdeps](https://metacpan.org/pod/Dist::Zilla::App::Command::installdeps)
+for more details on its usage.
+
+### Updating Plugins
+
+Along with the `installdeps` power tool, you might also want to consider adding
+the `stale` subcommand to your repertoire with:
+
+`cpanm Dist::Zilla::App::Command::stale`
+
+Like the `installdeps` subcommand, it works not only with plugin modules, but
+modules your module's distribution relies upon.
+
+This command ensures all the modules related to your distribution are the latest
+and the greatest. To updae all the modules related to yoru distribution, issue
+this command:
+
+`dzil stale --all | cpanm`
+
+It's a great time saver. Alright, with those tips out of the way, let's get to
+what we came here for.
 
 ## POD Coverage Tests
+
+To keep your test output manageable, comment out all the test plugins added to
+you `dist.ini` file by adding a semicolon before each test plugin. You'll
+uncomment them as we discuss each module.
 
 [Official documenation](https://metacpan.org/pod/Dist::Zilla::Plugin::PodCoverageTests)
 
@@ -40,7 +99,7 @@ following plugin:
 `[PodCoverageTests]`
 
 This plugin ships with `Dist::Zilla` so you don't need to run the module
-installation commands above.
+installation commands dscussed above.
 
 Now run `dzil test` and you'll see a failed test for two `naked subroutines`,
 `hw` and `hw_shout`. This means that your documentation does not properly
@@ -55,8 +114,11 @@ A Kwalitee Test judges the overall quality of your distribution. Instead of
 describing what it does, let's see it in action. Install the `[Test::Kwalitee]`
 plugin to your `dist.ini` file:
 
-The `[Test::Kwalitee]` test is run only when the `release` subcommand is issued.
-So to run its tests, you must run:
+Uncomment out the `[Test::Kwalitee]` test from your dist.ini so you can see it
+work.
+
+The `[Test::Kwalitee]` plugin is executed only when the `release` subcommand is issued.
+So to run its tests, do:
 
 `dzil test --release`
 
@@ -95,20 +157,21 @@ Result: FAIL
 `Test::Harness` says we failed two tests: `has_changelog` and
 `has_license_in_source_file`. We will address these issues in another tutorial.
 
+Comment the `[Test::Kwalitee]` plugin back out for now.
+
 ## Mojibake Tests
 
 [Official documenation](https://metacpan.org/pod/Dist::Zilla::Plugin::MojibakeTests)
 
 If you work a lot with improving older CPAN modules, the `[MojibakeTests]` module may can help
-you spot UTF-8 encoding problems in your code. Add the following to your
-`dist.ini` file:
+you spot UTF-8 encoding problems in your code.
 
 ## Perl Critic Tests
 
 If you want to see if your code is following coding best practices, you can use
 `[Test::Perl::Critic]`:
 
-After installing this module and running `dzil test`, we'll see a new error:
+Uncomment this plugin and run `dzil test` and you'll see a new error:
 
 ```
 
@@ -122,8 +185,8 @@ Failed 1/2 subtests
 
 ```
 
-This cryptic error means there is no `use strict` pragma in our `sayhi` command.
-Slap that in and you'll be good to go.
+This cryptic error is telling us there is no `use strict` pragma in our `sayhi`
+command.  Slap that in and you'll be good to go.
 
 Note that Perl Critic has a reputation for being quite opinionated. You can
 change the behavior of Perl Critic to your liking by supplying configuratoin
@@ -137,6 +200,9 @@ root of your source tree.
 There is a lot to the Perl Critic tests and you should definitely [read the
 documentation](https://metacpan.org/pod/Test::Perl::Critic) to get the most out
 of it.
+
+We recommend commenting this plugin out again for now until you want to play
+with it some more.
 
 ## Trailing Whitespace Tests
 

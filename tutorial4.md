@@ -89,8 +89,8 @@ from time to time with the `clean` subcommand.
 
 Speaking of versions, how do we add a new version of our module? Glad you asked!
 
-Let's add a mind-blowing new feature to our `Greetings.pm` module with the
-following function:
+Let's first add a mind-blowing new feature to our next version by adding a new
+function to `Greetings.pm`:
 
 ```
 
@@ -100,7 +100,7 @@ sub shout_hw {
 
 ```
 
-And now edit the `dist.ini` file to update the `version` value from `0.001` to
+Now edit the `dist.ini` file to update the `version` value from `0.001` to
 `0.002` and then again run:
 
 `dzil build`

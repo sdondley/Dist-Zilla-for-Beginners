@@ -20,15 +20,15 @@ You are eager to share your module with others on CPAN so they can take
 advantage of its goodness. In other words, you want to create a distribution for
 your module. But where do you start?
 
-## Tools for Helping You Get Your Distribution Started
+## Tools for Getting Your Distribution Started
 
 The hard way involves creating all the directories, files, tests, installers,
 documentation, meta files, etc. that go into creating a distribution from
 scratch. If you are a masochist, this is the recommended approach.
 
-For non-masochists, existing tools are available to help automate the creation
-of distributions. For example, you can use the `h2xs` command line tool that
-ships with Perl to help you get your distribution started. Drop into any empty
+For non-masochists, existing tools are available to automate the creation of
+distributions. For example, you can use the `h2xs` command line tool that ships
+with Perl to help you get your distribution started. Drop into any empty
 directory on your system and run the following command:
 
 `h2xs -AX -n Greetings;`
@@ -50,8 +50,12 @@ to enhance your appreciation of what `Dist::Zilla` does for you.
 ## Generating a Distribution with `Dist::Zilla`
 
 Now let's take `Dist::Zilla` for a spin now and see how it differs from `h2xs`.
-Make sure you have `Dist::Zilla` installed on your machine and run this command
-if you don't already have `Dist::Zilla` configured:
+Make sure you have `Dist::Zilla` installed on your machine and create a
+direcotry on your home drive for tutorial projects:
+
+`mkdir ~/dzil_projects`
+
+`cd` into this directory and issue your first `Dist::Zilla` command:
 
 `dzil setup`
 
@@ -73,16 +77,16 @@ with `h2xs`, by issuing a command:
 
 ```
 
-[DZ] making target dir /home/Greetings
-[DZ] writing files to /home/Greetings
+[DZ] making target dir /home/steve/dzil_projects/Greetings
+[DZ] writing files to /home/steve/dzil_projects/Greetings
 [DZ] dist minted in ./Greetings
 
 ```
 
 Like `h2xs`, `dzil new` generated a directory with some files inside of it.
 `Dist::Zilla` also reported that it has "minted" a "dist" for us. We'll come
-back to this crypticism later. For now, let's plow ahead and open our new
-`Greetings` directory and see the magic `dzil` has pulled off for us:
+back to this crypticism later. Enter the `Greetings` directory and see the
+magic `dzil` has pulled off for us:
 
 ```
 
@@ -95,12 +99,11 @@ Ouch! There's barely anything here. Just a mysterious `dist.ini` file and a
 `lib` directory with a minimal `Greetings.pm` file inside of that. This doesn't
 seem very impressive compared to the `h2xs` tool.
 
-`Dist::Zilla` works a lot differently than `h2xs`. Its `new` subcommand
-isn't designed to immediately generate a distribution, it simply sets up a
-directory that will eventually store our code and distributions. But
-before we get ahead of ourselves, let's make our module useful by editing the
-`lib/Greetings.pm` module file that `dzil` generated for us and add in our
-function:
+`Dist::Zilla` works a lot differently than `h2xs`. Its `new` subcommand isn't
+designed to immediately generate a distribution, it simply sets up a directory
+that will eventually store our code and distributions. But before we get ahead
+of ourselves, let's make our module useful by editing the `lib/Greetings.pm`
+module file that `dzil` generated for us and add this function to the file:
 
 ```
 
@@ -134,7 +137,7 @@ sub hw {
 
 ### The `dzil build` Command
 
-Now we are ready to actually generate our distribution by issuing `dzil`'s
+Now we are ready to generate a distribution with `dzil`'s
 `build` command from the top level of our `Greetings` distribution:
 
 `dzil build`
