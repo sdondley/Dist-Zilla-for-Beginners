@@ -14,8 +14,9 @@ your text editor to monitor for problems and fix your code on the fly.
 
 ## Installing and Updating Plugins
 
-Before we introduce the test plugins, this is an excellent opportunity to
-introduce how to install and update plugins used by your distribution.
+Before we introduce the test plugins, this is an excellent opportunity to get
+sidetracked with some tips on installing and updating plugins used by your
+distribution.
 
 ### Installing Plugins
 
