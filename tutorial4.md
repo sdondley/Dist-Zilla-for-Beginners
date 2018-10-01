@@ -125,14 +125,15 @@ At this point, we want to mention that even though `Dist::Zilla` is designed to
 automate things for you, it makes few demands on how you do the actual
 automation. `Dist::Zilla` is designed to be a very open-ended framework.
 
-For example, changing the `dist.ini` file isn't the only way to change your
-module's version number.  You can use the `[VersionFromModule]` plugin to get
-the the version number from your module instead of from `dist.ini`. Or, you can
-use the `[AutoVersion]` plugin to help you automatically generate a version
-number based on the current date. If you use git to manage your module's
-releases, you can use `[Git::NextVersion]` to automatically generate the next
-version number in sequential order. There are also other ways to generate your
-module's version that are more "developer friendly."
+For example, there are many different approaches to handling your module's
+version number which is more complicated than we let on here. You can use the
+`[VersionFromModule]` plugin to get the the version number from your module
+instead of from `dist.ini`. Or, you can use the `[AutoVersion]` plugin to help
+you automatically generate a version number based on the current date. If you
+use git to manage your module's releases, you can use `[Git::NextVersion]` to
+automatically generate the next version number in sequential order. There are
+also other ways to generate your module's version that are more "developer
+friendly."
 
 The point is TIMTOWTDI and there are hundreds of `Dist::Zilla` plugins out there
 to prove it. You can also write your own plugins to satisfy your inner control
