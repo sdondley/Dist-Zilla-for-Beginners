@@ -154,6 +154,6 @@ And now we have the best of both worlds.
 A word of caution, however. Using `[AutoPrereqs]` may have some downsides. For
 example, it my start falsely identify modules in your test library as
 prerequisites when they really aren't. Developers with more complicated
-dependency may have an easier time just managing their dependencies with just
-the `[Prereqs]` plugin. However, for simpler modules, using `[AutoPrereqs]` will
-not usually present a problem.
+dependency needs may have an easier time managing their dependencies with the
+`[Prereqs]` plugin. However, for simpler modules, using `[AutoPrereqs]` will not
+usually present a problem.
