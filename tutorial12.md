@@ -87,7 +87,7 @@ You can set the `Greetings` distribution version by adding the following line
 directly into the `lib/Greetings.pm` file just below the `package Greetings`
 line:
 
-`our $VERSION = '0.002';
+`our $VERSION = '0.002';`
 
 After you make the change, install this version of the `Greetings` module:
 
@@ -154,6 +154,6 @@ And now we have the best of both worlds.
 A word of caution, however. Using `[AutoPrereqs]` may have some downsides. For
 example, it my start falsely identify modules in your test library as
 prerequisites when they really aren't. Developers with more complicated
-dependency needs may have an easier time managing their dependencies with the
-`[Prereqs]` plugin. However, for simpler modules, using `[AutoPrereqs]` will not
-usually present a problem.
+dependency needs may have an easier time managing their dependencies without
+`[AutoPrereqs]` plugin. However, for simpler modules, using `[AutoPrereqs]` will
+not usually present a problem.
