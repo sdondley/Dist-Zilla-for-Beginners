@@ -152,12 +152,12 @@ something that looks much closer to what we generated with the `h2xs` command.
 
 The `Greetings-0.001.tar.gz` file is the a compressed, archived version of our
 `Greetings-0.001` generated for you to save you the step of having to create it
-ourselves. Use it to install your the distribution to your local perl library
-with `dzil install` command:
+ourselves. Now install the distribution to your local perl library with the
+following command:
 
 `dzil install`
 
-...and you should see something like this output to the terminal:
+You should see something like this output to the terminal:
 
 ```
 
