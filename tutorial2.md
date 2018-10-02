@@ -77,4 +77,4 @@ manual, we will encourage you to take some time and explore the other commands
 with `dzil --help` and `dzil <subcommand> --help`. We will cover some of these
 other command later in the tutorial.
 
-We now turn our attention to a very immportant topic, the `dist.ini` file.
+We now turn our attention to a very important topic, the `dist.ini` file.

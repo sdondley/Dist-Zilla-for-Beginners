@@ -1,7 +1,7 @@
 # Prerequisite Plugins
 
 A big part of `Dist::Zilla`'s job is to create installer programs that install
-your modules on other machines. A big part of of an installer's job is to ensure
+your modules on other machines. A big part of the installer's job is to ensure
 that your module has the modules it needs to work on the machine it's getting
 installed to. The modules your module relies on are called **prerequisites** or
 **dependencies.** We need a way to tell the installer about these prerequisites.
@@ -157,3 +157,13 @@ prerequisites when they really aren't. And developers with more complicated
 dependency needs may have an easier time managing their dependencies without
 `[AutoPrereqs]` plugin. However, for simpler modules, using `[AutoPrereqs]` will
 not usually present a problem.
+
+## The `[Prereqs::FromCPANfile]` Plugin
+
+The last plugin commonly used to generate the prerequisites is the
+`[Prereqs::FromCPANFile]`. As you can probably guess by the name, this plugin
+reads the CPANfile that may accompany your module. If you aren't using a
+CPANfile with your module, this plugin is not for you.
+
+You can learn more about what a CPANfile is by reading it's
+[https://metacpan.org/pod/Module::CPANfile](documentation).

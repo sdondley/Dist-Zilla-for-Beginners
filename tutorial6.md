@@ -108,12 +108,12 @@ use warnings;
 
 =head1 NAME
 
-{{$dist->name}} - Add the module abstract here
+{{$name}} - Add the module abstract here
 
 ```
 
-This looks like a template for the module that will be added to your
-work area. That's because that's exactly what it is.
+This looks like a template for the module that will be added to your work area.
+That's because that's exactly what it is. More on templates later.
 
 Lastly, we are going to add the `dist_ini.txt` file to your blueprint, the file
 mentioned in the `[DistINI]` section of your `profile.ini` configuration file.
