@@ -156,10 +156,11 @@ cat lib/App/sayhi.com
 ```
 
 We now have a simple Change log for our end users and an automated versioning
-system in place to boot. It's pretty basic and we are
-sure you can get a lot more creative with your log. See the [`[NextRelease]`
-documentation](https://metacpan.org/pod/Dist::Zilla::Plugin::NextRelease) for additional template variables you can add to the `Changes`
-file. We also recommend Neil Bowers' [blog post on Change log
+system in place to boot. The log is basic. If you are interested in tricking it
+out, consult the [`[NextRelease]`
+documentation](https://metacpan.org/pod/Dist::Zilla::Plugin::NextRelease) for
+additional options and template variables you can add to the `Changes` file. We
+also recommend Neil Bowers' [blog post on Change log
 conventions](http://blogs.perl.org/users/neilb/2013/09/a-convention-for-changes-files.html)
 for inspiration.
 
