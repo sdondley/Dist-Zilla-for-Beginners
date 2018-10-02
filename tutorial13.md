@@ -156,13 +156,15 @@ cat lib/App/sayhi.com
 ```
 
 We now have a simple Change log for our end users and an automated versioning
-system in place to boot. The log is basic. If you are interested in tricking it
-out, consult the [`[NextRelease]`
+system in place to boot. The log format in our example is very basic. Notice we
+added some basic markdown syntax with the backticks. If you are interested in
+tricking it out more, consult the [`[NextRelease]`
 documentation](https://metacpan.org/pod/Dist::Zilla::Plugin::NextRelease) for
 additional options and template variables you can add to the `Changes` file. We
 also recommend Neil Bowers' [blog post on Change log
 conventions](http://blogs.perl.org/users/neilb/2013/09/a-convention-for-changes-files.html)
-for inspiration.
+for inspiration. And before going too crazy, you should consult the [CPAN
+spec](https://metacpan.org/pod/CPAN::Changes::Spec) for the Changes file.
 
 There is a bit more to cover with the Change log with the
 `[BumpVersionAfterRelease]` plugin which we will cover when the time comes for
