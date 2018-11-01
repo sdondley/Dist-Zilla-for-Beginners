@@ -2,8 +2,8 @@
 
 Now that you've gotten your hands grimy operating some of `Dist::Zilla`'s
 machinery, let's zoom out a bit and take a factory floor level look at
-`Dist::Zilla` with a quick overview of some other subcommands `Dist::Zilla`
-provides out of the box.
+`Dist::Zilla` with an overview of some other subcommands `Dist::Zilla` provides
+out of the box.
 
 ## The `dzil new` Command
 
@@ -11,7 +11,7 @@ After installing and configuring `Dist::Zilla`, you issued the `dzil new`
 command to get the process started. If you think of `Dist::Zilla` as a module
 distribution production factory, then the `new` command establishes a new work
 area on the factory floor for assembling the raw product (the module) before
-packaging and shipping it.
+assembling, packaging and shipping it.
 
 The work area you set up for the `Greetings` module used `Dist::Zilla`'s default
 profile that, as you saw, was very sparse and bare-bones. You will learn how to
@@ -38,25 +38,26 @@ will cover in more detail, shortly.
 
 ## The `dzil release` Command
 
-You didn't issue this command in the first tutorial but this is the command that
-will "box" and "ship" your finished distribution to whatever destination you
-want to deliver it to. Common destinations include a remote git repository and
-CPAN. As you'll see, you can customize this process just like you can the `build`
-process. And similar to the `build` process, the `release` process relies on a
-series of discrete plugins to get your product out the door. This command will
-be covered much later in the tutorial.
+You didn't issue this command in the previous chapter of our tutorial but this
+is the command that will "box" and "ship" your finished distribution to whatever
+destination you want to deliver it to. Common destinations include a remote git
+repository and CPAN. As you'll see, you can customize this process just like you
+can the `build` process. And similar to the `build` process, the `release`
+process relies on a series of discrete plugins to get your product out the door.
+This command will be covered much later in the tutorial.
 
 ## The `dzil test` Command
 
-This is another command we didn't cover in the first tutorial but as you might
+This is another command we didn't cover in the first chapter but as you might
 guess, it's used to run the tests on your module. This command will come in
 handy as as you develop your module to see if it passes the tests. We will
 discuss this command as well as automated testing in future tutorials.
 
 ## The `dzil install` Command
 
-As you saw in the previous tutorial, you can use this command to install our
-distribution on to our local machine to make it available to our other modules.
+As you already saw, you use this command to install a distribution to your local
+machine. Once installed, other modules on your system can easily load it with a
+`use` statement.
 
 ## The `dzil clean` Command
 

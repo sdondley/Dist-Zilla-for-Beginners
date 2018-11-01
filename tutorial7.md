@@ -103,7 +103,8 @@ and paste in this code:
 
 ```prettyprint
 
-#!/usr/bin/perl use {{$dist->name =~ s/-/::/gr}};
+#!/usr/bin/perl
+use {{$dist->name =~ s/-/::/gr}};
 
 {{$dist->name =~ s/-/::/gr}}->run;
 
@@ -243,7 +244,7 @@ In the `execute` funciton:
 
 In the pod:
 
-* change `Add the module abstract here` to `Backend interface for the \`sayhi\`
+* change `Add the module abstract here` to `Backend interface for the 'sayhi'
   command`
 
 Here is the entire finished module for your copy and paste convenience:
@@ -283,7 +284,7 @@ sub execute {
 
 =head1 NAME
 
-App::sayhi - Backend interface for the `sayhi` command
+App::sayhi - Backend interface for the 'sayhi' command
 
 ```
 

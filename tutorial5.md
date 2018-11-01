@@ -9,9 +9,12 @@ them with:
 
 `[@Starter]`
 
-A big reason we are having you use `[@Starter]` is that it uses plugins that are
-much more configurable than the plugins that ship with `[@Basic]`. And, at the
-end of the day, configurability is what `Dist::Zilla` is all about.
+In addition to being more modern, `[@Starter]`'s plugins are much more
+configurable than the plugins that ship with `[@Basic]`. And, at the end of the
+day, configurability is what `Dist::Zilla` is all about. When you do begin
+exploring `Dist::Zilla` on your own, we highly recommend using `[@Starter]` as
+your starting point until you get more comfortable creating a custom `dist.ini`
+file.
 
 The `[@Starter]` plugin bundle is not part of the `Dist::Zilla` distribution so
 we have to install it on our system from CPAN. If you use `cpanm`, simply run:
@@ -25,7 +28,7 @@ standard command:
 `dzil build`
 
 After the command finishes, inspect your distribution's directory and you'll
-probably notice some differences compared to what the `[Basic]` plugins
+probably notice some differences compared to what the `[@Basic]` plugins
 generated.
 
 First, we now have a `META.json` file which CPAN will use to help tell the world
@@ -49,11 +52,11 @@ detail-oriented software developer.
 
 The `[@Basic]` bundle employed the `[Readme]` plugin to generate a typically
 useless `README` file for your distribution. The `[@Starter]` bundle gives you
-two different options for helping your create a much more useful `README`
-document using either the `[ReadmeAnyFromPod]` plugin or the `[Pod2Readme]`
-plugin. Both of these plugins were installed for you when you installed
-`[@Starter]` on your system. By default, `[@Starter]` uses the
-`[ReadmeAnyFromPod]` plugin so we'll start with that one.
+two different options for creating a much more useful `README` document using
+either the `[ReadmeAnyFromPod]` plugin or the `[Pod2Readme]` plugin. Both of
+these plugins were installed for you when you installed `[@Starter]` on your
+system. By default, `[@Starter]` uses the `[ReadmeAnyFromPod]` plugin so we'll
+start with that one.
 
 But what will the `[@Starter]` bundle put into your `README` file? Is there some
 powerful AI underlying `ReadmeAnyFromPod` to write it for us? Unfortunately,
@@ -81,8 +84,8 @@ More documentation coming soon, we promise.
 
 Interestingly, now that we have added the `NAME` section to our documentation,
 `Dist::Zilla` can successfully build our module without the `# ABSTRACT` comment
-that we had you create in the first tutorial. Feel free to delete that comment
-from your module.
+that we had you create in the first tutorial. So go ahead and delete that
+comment from your module.
 
 Save your work and issue the `dzil build` command and check out the README file
 now in your distribution and you should see that your module's POD was inserted

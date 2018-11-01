@@ -1,16 +1,14 @@
 # Who This Tutorial is For
 
-This tutorial is aimed at beginning developers interested in making
-contributions to CPAN with no or limited experience creating a distribution and
-are interested in learning `Dist::Zilla` to automate the creation of their
-distributions.
+This tutorial is aimed at:
 
-Developers having some experience releasing distributions using the simpler
-tools and looking to step up their game will also get a lot from this tutorial.
-
-Finally, the tutorial is also great for existing `Dist::Zilla` users who may not
-have a firm grasp on all of its moving parts and are looking for a bit of
-enlightenment.
+* Beginning developers interested in making contributions to CPAN with no or
+  limited experience creating a distribution and are interested in learning
+  `Dist::Zilla` to automate the creation of their distributions.
+* Developers having some experience releasing distributions using the simpler
+  tools and looking to step up their game.
+* Existing `Dist::Zilla` users who may not have a firm grasp on all of its
+  moving parts and are looking for a bit of enlightenment.
 
 ## `Dist::Zilla`: For Experts Only?
 

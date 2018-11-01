@@ -24,27 +24,25 @@ probably already using a templating system for kicking off a project or even
 rolled your own. Maybe they're adequate but odds are you are really missing out
 on what `Dist::Zilla` can offer.
 
-`Dist::Zilla` has one of the most powerful, customizable templating systems
-available. Unfortunately, the official documentation refers to them as **minting
-profiles.** We hate the name and think it's confusing. Presumably the term's aim
-is to get us thinking about "minting" coins. In any case, we will avoid using
-the official terminology where possible with the hope the analogy we've invented
-to conceptualize how `Dist::Zilla` works catches on.
+`Dist::Zilla` has one of the most powerful, customizable module templating
+systems available. Unfortunately, the official documentation refers to them as
+**minting profiles.** We hate the name and think it's confusing. Presumably the
+term's aim is to get us thinking about "minting" coins. In any case, we will
+avoid using the official terminology where possible with the hope the analogy
+we've invented to conceptualize how `Dist::Zilla` works catches on.
 
-## A Better Name for "Minting Profiles"
+## A Better Name Than "Minting Profiles"
 
-In an earlier tutorial, we used the analogy of a "work area." To refresh your
-memory, we imagined that the `dzil new` command set up a new work area on your
-factory floor for forging your module. Each time you issue the `new` command,
-you set up a new work area in a new directory on your computer for creating and
-distributing a new module.
+Previously, we used the analogy of a "work area" and imagined the `dzil new`
+command set up a new work area on your factory floor for forging your module.
+Each time you issue the `new` command, you set up a new work area in a new
+directory on your computer for creating and distributing a new module.
 
 But it gets even better than that. You can control not just what your work area
-will initially look like but what manufacturing process will be used to pakcage
-your module. In other words, you can control which plugins go into your
-`dist.ini` file. This is a powerful feature of `Dist::Zilla` that takes you well
-beyond what you can do with a more typical distribution generation systems using
-plain templates.
+will initially look like but what manufacturing process will be used to package
+your module with a custom `dist.ini` file. This is a powerful feature of
+`Dist::Zilla` that takes you well beyond what you can do with a more typical
+distribution generation systems using plain templates.
 
 None of this really sounds like what goes into stamping out nickels so...
 
@@ -112,8 +110,8 @@ use warnings;
 
 ```
 
-This looks like a template for the module that will be added to your work area.
-That's because that's exactly what it is. More on templates later.
+Don't be concern yourself with the funny-looking curly brackes now–more on
+templates later.
 
 Lastly, we are going to add the `dist_ini.txt` file to your blueprint, the file
 mentioned in the `[DistINI]` section of your `profile.ini` configuration file.

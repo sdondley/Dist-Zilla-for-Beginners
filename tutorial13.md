@@ -7,8 +7,8 @@ lacked a `Changes` file. Let's address this deficiency and show you how to use
 The `Changes` file can assist end users with answering the question: "Does the
 new version of this module have new features or bug fixes that are worth the
 risk of upgrading?" If your new version offers only minor document changes, they
-might choose to pass. But if the module can now brush their teeth for them,
-they'll probably want to download and install it.
+might choose to pass. But if the module can now brush their teeth for them while
+they sleep, they might bite.
 
 A `Changes` file should be a simple log with each new release of your
 distribution constituting three components:
@@ -25,9 +25,9 @@ your commit messages with the end user in mind, you might be able to get away
 with this though your `Changes` file might be a lot to wade through.
 
 Ideally, however, you will craft each version summary with all the love and
-attention you can muster to help you stand out as the conscientious developer
+attention you can muster so you stand out as the conscientious developer
 that you are. As such a developer, this tutorial will not bother showing you how
-to generate your Change log from git. If you are truly that lazy as to not want
+to generate your Change log from git. If you are too lazy as to not want
 to write summaries for your end users, you can seek out another tutorial for
 that. Rant over. At least you know where we stand on this matter.
 

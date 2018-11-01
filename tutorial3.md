@@ -1,6 +1,6 @@
 # The `dist.ini` File
 
-In the previous section, we analogized `Dist::Zilla` to a factory for producing
+In the previous chapter, we analogized `Dist::Zilla` to a factory for producing
 module distributions, imagining the various plugins deployed by `Dist::Zilla` as
 robots which do some pre-defined bit of work on the module as it travels down
 the assembly line, shaping it into a finished produce ready for distribution.
@@ -29,9 +29,9 @@ version = 0.001
 ```
 
 The first five configuration lines are self explanatory. They contain the
-information we supplied when we configured `Dist::Zilla` with the `setup`
-command. Like all `.ini` files, each line is a configuration setting with keys
-on the left, followed by an equal sign, and the corresponding values on the
+information we supplied when we configured `Dist::Zilla` with the `setup` and
+`new` commands. Like all `.ini` files, each line is a configuration setting with
+keys on the left, followed by an equal sign, and the corresponding values on the
 right.
 
 `Dist::Zilla` makes these configuration settings available to your plugin if

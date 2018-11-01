@@ -153,7 +153,7 @@ Result: FAIL
 ```
 
 `Test::Harness` says we failed two tests: `has_changelog` and
-`has_license_in_source_file`. We will address these issues in another tutorial.
+`has_license_in_source_file`. We will address these issues later.
 
 Comment the `[Test::Kwalitee]` plugin back out for now.
 
@@ -195,7 +195,7 @@ root of your source tree.
 
 There is a lot to the Perl Critic tests and you should definitely [read the
 documentation](https://metacpan.org/pod/Test::Perl::Critic) to get the most out
-of it. We alos note that there is some controvery over the value of the Perl
+of it. We also note that there is some controvery over the value of the Perl
 Critic module as a tool for improving code quality. Some recommend an
 alternative,
 [Perl::Critic::Freenode](https://metacpan.org/pod/Perl::Critic::Freenode) which
@@ -219,4 +219,4 @@ improve your code. Hopefully the small sampling we've offered here whets your
 appetite for exploring other useful test plugins on CPAN.
 
 The easiest way to find them is with a [CPAN
-search](https://metacpan.org/search?q=dist%3A%3AZilla%3A%3ATest)
+search](https://metacpan.org/search?q=dist%3A%3AZilla%3A%3ATest).

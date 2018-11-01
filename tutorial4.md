@@ -132,7 +132,8 @@ instead of from `dist.ini`. Or, you can use the `[AutoVersion]` plugin to
 generate a version number based on the current date. If you use git to manage
 your module's releases, you can use `[Git::NextVersion]` to automatically
 generate the next version number in sequential order. There are also other ways
-to generate your module's version that are more "developer friendly."
+to generate your module's version that are more "developer friendly" than the
+technique we showed you here.
 
 The point is TIMTOWTDI and there are hundreds of `Dist::Zilla` plugins out there
 to prove it. You can also write your own plugins to satisfy your inner control
@@ -142,8 +143,8 @@ But `Dist::Zilla`'s maze of plugins and flexibility is both a blessing and a
 curse. It's a blessing for developers who demand precise control over their
 distributions while avoiding a lot of repetitive work. But it's a curse for
 newcomers wrestling with `Dist::Zilla` to get it to do what they want and who
-may not know the best practices for using `Dist::Zilla`. `Dist::Zilla` was named
-after a monster for good reason.
+may not know the best practices for using it. `Dist::Zilla` was named after a
+monster for good reason.
 
 The goal of these tutorials is to try to ease the pain of learning your way
 around `Dist::Zilla` and make solid recommendations for using it well. So try to

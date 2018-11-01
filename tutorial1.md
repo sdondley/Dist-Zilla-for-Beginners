@@ -64,11 +64,11 @@ questions about how your software will be released. Finally, it will ask you for
 your credentials for your PAUSE account. If you don't have a PAUSE account or
 don't know what one is, answer "no" and move on. You can always configure this
 later. As we'll see, `Dist::Zilla` uses the configuration information you enter
-and adds it to the appropriate files in your distribution's files.
+and adds it to the appropriate files in your distribution.
 
 ### The `dzil new` Command
 
-OK, now we are ready to start our distribution similar to the way we created one
+OK, now we are ready to start a distribution similar to the way we created one
 with `h2xs`, by issuing a command:
 
 `dzil new Greetings`
@@ -138,7 +138,7 @@ sub hw {
 ### The `dzil build` Command
 
 Now we are ready to generate a distribution with `dzil`'s
-`build` command from the top level of our `Greetings` distribution:
+`build` command from the top level of the `Greetings` distribution:
 
 `dzil build`
 
@@ -174,7 +174,7 @@ Successfully installed Greetings-0.001
 
 ```
 
-Nice, now our module is available to use anywhere on our system. So congrats,
+Nice, now the module is available to use anywhere on your system. So congrats,
 you've successfully built your very first distribution with `Dist::Zilla` and
 distributed it, even if only to yourself. But feel free to email the tarball to
 your friends and astonish them with what your new module can do. Much later in

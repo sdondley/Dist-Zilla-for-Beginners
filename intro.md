@@ -5,7 +5,7 @@
 The `Dist::Zilla` module creates software distributions for perl modules. What
 exactly does that mean, however? Most of us are generally familiar with the
 concept of a “software distribution” but don’t give it much more than a passing
-thought. So let’s briefly explore this concept to lay the groundwork for a
+thought. So let's briefly introduce this concept to lay the groundwork for a
 discussion specific to Perl module distributions and figure out where the
 `Dist::Zilla` module fits into Perl landscape from a jet plane's perspective.
 
@@ -25,18 +25,18 @@ fine under these simple circumstances.
 
 As technology evolved, cheap and compact magentic storage mediums arrived
 in the form of tapes and disks, making it easier to copy, reproduce and
-distribute computer code. Magnetic media made commercially available
-software available to a mass audience. For the first time, you could drive
-to your local computer store, plunk down 40 bucks for a box with 5 1/4”
-floppies inside containing the text adventure game, Zork, and then trek
-back to deliver the code to your awaiting microcomputer. If you
-accidentally bought the disks for a Commodore 64 when you owned an Apple
-][e, you had to go back to the store and make an exchange.
+distribute computer code. Magnetic media made commercially available software
+available to a mass audience possible. For the first time, you could drive to
+your local computer store, plunk down 40 bucks for a box with 5 1/4” floppies
+inside containing the text adventure game, Zork, and then trek back to deliver
+the code to your awaiting microcomputer. If you accidentally bought the disks
+for a Commodore 64 when you owned an Apple ][e, you had to go back to the store
+and make an exchange.
 
-The internet totally revolutionized how we distributed software. Physical media is
-now invisible to us and exists only as an abstract notion we refer to as “the
-cloud.” We can now easily download software with a few taps on our device screens
-while resting in our easy chairs in the ugliest clothes imaginable.
+The internet totally revolutionized how we distributed software. Physical media
+is now invisible to us and exists only as an abstract notion we refer to as “the
+cloud.” We can now easily download software with a few taps on our device
+screens while resting in our easy chairs in the ugliest clothes imaginable.
 
 Though the internet transcended the physical limitations of software
 distribution, it's created new challenges for developers looking to distribute
