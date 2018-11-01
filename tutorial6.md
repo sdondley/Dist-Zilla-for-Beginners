@@ -1,13 +1,13 @@
 # `Dist::Zilla` ~~Minting Profiles~~ Blueprints
 
-We've all been there. We fire up a text editor with the dreaded blank screen staring
-back at us and we start dutifully typing:
+We've all been there. We fire up a text editor with the dreaded blank screen
+staring back at us and we start dutifully typing:
 
 `!#/usr/bin/perl`
 
 Oops. No wait. SHA-bang...
 
-```
+```prettyprint
 
 #!/usr/bin/perl
 use strict;
@@ -57,9 +57,9 @@ sure you actually type in `profile.`
 
 ## Creating Your First Factory Blueprint
 
-We first need to esablish a storage area for your default blueprint. The default
-blueprint is what's used unless we specify a custom blueprint with the `new`
-command.
+You first need to esablish a storage area for your default blueprint. The
+default blueprint is what's used unless we specify a custom blueprint with the
+`new` command.
 
 First, create a default directory in the special directory `.dzil` created for
 for storing ~~profiles~~ blueprints:
@@ -68,8 +68,8 @@ for storing ~~profiles~~ blueprints:
 
 Inside the default directory, create a `profile.ini` file (which we cannot call
 `blueprint.ini`). The primary job of this file is to tell `Dist::Zilla` how to
-establish your work area. The file works very similarly to how the `dist.ini` file
-works. But instead of processing modules, it sets up the template for your
+establish your work area. The file works very similarly to how the `dist.ini`
+file works. But instead of processing modules, it sets up the template for your
 main module, generates other supporting files, if any, and assembles your
 `dist.ini` file.
 
@@ -92,11 +92,11 @@ The `profile.ini` file has three sections, one for each plugin that we use. We
 pass in one parameter to each plugin. Don't worry exactly what it all means just
 yet. We will explain it all when the time comes.
 
-Next we add the file that will act as a template for your new module.
-Create a file called `Module.pm` which, you'll notice, happens to be the name we
-used for the `template` parameter above. Add the following lines to the file:
+Next add the file that will act as a template for your new module.  Create a
+file called `Module.pm` which, you'll notice, happens to be the name used for
+the `template` parameter above. Add the following lines to the file:
 
-```
+```prettyprint
 
 package {{$name}};
 use strict;
@@ -157,8 +157,8 @@ and inside of that directory we finally see your `Greetings.pm` module file.
 `Dist::Zilla` created this nested directory structure from the name of your
 module, `Super::Greetings`. Sweet.
 
-Everything seems to be in place. Let's see if we can build a distribution with
-our blueprint:
+Everything seems to be in place. See if you can build a distribution with the
+blueprint:
 
 `dzil build`
 
@@ -183,16 +183,16 @@ Remember back when you added the `# ABSTRACT` comment to your module in the very
 first tutorial? We added that to give the installer software an esssential bit
 of information it needs in order to work. But instead of adding an `# ABSTRACT`
 comment into the module, your new blueprint kept the installer happy by
-supplying the `NAME` section in your documentation which was used to generate
-the `ABSTRACT` our installer required. This way, your blueprint killed two birds
-with one stone by giving your module some documenation and keeping the installer
-happy.
+supplying the `NAME` section in your documentation that `Dist::Zilla` used to
+generate the `ABSTRACT` our installer required. This way, your blueprint killed
+two birds with one stone by giving your module some documenation and keeping the
+installer happy.
 
-Though your installer now has an abstract, it is now demanding that we feed it
-a version. What's the best way to to do that? One way is to edit the module and
-add a version number there, similar to the way we added the `# ABSTRACT`
-comment. But since we're using `Dist::Zilla`, we'll add in `version =
-0.001` directly to the `dist.ini` because it's easy.
+Though your installer now has an abstract, it is now demanding that we feed it a
+version. What's the best way to do that? One way is to edit the module and add a
+version number there, similar to the way we added the `# ABSTRACT` comment. But
+since we're using `Dist::Zilla`, we'll add in `version = 0.001` directly to the
+`dist.ini` because it's easy.
 
 However, this doesn't fix the real source of the problem, your flawed blueprint.
 So the next time we create a new module, we are going to run into the same
@@ -205,4 +205,5 @@ Once you've fixed up both files, try to build the distribution again. If you did
 everything right, Zilla monster will please you with a new distribution. Super
 duper!
 
-OK, let's plow forward with our exploration of blueprints in our next tutorial.
+OK, let's plow forward with our exploration of blueprints in the next section of
+the tutorial.

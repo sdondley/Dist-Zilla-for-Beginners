@@ -5,7 +5,7 @@
 Imagining new programmers the world over are tired of typing out `print "Hello,
 World!\n"`, you create the following module to ease their pain:
 
-```
+```prettyprint
 
 # Greetings.pm file
 package Greetings;
@@ -28,8 +28,8 @@ scratch. If you are a masochist, this is the recommended approach.
 
 For non-masochists, existing tools are available to automate the creation of
 distributions. For example, you can use the `h2xs` command line tool that ships
-with Perl to help you get your distribution started. Drop into any empty
-directory on your system and run the following command:
+with Perl to get your distribution started. Drop into any empty directory on
+your system and run the following command:
 
 `h2xs -AX -n Greetings;`
 
@@ -90,8 +90,8 @@ magic `dzil` has pulled off for us:
 
 ```
 
-`cd Greetings`
-`ls`
+cd Greetings
+ls
 
 ```
 
@@ -99,13 +99,13 @@ Ouch! There's barely anything here. Just a mysterious `dist.ini` file and a
 `lib` directory with a minimal `Greetings.pm` file inside of that. This doesn't
 seem very impressive compared to the `h2xs` tool.
 
-`Dist::Zilla` works a lot differently than `h2xs`. Its `new` subcommand isn't
-designed to immediately generate a distribution, it simply sets up a directory
-that will eventually store our code and distributions. But before we get ahead
-of ourselves, let's make our module useful by editing the `lib/Greetings.pm`
-module file that `dzil` generated for us and add this function to the file:
+`Dist::Zilla` works a lot differently than `h2xs`. Its `new` subcommand doesn't
+generate a distribution, it simply sets up a directory that will eventually
+store the module's code and distributions. But before we get ahead of ourselves,
+let's make the module useful by editing the `lib/Greetings.pm` module file that
+`dzil` generated and add this function to the file:
 
-```
+```prettyprint
 
 sub hw {
   print "Hello, World!\n";
@@ -113,14 +113,14 @@ sub hw {
 
 ```
 
-And for reasons we don't need to worry about now, we have to add a brief
-abstract so `Dist::Zilla` can generate our distribution with this line:
+For reasons we don't need to worry about now, we have to add a brief abstract,
+with the folowing line so `Dist::Zilla` won't complain:
 
 `# ABSTRACT: Quick Greetings for the world`
 
 So your `Greetings.pm` file should look like this:
 
-```
+```prettyprint
 
 use strict;
 use warnings;
@@ -148,11 +148,11 @@ The files in this directory are a fully functional distribution that can
 actually be installed. If you look inside the `Greetings-0.001`, you'll see
 something that looks much closer to what we generated with the `h2xs` command.
 
-### Distributing Your Module to Yourself with the `install` Command
+### The `dzil install` Command
 
-The `Greetings-0.001.tar.gz` file is the a compressed, archived version of our
-`Greetings-0.001` generated for you to save you the step of having to create it
-ourselves. Now install the distribution to your local perl library with the
+A tarballed version of the `Greetings-0.001` directory was also generously
+created by `Dist::Zilla` to save you the step of having to create it yourself.
+You can easily install this tarball into to your local perl library with the
 following command:
 
 `dzil install`
@@ -176,11 +176,12 @@ Successfully installed Greetings-0.001
 
 Nice, now our module is available to use anywhere on our system. So congrats,
 you've successfully built your very first distribution with `Dist::Zilla` and
-distributed it successfully, even if only to yourself. But feel free to email
-the tarball to your friends and astonish them with what your new module can do.
-Much later in the tutorial, we will show you how to upload your work to CPAN so
-you can find an even wider audience for your modules.
+distributed it, even if only to yourself. But feel free to email the tarball to
+your friends and astonish them with what your new module can do. Much later in
+the tutorial, we will show you how to upload your work to CPAN so you can find
+an even wider audience for your modules.
 
-You now have a rudimentary understanding of how to use `dzil`, along
-with its subcommands, to help you automate the process of generating a
-distribution.
+You now have a rudimentary understanding of how to use `dzil`, along with some
+of its subcommands, to automate the process of generating a distribution. Let's
+take a quick look at some other important subcommands to see what else
+`Dist:Zilla` does.

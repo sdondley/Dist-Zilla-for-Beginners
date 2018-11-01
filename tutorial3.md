@@ -1,9 +1,9 @@
-# Understanding the `dist.ini` File
+# The `dist.ini` File
 
-In our previous tutorial, we analogized `Dist::Zilla` to a factory for producing
+In the previous section, we analogized `Dist::Zilla` to a factory for producing
 module distributions, imagining the various plugins deployed by `Dist::Zilla` as
 robots which do some pre-defined bit of work on the module as it travels down
-the assembly line, shaping it into a finished distribution.
+the assembly line, shaping it into a finished produce ready for distribution.
 
 If `Dist::Zilla` is a factory, then the `dist.ini` file is the equivalent of a
 factory floor plan. The `dist.ini` file tells `Dist::Zilla` which robots
@@ -12,7 +12,7 @@ factory floor plan. The `dist.ini` file tells `Dist::Zilla` which robots
 ## Inspecting the `dist.ini` File
 
 So let's take a closer took at the the `dist.ini` file created automatically for
-us by `Dist::Zilla` back in the first tutorial:
+you by `Dist::Zilla` in the earlier part of the tutorial.
 
 ```
 
@@ -34,17 +34,17 @@ command. Like all `.ini` files, each line is a configuration setting with keys
 on the left, followed by an equal sign, and the corresponding values on the
 right.
 
-`Dist::Zilla` makes these configuration settings available to our plugins to
-help them do their work. For example, if you look at the `README` file, you'll
-see it directly substitutes the `author`, `copyright_holder` and
-`copyright_year` values into its contents.
+`Dist::Zilla` makes these configuration settings available to your plugin if
+they need them. For example, if you look at the `README` file, you'll see it
+directly substitutes the `author`, `copyright_holder` and `copyright_year`
+values into its contents.
 
 You can also probably guess what the `version = 0.001` line does. You might
 recognize that this decimal number value was tacked on to the end of our module
 distribution's name for us automatically to indicate the module's version
 number.
 
-The only non-obvious bit is at the very end where we see `[@Basic]`. There is
+The only non-obvious bit is at the very end where you see `[@Basic]`. There is
 quite a bit to of code lying behind this simple line, so let's take a close look
 at it.
 
@@ -55,15 +55,14 @@ deployed to build our distribution. We can list these modules one-by-one in our
 `dist.ini` or, as a convenience to us, we can use a **plugin bundle.**
 
 A bundle is nothing more than a pre-defined set of plugins. Rather than typing
-all the separate plugins into the `dist.ini` file, the developer can just drop
-in a bundle name as a stand-in for a list of plugins. Bundles can also modify
-the behavior of plugins but this is a minor detail we can brush aside for now.
+all the separate plugins into the `dist.ini` file, you can just drop in a bundle
+name as a stand-in for a list of plugins. Bundles can also modify the behavior
+of plugins but this is a minor detail you can brush aside for now.
 
-To use a bundle, we slap an `@` sign in front of the bundle name and throw
-square brackets around it to tell `Dist::Zilla` that we want to use a
-bundle.
+To use a bundle, slap an `@` sign in front of the bundle name and throw square
+brackets around it to tell `Dist::Zilla` that you want to use a bundle.
 
-And so the `[@Basic]` command we see in `dist.ini` is a bundle representing the
+And so the `[@Basic]` command you see in `dist.ini` is a bundle representing the
 following list of plugins that all come pre-installed with `Dist::Zilla`:
 
 ```
@@ -98,9 +97,9 @@ yet. We will cover all the more interesting ones later.
 
 ### A Quick Note on Phases
 
-Before moving on, we want to briefly call attention to the very last plugin
+Before moving on, we want to briefly call you attention to the very last plugin
 listed above, `UploadToCPAN`, which unsurprisingly, uploads your module to CPAN.
-But why didn't this happen when we ran the `build` command back in the first
+But why didn't this happen when you ran the `build` command back in the first
 turtorial?
 
 The answer is that the `build` command will only run the plugins that are
@@ -112,4 +111,4 @@ Just file it away as something to remember because it's an important idea you
 should understand, especially if you want to write your own plugins.
 
 OK, let's get our hands dirty again now that we have a clearer idea of how to
-begin tinkering with our distribution factory.
+begin tinkering with our distribution's factory.

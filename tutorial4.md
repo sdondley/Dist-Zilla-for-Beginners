@@ -42,7 +42,7 @@ front of our `[License]` plugin listing, like so:
 
 `;[License]`
 
-This is how you comment out a line in a `.ini` file. And so we have effectively
+This is how you comment out a line in a `.ini` file. And so you have effectively
 shutdown the robot in charge of slipping license agreements into our
 distribution.
 
@@ -92,7 +92,7 @@ Speaking of versions, how do we add a new version of our module? Glad you asked!
 Let's first add a mind-blowing new feature to our next version by adding a new
 function to `Greetings.pm`:
 
-```
+```prettyprint
 
 sub shout_hw {
   print uc "Hello, World!\n";
@@ -128,12 +128,11 @@ automation. `Dist::Zilla` is designed to be a very open-ended framework.
 For example, there are many different approaches to handling your module's
 version number which is more complicated than we let on here. You can use the
 `[VersionFromModule]` plugin to get the the version number from your module
-instead of from `dist.ini`. Or, you can use the `[AutoVersion]` plugin to help
-you automatically generate a version number based on the current date. If you
-use git to manage your module's releases, you can use `[Git::NextVersion]` to
-automatically generate the next version number in sequential order. There are
-also other ways to generate your module's version that are more "developer
-friendly."
+instead of from `dist.ini`. Or, you can use the `[AutoVersion]` plugin to
+generate a version number based on the current date. If you use git to manage
+your module's releases, you can use `[Git::NextVersion]` to automatically
+generate the next version number in sequential order. There are also other ways
+to generate your module's version that are more "developer friendly."
 
 The point is TIMTOWTDI and there are hundreds of `Dist::Zilla` plugins out there
 to prove it. You can also write your own plugins to satisfy your inner control
@@ -141,16 +140,16 @@ freak.
 
 But `Dist::Zilla`'s maze of plugins and flexibility is both a blessing and a
 curse. It's a blessing for developers who demand precise control over their
-distributions while avoiding a lot of tedious work. But it's a curse for
+distributions while avoiding a lot of repetitive work. But it's a curse for
 newcomers wrestling with `Dist::Zilla` to get it to do what they want and who
 may not know the best practices for using `Dist::Zilla`. `Dist::Zilla` was named
 after a monster for good reason.
 
-The goal of these tutorials is to try to help ease the pain of learning your way
+The goal of these tutorials is to try to ease the pain of learning your way
 around `Dist::Zilla` and make solid recommendations for using it well. So try to
-restrain your urge to go full control freak for now. We still have a lot more
-basic stuff to cover before you should unleash yourself.
+restrain your urge to explore on your own. We still have a lot more basic stuff
+to cover before you should unleash yourself.
 
-With the obligatory Zen programming stuff out of the way, we are ready to
-dive down a level deeper and learn how to gain more control over how the
-indvidual plugins do their jobs.
+With the obligatory Zen programming stuff out of the way, we will dive down a
+level deeper and learn how to gain more control over how the indvidual plugins
+do their jobs.
