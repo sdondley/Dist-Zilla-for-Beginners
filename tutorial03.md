@@ -30,32 +30,31 @@ version = 0.001
 
 The first five configuration lines are self explanatory. They contain the
 information we supplied when we configured `Dist::Zilla` with the `setup` and
-`new` commands. Like all `.ini` files, each line is a configuration setting with
-keys on the left, followed by an equal sign, and the corresponding values on the
-right.
+`new` commands. As is standard in a `.ini` file each of these lines is a
+configuration setting with keys on the left, followed by an equals sign, and the
+corresponding values on the right.
 
 `Dist::Zilla` makes these configuration settings available to your plugin if
 they need them. For example, if you look at the `README` file, you'll see it
 directly substitutes the `author`, `copyright_holder` and `copyright_year`
 values into its contents.
 
-You can also probably guess what the `version = 0.001` line does. You might
-recognize that this decimal number value was tacked on to the end of our module
-distribution's name for us automatically to indicate the module's version
-number.
+You can also probably guess what the `version = 0.001` line does. This is the
+decimal value was tacked on to the end of our module distribution's name
+automatically to indicate the module's version number.
 
-The only non-obvious bit is at the very end where you see `[@Basic]`. There is
-quite a bit to of code lying behind this simple line, so let's take a close look
-at it.
+The only non-obvious bit is at the very end where you see `[@Basic]`. This is
+called a **plugin bundle.** There is quite a bit to of code lying behind this
+simple line, so let's examine it closely.
 
 ## Plugin Bundles
 
 As mentioned, the `dist.ini` file tells `Dist::Zilla` which plugins should be
-deployed to build our distribution. We can list these modules one-by-one in our
-`dist.ini` or, as a convenience to us, we can use a **plugin bundle.**
+deployed to build our distribution. You can list these modules one-by-one in the
+`dist.ini` or, as a convenience, you can use plugin bundles.
 
 A bundle is nothing more than a pre-defined set of plugins. Rather than typing
-all the separate plugins into the `dist.ini` file, you can just drop in a bundle
+all the separate plugins into the `dist.ini` file, you just drop in a bundle
 name as a stand-in for a list of plugins. Bundles can also modify the behavior
 of plugins but this is a minor detail you can brush aside for now.
 
@@ -84,8 +83,8 @@ Dist::Zilla::Plugin::UploadToCPAN
 
 ```
 
-As you can see, each plugin is nothing more than a perl module. The `Basic`
-bundle is itself a Perl module named `Dist::Zilla::PluginBundle::Basic`.
+As you can see, each plugin is nothing more than a name of a perl module. The
+`Basic` bundle is itself a Perl module named `Dist::Zilla::PluginBundle::Basic`.
 
 Each of the modules/plugins added by the `Basic` bundle will process your
 module, one at a time, in the order they are listed above. From the names of the
@@ -93,7 +92,7 @@ plugins, you might get a rough idea of each plugin's job. For example, you can
 probably guess that `Dist::Zilla::Plugin::License` probably has something to do
 with generating the text file containing the legal agreement that accompanies
 your module. But don't get too fixated on what each plugin does or how they work
-yet. We will cover all the more interesting ones later.
+now. We will cover all the more interesting ones later.
 
 ### A Quick Note on Phases
 

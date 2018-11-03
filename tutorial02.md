@@ -29,7 +29,7 @@ that activates an assembly line. Your raw product, the module, is loaded onto
 the beginning of the assembly line. As your module moves down the line, an
 ordered series of robots, called **plugins,** work their magic to transform your
 module into a finished, fully packaged distribution at the end of the line
-that, if all goes well, is ready for you to ship to the rest of the world.
+that, if all goes well, it's ready for you to ship to the rest of the world.
 
 Many plugins come pre-packaged with `Dist::Zilla` but there are hundreds more
 available on CPAN. You can also write your own plugins to build your
