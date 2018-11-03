@@ -7,9 +7,9 @@ standalone perl scripts. You can also set up blueprints that create a git
 repository for your module as well as generate a remote repository for you on
 GitHub and that will automatically push commits out to it (we'll cover this in
 future tutorial). There's lots of latent power underlying the `new` command.
-This tutorial will give you a better taste for how to tap into it.
+This part of the tutorial will give you a better taste for how to tap into it.
 
-To keep focused on the basics, our last blueprint was trivial. The one presented
+To keep focused on the basics, the last blueprint was trivial. The one presented
 in this tutorial might be one you'll want to add to your blueprint library, so
 consider following along closely and doing all the steps below.
 
@@ -22,23 +22,23 @@ carefully to make sure you have a functional module at the end of this tutorial.
 ## Drafting a New Blueprint
 
 Our blueprint will generate a work area for simple command line apps. To save
-some labor, we'll copy an existing blueprint similar to the new one we want to
-create. In our case, that's the `default` blueprint, the only one we have:
+some labor, copy an existing blueprint similar to the new one we want to create.
+In this case, that's the `default` blueprint, the only one we have:
 
 ```
 
-`cd ~/.dzil/profiles`
-`cp -r default app`
+cd ~/.dzil/profiles
+cp -r default app
 
 ```
 
-And now we can go to work making the necessary modifications to our new
-`app` blueprint. We'll first create the executable command that, by
-convention, is usually stored in the `bin` directory of a distribution.
+And now you can go to work making the necessary modifications to your new `app`
+blueprint. First create the executable command that, by convention, is usually
+stored in the `bin` directory of a distribution.
 
 ### Modifying Your Blueprint Copy
 
-How do we design a blueprint that adds a `bin` directory and places a command
+How do you design a blueprint that adds a `bin` directory and places a command
 inside of it? You ask good questions. And as we answer them, you'll get to see
 some of `Dist::Zilla`'s more powerful templating features.
 
@@ -52,7 +52,7 @@ root = skel
 
 ```
 
-We see our plugin name in brackets. But what's with the double colon sandwiched
+We see the plugin name in brackets. But what's with the double colon sandwiched
 in the name? This syntax means the `Template` plugin is a sublcass of the
 `[GatherDir]` plugin. In other words, it is a plugin that does the same thing as
 the `[GatherDir]` plugin with some additional capabilities.
@@ -81,7 +81,7 @@ them with a string. You'll see this in action shortly.
 
 The `root` parameter in the `[GatherDir::Template]` tells the plugin which
 directory to gather the files from. In this case, it's the `skel` directory
-inside our blueprint directory. There is nothing special about the "skel" name
+inside the blueprint directory. There is nothing special about the "skel" name
 which is short for "skeleton." We could call the directory anything we want.
 
 But the `skel` directory doesn't exist yet so let's fix that. Making sure you
@@ -90,19 +90,21 @@ are inside the `command` blueprint directory, issue this command:
 `mkdir skel`
 
 Now add a `bin` directory inside the `skel` directory. As mentioned, the
-`bin` directory is where our module's command goes.
+`bin` directory is where the module's command goes.
 
 `mkdir skel/bin`
 
 #### Adding the Command Template
 
-Next, we create template file for our command inside the `bin` directory. The
-template gets transformed into our command script when we issue the `dzil new`
-command. Open a new file called `skel/bin/the_command` and paste in this code:
+Next, create template file for the command inside the `bin` directory. The
+template gets transformed into the command script in the work area when the
+`dzil new` command gets issued. Open a new file called `skel/bin/the_command`
+and paste in this code:
 
-```
+```prettyprint
 
-#!/usr/bin/perl use {{$dist->name =~ s/-/::/gr}};
+#!/usr/bin/perl
+use {{$dist->name =~ s/-/::/gr}};
 
 {{$dist->name =~ s/-/::/gr}}->run;
 
@@ -132,15 +134,15 @@ In case you're wondering, `$dist` is the `Dist::Zilla` object overseeing
 everything and `name`, of course, is the method for generating the name of our
 distribution.
 
-Our command template is modeled after the example in the `App::Cmd::Simple`
-module documentation, the module we are using to help create out app. The `run`
+The command template is modeled after the example in the `App::Cmd::Simple`
+module documentation, the module you are using to create this app. The `run`
 method we see in the template file is provided by this module. Refer to the
 `App::Cmd::Simple` documentation for more details.
 
 OK, now save the command file to `skel/bin/the_command`. `the_command` file name
-is arbitrary and acts as a placeholder in our blueprint. When it comes time to
-process our blueprint, we want the name of this file to change to the name of
-our command.
+is arbitrary and acts as a placeholder in the blueprint. When it comes time to
+process the blueprint, you'll want the name of this file to change to the name
+of the command.
 
 #### Changing the Command Name
 
@@ -154,15 +156,15 @@ file:
 This snippet tells the plugin to change the name of any file named `the_command`
 to the last part of the distribution name. As pointed out alredy, the
 `$dist->name` is the same as the distribution name we supplied to the `dzil new`
-command except with dashes in place of `::`. Here we strip away the first part
-of `$dist-name` and what's left behind is used as the name of our command.
+command except with dashes in place of `::`. The first part of of `$dist-name`
+gets stripped away and what's left behind is used as the command's name.
 
 ### Modifying the Module Template
 
-Our remaining task modifies the blueprint's module template file. Replace the
+Your remaining task modifies the blueprint's module template file. Replace the
 existing `Module.pm` file in the `command` blueprint directory with this code:
 
-```
+```prettyprint
 
 package {{$name}};
 use strict;
@@ -200,10 +202,10 @@ sub execute {
 
 ```
 
-Notice, the use of the `{{$name}}` in our template here. The `$name` variable is
-the same as the distribution name that we provided to `dzil new` precisely as we
-typed it with the `::` in tact. As for how the rest of the code works, take a
-look at the `App::Cmd::Simple` documentation.
+Notice, the use of the `{{$name}}` in the template. The `$name` variable is the
+same as the distribution name provided to `dzil new` precisely as it was input
+on the command line with the `::` in tact. As for how the rest of the code
+works, take a look at the `App::Cmd::Simple` documentation.
 
 ## Set Up Your Work Area with the `new` Command and the `-p` Argument
 
@@ -214,15 +216,15 @@ It's time to see if you accurately followed instructions. Jump to the
 
 This tells `dzil` to set up a new module work area with the distribution name
 "App::sayhi".  The `-p` option supplies the `app` ~~profile~~ blueprint to the
-command to use it to generate our new work area and populate it with files
-according to our blueprint's instructions.
+command to use it to generate a new work area and populate it with files
+according to your blueprint's instructions.
 
 If you see errors after running the command, read them carefully and resolve
 them.
 
 ## Getting `sayhi` to Say "Hi"
 
-Now that `Dist::Zilla` has generated our work area, only a few simple changes
+Now that `Dist::Zilla` has generated the work area, only a few simple changes
 are required to get a useful command. Fire up your text editor to edit the
 `lib/sayhi.pm` module to add/modify the following lines (or just cut and paste
 the entire code listing further down):
@@ -242,12 +244,12 @@ In the `execute` funciton:
 
 In the pod:
 
-* change `Add the module abstract here` to `Backend interface for the \`sayhi\`
+* change `Add the module abstract here` to `Backend interface for the 'sayhi'
   command`
 
 Here is the entire finished module for your copy and paste convenience:
 
-```
+```prettyprint
 
 package App::sayhi;
 use strict;
@@ -282,7 +284,7 @@ sub execute {
 
 =head1 NAME
 
-App::sayhi - Backend interface for the `sayhi` command
+App::sayhi - Backend interface for the 'sayhi' command
 
 ```
 

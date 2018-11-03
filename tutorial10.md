@@ -164,7 +164,7 @@ build's `t` directory.
 
 Edit a new file `t/01-stdout_tests.t` and add the following test code to it:
 
-```
+```prettyprint
 
 use Test::More tests => 2;
 use App::Cmd::Tester;

@@ -9,9 +9,12 @@ them with:
 
 `[@Starter]`
 
-A big reason we are having you use `[@Starter]` is that it uses plugins that are
-much more configurable than the plugins that ship with `[@Basic]`. And, at the
-end of the day, configurability is what `Dist::Zilla` is all about.
+In addition to being more modern, `[@Starter]`'s plugins are much more
+configurable than the plugins that ship with `[@Basic]`. And, at the end of the
+day, configurability is what `Dist::Zilla` is all about. When you do begin
+exploring `Dist::Zilla` on your own, we highly recommend using `[@Starter]` as
+your starting point until you get more comfortable creating a custom `dist.ini`
+file.
 
 The `[@Starter]` plugin bundle is not part of the `Dist::Zilla` distribution so
 we have to install it on our system from CPAN. If you use `cpanm`, simply run:
@@ -25,7 +28,7 @@ standard command:
 `dzil build`
 
 After the command finishes, inspect your distribution's directory and you'll
-probably notice some differences compared to what the `[Basic]` plugins
+probably notice some differences compared to what the `[@Basic]` plugins
 generated.
 
 First, we now have a `META.json` file which CPAN will use to help tell the world
@@ -49,11 +52,11 @@ detail-oriented software developer.
 
 The `[@Basic]` bundle employed the `[Readme]` plugin to generate a typically
 useless `README` file for your distribution. The `[@Starter]` bundle gives you
-two different options for helping your create a much more useful `README`
-document using either the `[ReadmeAnyFromPod]` plugin or the `[Pod2Readme]`
-plugin. Both of these plugins were installed for you when you installed
-`[@Starter]` on your system. By default, `[@Starter]` uses the
-`[ReadmeAnyFromPod]` plugin so we'll start with that one.
+two different options for creating a much more useful `README` document using
+either the `[ReadmeAnyFromPod]` plugin or the `[Pod2Readme]` plugin. Both of
+these plugins were installed for you when you installed `[@Starter]` on your
+system. By default, `[@Starter]` uses the `[ReadmeAnyFromPod]` plugin so we'll
+start with that one.
 
 But what will the `[@Starter]` bundle put into your `README` file? Is there some
 powerful AI underlying `ReadmeAnyFromPod` to write it for us? Unfortunately,
@@ -69,7 +72,7 @@ to have a reputation as a lazy developer that doesn't document their work. Add
 some documentation to your `Greetings.pm` by adding these lines to the bottom of
 the `lib/Greetings.pm` module:
 
-```
+```prettyprint
 
 =head1 NAME
 
@@ -81,14 +84,14 @@ More documentation coming soon, we promise.
 
 Interestingly, now that we have added the `NAME` section to our documentation,
 `Dist::Zilla` can successfully build our module without the `# ABSTRACT` comment
-that we had you create in the first tutorial. Feel free to delete that comment
-from your module.
+that we had you create in the first tutorial. So go ahead and delete that
+comment from your module.
 
 Save your work and issue the `dzil build` command and check out the README file
 now in your distribution and you should see that your module's POD was inserted
 into the README file. Nice. Go bake yourself a well-deserved cookie.
 
-## Double Your Fun and Pleasure with Two `README` Files
+## Double Your Pleasure with Two `README` Files
 
 So now you've got a plain old text file for reading your module's plain old
 documentation. Kind of boring. All the cool kids are using GitHub these days and
@@ -113,15 +116,15 @@ Look inside your distribution. Awesome, you now have a plain text `README` file
 and a fancier, markdown version `README.md` automatically generated for you
 without having to know a lick of markdown syntax.
 
-Let's take a moment to understand what we added to our `dist.ini` file. The
+Let's take a moment to understand what you added to the `dist.ini` file. The
 first line in brackets is, of course, the name of the plugin. In `.ini` file
-parlance, bracketed text starts a new **section** in our `dist.ini` file.
+parlance, bracketed text starts a new **section** in the `dist.ini` file.
 
-Below and within this section we supplied two **parameters,** using the standard
+Below and within this section you supplied two **parameters,** using the standard
 key/value pair `.ini` syntax. Because they are in the section our plugin is
-named after, they got passed to our plugin. Think of the parameters as custom
-commands we give to our `README` insertion robot on the assembly line. As
-you might assume by looking at the parameters, we are instructing the
+named after, they got passed to the plugin. Think of the parameters as custom
+commands given to our `README` insertion robot on the assembly line. As you
+might assume by looking at the parameters, you instructed the
 `[@ReadmeAnyFromPod]` plugin to generate a `README.md` file using the `markdown`
 syntax. Each plugin has different parameters that it will accept which you can
 discover by carefully reading its documentation.
@@ -147,8 +150,8 @@ output alongside your distribution's directory instead of inside it:
 Now your CPAN repository will remain unpolluted by those new-fangled markdown
 files, keeping the purists happy.
 
-Alright, we have now given you a very tiny taste for how to gain more control
-over how your plugins work. We'll show you many more powerful and useful tricks
-later. Now it's time to take a break from the world of plugins and start
-talking about another fundamental area of knowledge `Dist::Zilla` calls
-"minting profiles" but that we call "blueprints."
+Alright, we've given you a very tiny taste for how to gain more control over how
+your plugins work. We'll show you many more powerful and useful tricks later.
+Now it's time to take a break from the world of plugins and start talking about
+another fundamental area of knowledge `Dist::Zilla` calls "minting profiles" but
+that we call "blueprints."

@@ -166,4 +166,4 @@ reads the CPANfile that may accompany your module. If you aren't using a
 CPANfile with your module, this plugin is not for you.
 
 You can learn more about what a CPANfile is by reading it's
-[https://metacpan.org/pod/Module::CPANfile](documentation).
+[documentation](https://metacpan.org/pod/Module::CPANfile).
