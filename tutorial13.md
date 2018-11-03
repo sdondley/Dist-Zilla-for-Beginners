@@ -115,6 +115,8 @@ This will create a blank Changes file for us. OK, third time's a charm, they say
 
 `dzil build`
 
+### Adding Automated Content to the `Changes` File
+
 And now Zilla monster is finally appeased. Obviously he doesn't care much about
 blank change log files but our users do. So let's make the change log useful. Add the following
 to the top of `Changes` file:
@@ -134,12 +136,16 @@ cat lib/App/sayhi.pm
 
 ```
 
+### Adding a Version Summary to the `Changes` File
+
 Cool, the `[NextRelease]` replaced `{{$NEXT}}` with the version number and a
-timestamp. All that's missing is a summary of version changes. Let's add it
-to the file below the `{{$NEXT}}` template variable:
+timestamp. All that's missing is a summary of version changes, which should be
+bulleted and indented. The summary goes below the `{{$NEXT}}` template
+variable, like so:
 
 ```
 
+{{$NEXT}}
   - Initial release
   - Greet the world with they `sayhi` command
   - See `sayhi -h` for available options
@@ -156,16 +162,33 @@ cat lib/App/sayhi.com
 ```
 
 We now have a simple Change log for our end users and an automated versioning
-system in place to boot. The log format in our example is very basic. Notice we
-added some basic markdown syntax with the backticks. If you are interested in
-tricking it out more, consult the [`[NextRelease]`
+system in place to boot. The log format in our example is very basic with some
+limited, simple markdown syntax and many developers [put a good amount of
+care](https://metacpan.org/changes/distribution/Moose#L4-20) into the
+formatting. If you are interested in tricking it out more, consult the
+[`[NextRelease]`
 documentation](https://metacpan.org/pod/Dist::Zilla::Plugin::NextRelease) for
 additional options and template variables you can add to the `Changes` file. We
 also recommend Neil Bowers' [blog post on Change log
 conventions](http://blogs.perl.org/users/neilb/2013/09/a-convention-for-changes-files.html)
 for inspiration. And before going too crazy, you should consult the [CPAN
-spec](https://metacpan.org/pod/CPAN::Changes::Spec) for the Changes file.
+spec](https://metacpan.org/pod/CPAN::Changes::Spec) for the Changes file
+to ensure you comply with the very basic, minimal requirements for the
+Changes log.
 
 There is a bit more to cover with the Change log with the
 `[BumpVersionAfterRelease]` plugin which we will cover when the time comes for
 discussing releasing our distribution to the world.
+
+## Updating the Blueprint to Reflect Our Improvements
+
+When you set up a new work area with `Dist::Zilla`, you don't want to have to
+remember to pop in `our $VERSION = 0.001;` and set up a new Changes file and
+modify the `dist.ini` every time you set up a new work area. To save yourself
+future tedious work, you should go back and edit the blueprint for the `app`
+profile in `~/.dzil/profiles/app` to set up module that has automated versioning
+and a Change log ready to go out of the box. That way, you'll never have to
+think about these tasks again. While doing that, you may also want to consider
+adding in the prerequisite sections (without the parameters) we talked about in
+the previous tutorial as well. The more you can automate with your blueprint,
+the more painless it will be to set up a new distribution.
